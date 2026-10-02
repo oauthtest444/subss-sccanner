@@ -1,7 +1,7 @@
 {
-  "domain": "shein.com",
-  "subdomain": "ar.shein.com",
-  "stage": "archive",
+  "domain": "byteplus.com",
+  "subdomain": "",
+  "stage": "enumerate",
   "domain_index": 0,
-  "subdomain_index": 1
+  "subdomain_index": 0
 }
