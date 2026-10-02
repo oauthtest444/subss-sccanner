@@ -1,7 +1,7 @@
 {
   "domain": "byteplus.com",
   "subdomain": "docs.byteplus.com",
-  "stage": "listener",
+  "stage": "redirect",
   "domain_index": 0,
   "subdomain_index": 3
 }

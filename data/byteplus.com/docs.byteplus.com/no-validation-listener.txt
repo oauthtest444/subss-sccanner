@@ -1,0 +1,30 @@
+
+========================================================================================
+ROUTE: https://docs.byteplus.com/en/docs
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://livechat.im.byteplusbiz.com/webchat.js?v=1790969802249
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.data;if(!t.id||t.id&&t.id!=="tinet-chat-web")return;var n=document.getElementById("TinetWebChatFrame");if(!n)return;if(t.type==="minimum"){if(n){n.style.display="none"}B.tinetBtnContainer&&B.tinetBtnContainer.show();B.isOpen=false;ClinkChatWeb.setWindowStatus(t.type)}else if(t.type==="maximum"){P();ClinkChatWeb.setWindowStatus(t.type)}else if(t.type==="close"){ClinkChatWeb.dialogClose();ClinkChatWeb.closeChatWindow();ClinkChatWeb.setWindowStatus(t.type);if(B.unReadCount){R(document.getElementById("tinet-chat-visitor"),B.unReadCount,{display:"inline-block",height:"18px",lineHeight:"18px",textAlign:"center",whiteSpace:"nowrap",color:"#fff",fontSize:"14px",position:"absolute",top:"5px",left:"5px",transform:"translate(-50%, -50%)",backgroundColor:"#FF2600",padding:"0 6px",borderRadius:"10px"})}}else if(t.type==="openSession"){var i={visitorId:t.trackParams.visitorId,mainUniqueId:t.trackParams.mainUniqueId};d.openSession(i)}else if(t.type==="loaded"){k();window.setTimeout(function(){S=true},500)}else if(t.type==="trackDisconnect"){d.disconnect()}else if(t.type==="unread"){B.unReadCount++;B.unReadCallback&&B.unReadCallback();switch(ClinkChatWeb.getWindowStatus()){case"minimum":if(!t.newMsgAlert){R(document.getElementById("TinetWebChatFrame"),B.unReadCount,{display:"inline-block",height:"18px",lineHeight:"18px",textAlign:"center",whiteSpace:"nowrap",color:"#fff",fontSize:"14px",position:"absolute",top:"50%",left:"10px",transform:"translate(0, -50%)",backgroundColor:"#FF2600",padding:"0 6px",borderRadius:"10px"})}break;case"close":R(document.getElementById("tinet-chat-visitor"),B.unReadCount,{display:"inline-block",height:"18px",lineHeight:"18px",textAlign:"center",whiteSpace:"nowrap",color:"#fff",fontSize:"12px",position:"absolute",top:"5px",left:"5px",transform:"translate(-50%, -50%)",backgroundColor:"#FF2600",padding:"0 6px",borderRadius:"10px"});break;case"maximum":if(document.getElementById("TinetWebChatFrame")){N(document.getElementById("TinetWebChatFrame"))}if(document.getElementById("tinet-chat-visitor")){N(document.getElementById("tinet-chat-visitor"))}break}}else if(t.type==="clearUnread"){B.unReadCount=0;if(document.getElementById("TinetWebChatFrame")){N(document.getElementById("TinetWebChatFrame"))}if(document.getElementById("tinet-chat-visitor")){N(document.getElementById("tinet-chat-visitor"))}if(B.tinetBtnContainer){B.tinetBtnContainer.isClearUnread=true}}else if(t.type==="viewImage"){const o=encodeURIComponent(JSON.stringify({images:t.images,index:t.index}));s(o)}else if(t.type==="closeImageViewer"){document.body.removeChild(B.imageViewerIframe);B.imageViewerIframe=null}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://docs.byteplus.com/en/docs/byteplus-rtc/docs-69818
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://res.gcloudcache.com/bp-fe/byteplus-doccenter/static/js/async/viewer-v2.39ed8363.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){var n=t.data;switch(n.type){case IC.EN.HIGHLIGHT:e.onHighlightTaskFinished(n.data);break;case IC.EN.AUTO_IDENTIFY_LANGUAGE:e.onIdentifyLanguageTaskFinished(n.data)}}
+========================================================================================
