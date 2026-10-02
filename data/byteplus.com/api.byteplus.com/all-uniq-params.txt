@@ -1,0 +1,7 @@
+serviceCode
+version
+action
+groupName
+APIVersion
+ActionName
+APIAction
