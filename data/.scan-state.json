@@ -1,7 +1,7 @@
 {
   "domain": "byteplus.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "creativestore.byteplus.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 2
 }
