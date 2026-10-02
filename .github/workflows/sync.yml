@@ -170,8 +170,10 @@ jobs:
 
             if [[ "$CURRENT_STAGE" == "enumerate" ]]; then
               if ! have_time 180; then break; fi
+              echo "[*] [$DOMAIN] Running subdomain enumeration..."
               rm -f "$VALID_FILE"
               python3 "$TOOLS/subdomain_enum.py" "$DOMAIN" -o "$VALID_FILE" || true
+              echo "[+] [$DOMAIN] subdomain_enum finished"
               mapfile -t SUBS < <(grep -Ev '^[[:space:]]*(#|$)' "$VALID_FILE" | sort -fu)
               SUB_INDEX=0
               if ((${#SUBS[@]} == 0)); then
@@ -215,6 +217,7 @@ jobs:
               fi
 
               if [[ "$CURRENT_STAGE" == "bootstrap" ]]; then
+                echo "[*] [$DOMAIN/$SUB] Running bootstrap_url..."
                 rm -f "$WORK/bootstrap-url.txt"
                 if url="$(python3 "$TOOLS/bootstrap_url.py" "$SUB" -r 4 -t 15)"; then
                   printf '%s\n' "$url" > "$WORK/bootstrap-url.txt"
@@ -223,10 +226,12 @@ jobs:
                   : > "$WORK/bootstrap-url.txt"
                   save_state "$DOMAIN" "$SUB" "archive" "$DOMAIN_INDEX" "$SUB_INDEX"
                 fi
+                echo "[+] [$DOMAIN/$SUB] bootstrap_url finished"
                 git_commit_state "$DOMAIN-$SUB-bootstrap"
               fi
 
               if [[ "$CURRENT_STAGE" == "archive" ]]; then
+                echo "[*] [$DOMAIN/$SUB] Fetching archive URLs..."
                 rm -f "$WORK/urls.txt" "$WORK/archive-q-urls.txt"
                 TARGET="https://$SUB/"
                 wget -qO "$WORK/urls.txt" "https://web.archive.org/cdx/search/cdx?url=${TARGET}&matchType=domain&fl=original&collapse=urlkey&output=text&filter=statuscode:200" || true
@@ -239,11 +244,13 @@ jobs:
                 cat "$WORK/bootstrap-url.txt" "$WORK/archive-q-urls.txt" 2>/dev/null |
                   awk 'NF && !seen[$0]++' > "$WORK/q-urls.txt" || true
 
+                echo "[+] [$DOMAIN/$SUB] archive stage finished"
                 save_state "$DOMAIN" "$SUB" "route-recon" "$DOMAIN_INDEX" "$SUB_INDEX"
                 git_commit_state "$DOMAIN-$SUB-archive"
               fi
 
               if [[ "$CURRENT_STAGE" == "route-recon" ]]; then
+                echo "[*] [$DOMAIN/$SUB] Running route_params_recon..."
                 rm -f "$SUB_DIR/all-uniq-routs.txt" "$SUB_DIR/all-uniq-params.txt"
                 rm -rf "$WORK/route-tmp"
                 mkdir -p "$WORK/route-tmp"
@@ -257,11 +264,13 @@ jobs:
                     -po "$SUB_DIR/all-uniq-params.txt" || true
                 )
                 rm -rf "$WORK/route-tmp"
+                echo "[+] [$DOMAIN/$SUB] route_params_recon finished"
                 save_state "$DOMAIN" "$SUB" "xss" "$DOMAIN_INDEX" "$SUB_INDEX"
                 git_commit_state "$DOMAIN-$SUB-route-recon"
               fi
 
               if [[ "$CURRENT_STAGE" == "xss" ]]; then
+                echo "[*] [$DOMAIN/$SUB] Running xss_reflect_checker..."
                 rm -f "$SUB_DIR/xss-vulnerable.txt"
                 python3 "$TOOLS/xss_reflect_checker.py" \
                   -l "$SUB_DIR/all-uniq-routs.txt" \
@@ -270,11 +279,13 @@ jobs:
                 # xss-vulnerable.txt is intentionally not retained in the
                 # requested final six-file set, but is kept for scanner use.
                 rm -f "$SUB_DIR/xss-vulnerable.txt"
+                echo "[+] [$DOMAIN/$SUB] xss_reflect_checker finished"
                 save_state "$DOMAIN" "$SUB" "listener" "$DOMAIN_INDEX" "$SUB_INDEX"
                 git_commit_state "$DOMAIN-$SUB-xss"
               fi
 
               if [[ "$CURRENT_STAGE" == "listener" ]]; then
+                echo "[*] [$DOMAIN/$SUB] Running unique_listener_scanner..."
                 rm -rf "$WORK/listener" "$SUB_DIR/unique_listener_scanner"
                 python3 "$TOOLS/unique_listener_scanner.py" \
                   -l "$SUB_DIR/all-uniq-routs.txt" \
@@ -283,16 +294,19 @@ jobs:
                 cp "$WORK/listener/p-xss-listener.txt" "$SUB_DIR/" 2>/dev/null || : > "$SUB_DIR/p-xss-listener.txt"
                 cp "$WORK/listener/validation-listener.txt" "$SUB_DIR/" 2>/dev/null || : > "$SUB_DIR/validation-listener.txt"
                 rm -rf "$WORK/listener"
+                echo "[+] [$DOMAIN/$SUB] unique_listener_scanner finished"
                 save_state "$DOMAIN" "$SUB" "redirect" "$DOMAIN_INDEX" "$SUB_INDEX"
                 git_commit_state "$DOMAIN-$SUB-listener"
               fi
 
               if [[ "$CURRENT_STAGE" == "redirect" ]]; then
+                echo "[*] [$DOMAIN/$SUB] Running js_redirect_tester..."
                 rm -f "$SUB_DIR/js_redirect_vulnerable.txt"
                 python3 "$TOOLS/js_redirect_tester.py" \
                   -l "$SUB_DIR/all-uniq-routs.txt" \
                   -p "$SUB_DIR/all-uniq-params.txt" \
                   -o "$SUB_DIR/js_redirect_vulnerable.txt" || true
+                echo "[+] [$DOMAIN/$SUB] js_redirect_tester finished"
                 save_state "$DOMAIN" "$SUB" "complete-subdomain" "$DOMAIN_INDEX" "$SUB_INDEX"
                 git_commit_state "$DOMAIN-$SUB-redirect"
               fi
