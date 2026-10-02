@@ -731,13 +731,23 @@ def discover_with_playwright(
     target_host: str,
     wait_seconds: int = 8,
     js_timeout_seconds: int = 5,
-) -> List[str]:
-    """Discover UI routes and scan every browser-visible JavaScript resource."""
+) -> Tuple[List[str], List[str]]:
+    """Discover UI routes from archive seed URLs only (no recursive depth).
+
+    Browser discovery runs ONLY against the supplied seed URLs (the
+    archive-derived top-level representatives). Newly extracted routes are
+    validated and deduped by inline-script size, but are NEVER queued for
+    further browser visits. This prevents the queue from exploding with
+    rediscovered top-level / scoped variants.
+
+    Returns:
+        (pattern_deduped_candidates, unique_inline_script_size_routes)
+    """
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
         print("[!] Playwright is not installed. Run: pip install playwright && playwright install chromium", file=sys.stderr)
-        return []
+        return [], []
 
     def decode_embedded_unicode(text: str) -> str:
         if not text:
@@ -785,12 +795,13 @@ def discover_with_playwright(
         return found
 
     discovered: List[str] = []
-    queue: List[Tuple[str, int]] = [(u, 0) for u in seed_urls]
-    queued: Set[str] = set(seed_urls)
+    # Only the original archive-derived seeds are visited. No recursive queuing.
+    seeds_to_visit: List[str] = list(dict.fromkeys(seed_urls))
+    browser_unique_script: List[str] = []
 
-    print(f"[>] Browser discovery starting: {len(seed_urls)} seed URL(s)")
+    print(f"[>] Browser discovery starting: {len(seeds_to_visit)} seed URL(s)")
     print(f"[>] Browser wait per page: {wait_seconds}s")
-    print("[>] Maximum additional discovery depth: 2")
+    print("[>] Discovery depth: 0 (archive seeds only — no recursive queue)")
     print(f"[>] JavaScript source timeout: {js_timeout_seconds}s per resource")
 
     with sync_playwright() as pw:
@@ -801,9 +812,9 @@ def discover_with_playwright(
             ignore_https_errors=False,
         )
 
-        while queue:
-            seed, depth = queue.pop(0)
-            print(f"[>] Browser page depth={depth}: {seed} (queue remaining: {len(queue)})", flush=True)
+        for seed_index, seed in enumerate(seeds_to_visit):
+            remaining = len(seeds_to_visit) - seed_index - 1
+            print(f"[>] Browser page seed={seed_index + 1}/{len(seeds_to_visit)}: {seed} (remaining: {remaining})", flush=True)
             page_discovered_before = len(discovered)
             page = context.new_page()
 
@@ -816,6 +827,7 @@ def discover_with_playwright(
             js_urls: Set[str] = set()
             js_responses: Dict[str, object] = {}
             main_html_body: Optional[str] = None
+            effective_seed = seed
 
             page.add_init_script("""
                 (() => {
@@ -986,59 +998,48 @@ def discover_with_playwright(
                 discovered[page_discovered_before:],
             ))
 
-            if depth < 2:
-                candidates = []
-                seen_level: Set[str] = set()
-                for u in discovered[page_discovered_before:]:
-                    u = strip_fragment(u)
-                    if not is_same_host(u, target_host) or u in seen_level:
-                        continue
-                    seen_level.add(u)
-                    candidates.append(u)
-                print(f"    [+] Unique candidates from this page: {len(candidates)}", flush=True)
-                if candidates:
-                    print(f"    [>] Validating {len(candidates)} extracted candidate(s) in BOTH forms: /{top_level_key(seed)}{{route}} and /{{route}} ...", flush=True)
-                    validation_client = HttpClient(headers)
-                    (next_valid, scoped_html_ok, top_valid, top_html_ok) = validate_scoped_and_origin_unique_script_urls(
-                        candidates, validation_client, target_host, effective_seed if 'effective_seed' in locals() else seed
-                    )
-                    print(f"    [+] Valid 200 + HTML candidates (scoped + origin forms): {scoped_html_ok}", flush=True)
-                    print(f"    [+] Unique inline-script-size routes (scoped + origin forms): {len(next_valid)}", flush=True)
-                    print(f"    [+] Valid 200 + HTML candidates (top-level-route + origin): {top_html_ok}", flush=True)
-                    print(f"    [+] Unique inline-script-size routes (top-level-route + origin): {len(top_valid)}", flush=True)
-                    print(f"    [+] Saving unique inline-script-size routes: {len(next_valid)} + {len(top_valid)} = {len(next_valid) + len(top_valid)} group entries", flush=True)
+            # Validate candidates from this seed only. Do NOT queue them for
+            # further browser discovery (depth stays 0; archive seeds only).
+            candidates = []
+            seen_level: Set[str] = set()
+            for u in discovered[page_discovered_before:]:
+                u = strip_fragment(u)
+                if not is_same_host(u, target_host) or u in seen_level:
+                    continue
+                seen_level.add(u)
+                candidates.append(u)
+            print(f"    [+] Unique candidates from this page: {len(candidates)}", flush=True)
+            if candidates:
+                print(f"    [>] Validating {len(candidates)} extracted candidate(s) in BOTH forms: /{top_level_key(seed)}{{route}} and /{{route}} ...", flush=True)
+                validation_client = HttpClient(headers)
+                (next_valid, scoped_html_ok, top_valid, top_html_ok) = validate_scoped_and_origin_unique_script_urls(
+                    candidates, validation_client, target_host, effective_seed
+                )
+                print(f"    [+] Valid 200 + HTML candidates (scoped + origin forms): {scoped_html_ok}", flush=True)
+                print(f"    [+] Unique inline-script-size routes (scoped + origin forms): {len(next_valid)}", flush=True)
+                print(f"    [+] Valid 200 + HTML candidates (top-level-route + origin): {top_html_ok}", flush=True)
+                print(f"    [+] Unique inline-script-size routes (top-level-route + origin): {len(top_valid)}", flush=True)
+                print(f"    [+] Saving unique inline-script-size routes: {len(next_valid)} + {len(top_valid)} = {len(next_valid) + len(top_valid)} group entries", flush=True)
 
-                    # Persist both groups independently.  Queueing uses the first
-                    # (all-candidate) group; the second group is an additional
-                    # saved representative set and is never used to discover
-                    # arbitrary extra candidates.
-                    page_unique_file = TMP_DIR / f"browser-depth-{depth}-inline-script-size-unique.txt"
-                    existing_page_unique = read_lines(str(page_unique_file)) if page_unique_file.exists() else []
-                    write_lines(page_unique_file, merge_route_lists(existing_page_unique, next_valid + top_valid))
-                    write_lines(BROWSER_INLINE_UNIQUE, merge_route_lists(
-                        read_lines(str(BROWSER_INLINE_UNIQUE)) if BROWSER_INLINE_UNIQUE.exists() else [],
-                        next_valid,
-                    ))
-                    write_lines(BROWSER_SCOPED_ORIGIN_UNIQUE, merge_route_lists(
-                        read_lines(str(BROWSER_SCOPED_ORIGIN_UNIQUE)) if BROWSER_SCOPED_ORIGIN_UNIQUE.exists() else [],
-                        next_valid,
-                    ))
-                    write_lines(BROWSER_TOPLEVEL_ORIGIN_UNIQUE, merge_route_lists(
-                        read_lines(str(BROWSER_TOPLEVEL_ORIGIN_UNIQUE)) if BROWSER_TOPLEVEL_ORIGIN_UNIQUE.exists() else [],
-                        top_valid,
-                    ))
-                    queued_now = 0
-                    for u in next_valid:
-                        u = strip_fragment(u)
-                        if u not in queued:
-                            queued.add(u)
-                            queue.append((u, depth + 1))
-                            queued_now += 1
-                    print(f"    [+] Queued {queued_now} new route(s) for depth {depth + 1}", flush=True)
-                else:
-                    print("    [i] No UI candidates to follow from this page.", flush=True)
+                # Persist both groups. They are NOT queued for more browser visits.
+                page_unique_file = TMP_DIR / "browser-seed-inline-script-size-unique.txt"
+                existing_page_unique = read_lines(str(page_unique_file)) if page_unique_file.exists() else []
+                write_lines(page_unique_file, merge_route_lists(existing_page_unique, next_valid + top_valid))
+                write_lines(BROWSER_INLINE_UNIQUE, merge_route_lists(
+                    read_lines(str(BROWSER_INLINE_UNIQUE)) if BROWSER_INLINE_UNIQUE.exists() else [],
+                    next_valid,
+                ))
+                write_lines(BROWSER_SCOPED_ORIGIN_UNIQUE, merge_route_lists(
+                    read_lines(str(BROWSER_SCOPED_ORIGIN_UNIQUE)) if BROWSER_SCOPED_ORIGIN_UNIQUE.exists() else [],
+                    next_valid,
+                ))
+                write_lines(BROWSER_TOPLEVEL_ORIGIN_UNIQUE, merge_route_lists(
+                    read_lines(str(BROWSER_TOPLEVEL_ORIGIN_UNIQUE)) if BROWSER_TOPLEVEL_ORIGIN_UNIQUE.exists() else [],
+                    top_valid,
+                ))
+                browser_unique_script = merge_route_lists(browser_unique_script, next_valid + top_valid)
             else:
-                print("    [i] Maximum discovery depth reached; this page was scanned, but its extracted routes are not queued for another depth.", flush=True)
+                print("    [i] No UI candidates extracted from this seed.", flush=True)
 
         context.close()
         browser.close()
@@ -1054,7 +1055,7 @@ def discover_with_playwright(
             continue
         pattern_seen.add(key)
         result.append(route_without_query(url))
-    return result
+    return result, browser_unique_script
 
 
 # ---------------------------------------------------------------------------
@@ -1247,31 +1248,37 @@ def main() -> int:
     print_stage("Top-level routes after inline-script-size dedupe", len(top_routes_unique))
 
     # ================================================================
-    # REAL BROWSER DISCOVERY
+    # REAL BROWSER DISCOVERY (archive seeds only — no recursive depth)
     # ================================================================
-    browser_routes = discover_with_playwright(
+    browser_candidates, browser_unique_script = discover_with_playwright(
         top_routes_unique,
         headers,
         target_host,
         wait_seconds=8,
         js_timeout_seconds=5,
     )
-    write_lines(BROWSER_DISCOVERED, browser_routes)
-    print_stage("Browser-discovered UI route candidates", len(browser_routes))
+    write_lines(BROWSER_DISCOVERED, browser_candidates)
+    print_stage("Browser-discovered UI route candidates (pattern-deduped)", len(browser_candidates))
+    print_stage("Browser unique inline-script-size routes", len(browser_unique_script))
 
-    # Validate browser-discovered routes.
+    # Optional: also keep a classic 200+HTML validation of the pattern candidates
+    # for inspection (not used in the final merge below).
     browser_html = validate_html_urls(
-        browser_routes, client, target_host
+        browser_candidates, client, target_host
     )
     write_lines(BROWSER_HTML, browser_html)
-    print_stage("Browser routes with 200 + HTML", len(browser_html))
+    print_stage("Browser routes with 200 + HTML (pattern candidates)", len(browser_html))
 
     # ================================================================
-    # COMBINE TWO 200+HTML SOURCES
+    # MERGE archive 200+HTML + browser unique inline-script-size routes
     # ================================================================
-    combined = merge_route_lists(archive_html, browser_html)
+    # As requested: combine
+    #   - Archive routes with 200 + HTML
+    #   - Browser unique inline-script-size routes (scoped + top-level groups)
+    # then re-run unique-by-inline-script-size on the combined set.
+    combined = merge_route_lists(archive_html, browser_unique_script)
     write_lines(COMBINED_HTML, combined)
-    print_stage("Combined 200 + HTML URLs", len(combined))
+    print_stage("Combined (archive 200+HTML + browser unique-script) URLs", len(combined))
 
     # ================================================================
     # FINAL SCRIPT-TAG CONTENT-LENGTH DEDUPE
