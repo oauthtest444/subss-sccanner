@@ -1,7 +1,7 @@
 {
   "domain": "shein.com",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "analytics.shein.com",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
