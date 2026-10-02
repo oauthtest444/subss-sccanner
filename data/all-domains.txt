@@ -1,2 +1,1 @@
-# Put one apex domain per line, e.g.
-# example.com
+shein.com
