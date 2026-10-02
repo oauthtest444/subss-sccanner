@@ -20,12 +20,31 @@ POLL_INTERVAL = 0.5
 
 DEFAULT_TIMEOUT = 30000
 
+# How many parameter names to inject into a single request.
+PARAMS_PER_GROUP = 100
+
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/128.0.0.0 Safari/537.36"
 )
+
+# Max characters shown for URLs in console output.
+DISPLAY_URL_MAX = 100
+
+
+def truncate_url(url, max_len=DISPLAY_URL_MAX):
+    """
+    Shorten long URLs for console display.
+
+    Keeps the beginning of the URL and appends '...' at the end.
+    Example:
+        https://apps.powerapps.com/apps?vID=https%3A%2F%2Fevil.com%2F&...
+    """
+    if not url or len(url) <= max_len:
+        return url
+    return url[:max_len] + "..."
 
 
 def load_urls(path):
@@ -59,16 +78,24 @@ def load_urls(path):
 
 def load_parameter_groups(path):
     """
-    Each NON-EMPTY LINE in fuzz-params-list.txt is one request.
+    Collect ALL parameter names from the file, then split them
+    into batches of PARAMS_PER_GROUP (default 100).
 
-    Example:
+    Supported line formats (mixed OK):
+
+        p1
+        p2
+        p3
 
         ?a=testtt&b=testtt&c=testtt
         ?x=testtt&y=testtt
 
-    becomes two separate requests.
+        a=foo&b=bar
 
-    The parameter values from the file are replaced with:
+    Every name is extracted, duplicates are removed (order kept),
+    then the full list is chunked into groups of 100.
+
+    Each group becomes ONE request where every name is set to:
 
         https://evil.com/
 
@@ -78,7 +105,8 @@ def load_parameter_groups(path):
     JavaScript, or target responses.
     """
 
-    groups = []
+    all_names = []
+    seen = set()
 
     with open(
         path,
@@ -97,29 +125,34 @@ def load_parameter_groups(path):
             if line.startswith("?"):
                 line = line[1:]
 
+            # Plain name (no '=' and no '&') → single parameter.
+            if "=" not in line and "&" not in line:
+                name = line.strip()
+                if name and name not in seen:
+                    seen.add(name)
+                    all_names.append(name)
+                continue
+
             try:
                 params = parse_qsl(
                     line,
                     keep_blank_values=True,
                 )
-
             except Exception:
                 continue
 
-            if not params:
-                continue
-
-            names = []
-
             for name, _ in params:
-
                 name = name.strip()
+                if name and name not in seen:
+                    seen.add(name)
+                    all_names.append(name)
 
-                if name:
-                    names.append(name)
-
-            if names:
-                groups.append(names)
+    # Chunk into groups of PARAMS_PER_GROUP.
+    groups = []
+    for i in range(0, len(all_names), PARAMS_PER_GROUP):
+        chunk = all_names[i : i + PARAMS_PER_GROUP]
+        if chunk:
+            groups.append(chunk)
 
     return groups
 
@@ -361,7 +394,11 @@ def main():
         "-p",
         "--params",
         required=True,
-        help="Parameter groups file",
+        help=(
+            "Parameter names file. "
+            "All names are collected and tested "
+            f"in batches of {PARAMS_PER_GROUP}."
+        ),
     )
 
     parser.add_argument(
@@ -455,22 +492,23 @@ def main():
     )
 
     print(
-        f"[+] URLs          : "
+        f"[+] URLs            : "
         f"{len(urls)}"
     )
 
     print(
         f"[+] Parameter groups: "
-        f"{len(parameter_groups)}"
+        f"{len(parameter_groups)} "
+        f"(batched by {PARAMS_PER_GROUP})"
     )
 
     print(
-        f"[+] Payload       : "
+        f"[+] Payload         : "
         f"{PAYLOAD}"
     )
 
     print(
-        f"[+] Redirect wait : "
+        f"[+] Redirect wait   : "
         f"{args.wait}s"
     )
 
@@ -519,8 +557,8 @@ def main():
                         f"({len(parameter_group)} parameters)"
                     )
 
-                    # Build request using ONLY this line's
-                    # parameters.
+                    # Build request using ONLY this group's
+                    # parameters (up to 100 names).
                     test_url = build_test_url(
                         base_url,
                         parameter_group,
@@ -528,7 +566,7 @@ def main():
 
                     print(
                         f"       Request: "
-                        f"{test_url}"
+                        f"{truncate_url(test_url)}"
                     )
 
                     try:
@@ -581,7 +619,7 @@ def main():
 
                         print(
                             f"       Final URL: "
-                            f"{final_url}"
+                            f"{truncate_url(final_url)}"
                         )
 
                         finding_key = (
@@ -619,7 +657,7 @@ def main():
 
                         print(
                             f"       ✓ Final URL: "
-                            f"{final_url}"
+                            f"{truncate_url(final_url)}"
                         )
 
         finally:
