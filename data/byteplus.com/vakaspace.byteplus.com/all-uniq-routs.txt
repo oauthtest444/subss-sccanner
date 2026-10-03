@@ -1,0 +1,3 @@
+https://vakaspace.byteplus.com/
+https://vakaspace.byteplus.com/auth/callback
+https://vakaspace.byteplus.com/login
