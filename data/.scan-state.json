@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
   "subdomain": "digiprojects.1password.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 57
 }
