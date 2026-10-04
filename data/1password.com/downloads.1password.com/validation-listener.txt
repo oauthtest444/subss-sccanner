@@ -1,0 +1,23 @@
+
+========================================================================================
+ROUTE: https://1password.com/downloads/linux
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type, data:, type:
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://1password.com/_next/static/chunks/7208-808b424b0681c043.js?dpl=dpl_7BeTiNgCa95tMKBh1weGnG8Tqofx, https://1password.com/_next/static/chunks/framework-af071c1ab11e1655.js?dpl=dpl_7BeTiNgCa95tMKBh1weGnG8Tqofx
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+e=>{if(e.origin===r.b0&&e.source===o.current?.contentWindow)switch(p("message from iframe:",e.data?.type,e.data?.data),e.data?.type){case"marketoIframeReady":{g.current=!0,(0,n.Ir)("ready");let e=h.current;h.current=[],e.forEach(e=>{j({type:"marketoTrackVisit",data:{url:e}})});let a=b.current;b.current=[],a.forEach(e=>{j({type:"marketoTrackClick",data:{href:e}})});break}case"marketoRequestToken":j({type:"marketoSetToken",data:{token:y}});break;case"marketoMktoCookie":p("iframe reported a self-minted token (unexpected):",e.data?.data?.token)}}
+
+
+/* ===== Resolved function: j | source: https://1password.com/_next/static/chunks/framework-af071c1ab11e1655.js?dpl=dpl_7BeTiNgCa95tMKBh1weGnG8Tqofx ===== */
+function j(e,t){"function"==typeof e.error?e.error(t):e.close()}
+
+
+/* ===== Resolved function: p | source: https://1password.com/_next/static/chunks/framework-af071c1ab11e1655.js?dpl=dpl_7BeTiNgCa95tMKBh1weGnG8Tqofx ===== */
+function p(e){if(c(e)!==e)throw Error(s(188))}
+========================================================================================
