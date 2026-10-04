@@ -1,7 +1,7 @@
 {
   "domain": "evil.com",
   "subdomain": "www.evil.com",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 0
 }
