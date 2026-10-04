@@ -1,0 +1,3 @@
+https://api.byteplus.com/api-explorer/
+https://api.byteplus.com/api-docs/view/overview
+https://api.byteplus.com/api-sdk/view
