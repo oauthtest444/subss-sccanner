@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
   "subdomain": "oakland-university.1password.com",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 131
 }
