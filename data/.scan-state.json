@@ -1,7 +1,7 @@
 {
   "domain": "evil.com",
   "subdomain": "www.evil.com",
-  "stage": "subdomain",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 0
 }
