@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
   "subdomain": "mofos.1password.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 119
 }
