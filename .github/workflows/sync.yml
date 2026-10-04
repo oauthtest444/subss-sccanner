@@ -371,9 +371,15 @@ jobs:
                 python3 "$TOOLS/unique_listener_scanner.py" \
                   -l "$SUB_DIR/all-uniq-routs.txt" \
                   -o "$WORK/listener" || true
-                cp "$WORK/listener/no-validation-listener.txt" "$SUB_DIR/" 2>/dev/null || : > "$SUB_DIR/no-validation-listener.txt"
-                cp "$WORK/listener/p-xss-listener.txt" "$SUB_DIR/" 2>/dev/null || : > "$SUB_DIR/p-xss-listener.txt"
-                cp "$WORK/listener/validation-listener.txt" "$SUB_DIR/" 2>/dev/null || : > "$SUB_DIR/validation-listener.txt"
+                # Only keep listener result files that have actual content.
+                for lf in no-validation-listener.txt p-xss-listener.txt validation-listener.txt; do
+                  src="$WORK/listener/$lf"
+                  if [[ -s "$src" ]]; then
+                    cp "$src" "$SUB_DIR/"
+                  else
+                    rm -f "$SUB_DIR/$lf"
+                  fi
+                done
                 rm -rf "$WORK/listener"
                 echo "[+] [$DOMAIN/$SUB] unique_listener_scanner finished"
                 save_state "$DOMAIN" "$SUB" "complete-subdomain" "$DOMAIN_INDEX" "$SUB_INDEX"
@@ -381,9 +387,11 @@ jobs:
               fi
 
               if [[ "$CURRENT_STAGE" == "complete-subdomain" ]]; then
-                # Ensure all requested files exist, even when a scanner found nothing.
+                # Keep only files that have actual content; remove blank/empty ones.
                 for f in all-uniq-routs.txt all-uniq-params.txt no-validation-listener.txt p-xss-listener.txt validation-listener.txt; do
-                  [[ -e "$SUB_DIR/$f" ]] || : > "$SUB_DIR/$f"
+                  if [[ -e "$SUB_DIR/$f" ]] && [[ ! -s "$SUB_DIR/$f" ]]; then
+                    rm -f "$SUB_DIR/$f"
+                  fi
                 done
                 rm -rf "$WORK"
                 SUB_INDEX=$((SUB_INDEX + 1))
