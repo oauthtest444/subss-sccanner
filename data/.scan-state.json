@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
-  "subdomain": "h1n1vaccinetst-odh.1password.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 90
+  "subdomain_index": 91
 }
