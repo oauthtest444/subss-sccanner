@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
-  "subdomain": "digitalchurch.1password.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 58
+  "subdomain_index": 59
 }
