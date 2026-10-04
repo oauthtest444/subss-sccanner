@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
-  "subdomain": "start.ent.1password.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 157
+  "subdomain_index": 158
 }
