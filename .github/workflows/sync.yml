@@ -295,25 +295,13 @@ jobs:
                 cp "$WORK/listener/validation-listener.txt" "$SUB_DIR/" 2>/dev/null || : > "$SUB_DIR/validation-listener.txt"
                 rm -rf "$WORK/listener"
                 echo "[+] [$DOMAIN/$SUB] unique_listener_scanner finished"
-                save_state "$DOMAIN" "$SUB" "redirect" "$DOMAIN_INDEX" "$SUB_INDEX"
-                git_commit_state "$DOMAIN-$SUB-listener"
-              fi
-
-              if [[ "$CURRENT_STAGE" == "redirect" ]]; then
-                echo "[*] [$DOMAIN/$SUB] Running js_redirect_tester..."
-                rm -f "$SUB_DIR/js_redirect_vulnerable.txt"
-                python3 "$TOOLS/js_redirect_tester.py" \
-                  -l "$SUB_DIR/all-uniq-routs.txt" \
-                  -p "$SUB_DIR/all-uniq-params.txt" \
-                  -o "$SUB_DIR/js_redirect_vulnerable.txt" || true
-                echo "[+] [$DOMAIN/$SUB] js_redirect_tester finished"
                 save_state "$DOMAIN" "$SUB" "complete-subdomain" "$DOMAIN_INDEX" "$SUB_INDEX"
-                git_commit_state "$DOMAIN-$SUB-redirect"
+                git_commit_state "$DOMAIN-$SUB-listener"
               fi
 
               if [[ "$CURRENT_STAGE" == "complete-subdomain" ]]; then
                 # Ensure all requested files exist, even when a scanner found nothing.
-                for f in all-uniq-routs.txt all-uniq-params.txt no-validation-listener.txt p-xss-listener.txt validation-listener.txt js_redirect_vulnerable.txt; do
+                for f in all-uniq-routs.txt all-uniq-params.txt no-validation-listener.txt p-xss-listener.txt validation-listener.txt; do
                   [[ -e "$SUB_DIR/$f" ]] || : > "$SUB_DIR/$f"
                 done
                 rm -rf "$WORK"
