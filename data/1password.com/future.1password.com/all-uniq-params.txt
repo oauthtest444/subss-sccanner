@@ -1,0 +1,14 @@
+ref
+utm_source
+utm_campaign
+cjdata
+cjevent
+utm_medium
+utm_content
+utm_term
+gclid
+gclsrc
+utm_ref
+mkt_tok
+a
+email
