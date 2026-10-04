@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
   "subdomain": "iauncovered-yahoo.1password.com",
-  "stage": "listener",
+  "stage": "complete-subdomain",
   "domain_index": 0,
   "subdomain_index": 97
 }
