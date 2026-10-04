@@ -1,7 +1,7 @@
 {
   "domain": "byteplus.com",
   "subdomain": "api.byteplus.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 1
 }
