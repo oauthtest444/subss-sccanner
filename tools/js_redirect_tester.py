@@ -12,13 +12,13 @@ from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeo
 
 PAYLOAD = "https://evil.com/"
 
-# Wait up to 10 seconds for delayed JavaScript redirects.
-DEFAULT_WAIT = 10.0
+# Wait up to 5 seconds for delayed JavaScript redirects.
+DEFAULT_WAIT = 5.0
 
 # Check the browser URL every 0.5 seconds.
 POLL_INTERVAL = 0.5
 
-DEFAULT_TIMEOUT = 30000
+DEFAULT_TIMEOUT = 15000
 
 # How many parameter names to inject into a single request.
 PARAMS_PER_GROUP = 100
