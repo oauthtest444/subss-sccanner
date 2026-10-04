@@ -1,7 +1,7 @@
 {
-  "domain": "byteplus.com",
+  "domain": "",
   "subdomain": "",
-  "stage": "done-domain",
+  "stage": "idle",
   "domain_index": 0,
-  "subdomain_index": 7
+  "subdomain_index": 0
 }
