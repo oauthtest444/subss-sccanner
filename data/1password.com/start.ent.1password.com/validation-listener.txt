@@ -1,0 +1,30 @@
+
+========================================================================================
+ROUTE: https://my.ent.1password.com/signin
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://app.ent.1password.com/js/app-3f178aae48e84741c256.min.js, https://app.ent.1password.com/js/runtime-5b8ff1676a5ddc460709.min.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+async e=>{const{ctx:t}=await(0,b.$)();O(t,e.origin)?V(t,e):console.log("Event discarded because it did not match any known handlers")}
+========================================================================================
+
+========================================================================================
+ROUTE: https://my.ent.1password.com/signin
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://app.ent.1password.com/js/1267-08f057f74b3071f8cb77.min.js, https://app.ent.1password.com/js/vendor-react-4702acdeefb82d324789.min.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+e=>{e.origin===u&&e.source===c.current?.contentWindow&&"loaded"===e.data&&t("loaded")}
+========================================================================================
