@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
-  "subdomain": "peri.1password.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 138
+  "subdomain_index": 139
 }
