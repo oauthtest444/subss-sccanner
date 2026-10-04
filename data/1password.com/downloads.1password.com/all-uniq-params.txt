@@ -1,0 +1,7 @@
+cjevent
+cjdata
+utm_medium
+utm_source
+utm_campaign
+utm_content
+utm_term
