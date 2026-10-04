@@ -97,6 +97,28 @@ jobs:
           PY
           }
 
+          # Remove a fully-scanned domain from all-domains.txt (preserves order of remaining lines).
+          remove_domain_from_list() {
+            local domain="$1"
+            python - "$DOMAINS" "$domain" <<'PY'
+          import pathlib, sys
+          path = pathlib.Path(sys.argv[1])
+          target = sys.argv[2].strip().lower()
+          if not path.exists():
+              sys.exit(0)
+          lines = path.read_text().splitlines()
+          new_lines = []
+          for line in lines:
+              stripped = line.strip()
+              if not stripped or stripped.startswith("#"):
+                  new_lines.append(line)
+                  continue
+              if stripped.lower() != target:
+                  new_lines.append(line)
+          path.write_text("\n".join(new_lines) + ("\n" if new_lines else ""))
+          PY
+          }
+
           git_commit_state() {
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -116,10 +138,20 @@ jobs:
             [[ "$(time_left)" -gt "$need" ]]
           }
 
+          # Load domains preserving file order (first occurrence only, no sort).
           mapfile -t DOMAINS_LIST < <(
-            grep -Ev '^[[:space:]]*(#|$)' "$DOMAINS" |
-            sed 's/[[:space:]]//g' |
-            sort -fu
+            awk '
+              /^[[:space:]]*(#|$)/ { next }
+              {
+                gsub(/[[:space:]]/, "", $0)
+                if ($0 == "") next
+                key = tolower($0)
+                if (!(key in seen)) {
+                  seen[key] = 1
+                  print $0
+                }
+              }
+            ' "$DOMAINS"
           )
 
           # Load checkpoint.
@@ -136,29 +168,72 @@ jobs:
           DOMAIN_INDEX="${ST[3]:-0}"
           SUB_INDEX="${ST[4]:-0}"
 
-          # If a previous run finished its final subdomain, advance.
-          if [[ "$CURRENT_STAGE" == "done-domain" ]]; then
-            DOMAIN_INDEX=$((DOMAIN_INDEX + 1))
+          # Always start from the first domain in the *current* list.
+          # Resume stage/subdomain only when the first domain matches the saved domain.
+          # This way, if you reorder / prepend a new domain, the next run
+          # picks the new first domain (from enumerate) instead of the old one.
+          if (( ${#DOMAINS_LIST[@]} > 0 )); then
+            FIRST="${DOMAINS_LIST[0]}"
+            if [[ "$CURRENT_DOMAIN" == "$FIRST" && "$CURRENT_STAGE" != "done-domain" && "$CURRENT_STAGE" != "idle" ]]; then
+              DOMAIN_INDEX=0
+              # keep CURRENT_STAGE / CURRENT_SUB / SUB_INDEX as loaded
+            else
+              DOMAIN_INDEX=0
+              SUB_INDEX=0
+              CURRENT_DOMAIN="$FIRST"
+              CURRENT_SUB=""
+              CURRENT_STAGE="enumerate"
+              save_state "$FIRST" "" "enumerate" 0 0
+            fi
+          else
+            DOMAIN_INDEX=0
             SUB_INDEX=0
             CURRENT_DOMAIN=""
             CURRENT_SUB=""
+            CURRENT_STAGE="idle"
+          fi
+
+          # Clear any leftover "done-domain" so we do not skip the first entry.
+          if [[ "$CURRENT_STAGE" == "done-domain" ]]; then
             CURRENT_STAGE="enumerate"
+            CURRENT_DOMAIN=""
+            CURRENT_SUB=""
+            SUB_INDEX=0
           fi
 
           while have_time 180; do
-            if (( DOMAIN_INDEX >= ${#DOMAINS_LIST[@]} )); then
-              echo "[+] All configured domains have been processed."
+            # Reload list each iteration so removals take effect immediately.
+            mapfile -t DOMAINS_LIST < <(
+              awk '
+                /^[[:space:]]*(#|$)/ { next }
+                {
+                  gsub(/[[:space:]]/, "", $0)
+                  if ($0 == "") next
+                  key = tolower($0)
+                  if (!(key in seen)) {
+                    seen[key] = 1
+                    print $0
+                  }
+                }
+              ' "$DOMAINS"
+            )
+
+            if (( ${#DOMAINS_LIST[@]} == 0 )); then
+              echo "[+] All configured domains have been processed (list empty)."
               save_state "" "" "idle" 0 0
               git_commit_state "idle"
               exit 0
             fi
 
+            # Always work on the first remaining domain.
+            DOMAIN_INDEX=0
             DOMAIN="${DOMAINS_LIST[$DOMAIN_INDEX]}"
             DOMAIN_DIR="$DATA/$DOMAIN"
             VALID_FILE="$DOMAIN_DIR/valid-subdomains.txt"
             mkdir -p "$DOMAIN_DIR"
 
-            # A domain begins at enumeration, unless a checkpoint says otherwise.
+            # A domain begins at enumeration, unless a checkpoint says otherwise
+            # *and* it is still the first domain in the list.
             if [[ "$CURRENT_DOMAIN" != "$DOMAIN" ]]; then
               CURRENT_DOMAIN="$DOMAIN"
               CURRENT_SUB=""
@@ -177,9 +252,15 @@ jobs:
               mapfile -t SUBS < <(grep -Ev '^[[:space:]]*(#|$)' "$VALID_FILE" | sort -fu)
               SUB_INDEX=0
               if ((${#SUBS[@]} == 0)); then
-                save_state "$DOMAIN" "" "done-domain" "$DOMAIN_INDEX" 0
+                # No valid subs — treat domain as fully done and remove it.
+                echo "[*] [$DOMAIN] No valid subdomains — removing from all-domains.txt"
+                remove_domain_from_list "$DOMAIN"
+                save_state "" "" "done-domain" 0 0
                 git_commit_state "$DOMAIN-no-valid-subs"
-                CURRENT_STAGE="done-domain"
+                CURRENT_DOMAIN=""
+                CURRENT_SUB=""
+                CURRENT_STAGE="enumerate"
+                SUB_INDEX=0
                 continue
               fi
               CURRENT_STAGE="subdomain"
@@ -330,9 +411,15 @@ jobs:
               # iteration finalizes it. Otherwise continue the checkpointed stage.
             done
 
-            CURRENT_STAGE="done-domain"
+            # All subdomains for this domain are done — remove domain from list.
+            echo "[*] [$DOMAIN] All subdomains finished — removing from all-domains.txt"
+            remove_domain_from_list "$DOMAIN"
+            CURRENT_DOMAIN=""
             CURRENT_SUB=""
-            save_state "$DOMAIN" "" "done-domain" "$DOMAIN_INDEX" "$SUB_INDEX"
+            CURRENT_STAGE="enumerate"
+            SUB_INDEX=0
+            DOMAIN_INDEX=0
+            save_state "" "" "done-domain" 0 0
             git_commit_state "$DOMAIN-complete"
           done
 
