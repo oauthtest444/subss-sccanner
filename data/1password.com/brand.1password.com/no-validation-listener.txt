@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://brand.1password.com/finder
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn.frontify.com/js/frontify-vendors.ca4c59a69fa86790.js, https://cdn.frontify.com/js/frontify-terrific-module-ofinder.212b09bca17347ef.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+s=>{s.data.domainError&&this.displayError(s.data.domainError)}
+========================================================================================
