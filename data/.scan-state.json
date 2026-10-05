@@ -1,7 +1,7 @@
 {
   "domain": "1win.com",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "forum.1win.com",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
