@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://connect.8x8.com/login
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.googletagmanager.com/gtm.js?id=GTM-PXLCG3X7
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(a){a.data.type==="hsFormCallback"&&a.data.eventName==="onFormSubmitted"&&window.dataLayer.push({event:"hubspot-form-success","hs-form-guid":a.data.id})}
+========================================================================================

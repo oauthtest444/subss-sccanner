@@ -1,7 +1,7 @@
 {
   "domain": "8x8.com",
   "subdomain": "connect.8x8.com",
-  "stage": "listener",
+  "stage": "complete-subdomain",
   "domain_index": 0,
   "subdomain_index": 19
 }
