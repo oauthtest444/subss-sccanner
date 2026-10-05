@@ -1,7 +1,7 @@
 {
   "domain": "abercrombie.com",
   "subdomain": "giftcards.abercrombie.com",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 4
 }
