@@ -1,7 +1,7 @@
 {
   "domain": "8x8.com",
-  "subdomain": "vcc-au1.8x8.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 44
+  "subdomain_index": 45
 }
