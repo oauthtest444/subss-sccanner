@@ -1,0 +1,35 @@
+
+========================================================================================
+ROUTE: https://trackukqa.abercrombie.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://trackukqa.abercrombie.com/, https://trackukqa.abercrombie.com/polyfills.8457844242979a4d.js, https://cdn.pendo.io/agent/static/6990bb42-7b47-4df4-a8e3-7d9dbaf280f6/pendo.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function nrWrapper(){var i,a,f,p;try{a=this,i=d(arguments),f="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,s],f],t)}c(n+"start",[i,a,s],f,u);try{return p=e.apply(a,i)}catch(h){throw c(n+"err",[i,a,h],f,u),h}finally{c(n+"end",[i,a,p],f,u)}}
+
+
+/* ===== Resolved function: nrWrapper | source: https://trackukqa.abercrombie.com/ ===== */
+function nrWrapper(){var i,a,f,p;try{a=this,i=d(arguments),f="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,s],f],t)}c(n+"start",[i,a,s],f,u);try{return p=e.apply(a,i)}catch(h){throw c(n+"err",[i,a,h],f,u),h}finally{c(n+"end",[i,a,p],f,u)}}
+
+
+/* ===== Resolved function: d | source: https://trackukqa.abercrombie.com/ ===== */
+function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}
+
+
+/* ===== Resolved function: r | source: https://trackukqa.abercrombie.com/ ===== */
+function r(){}
+
+
+/* ===== Resolved function: o | source: https://trackukqa.abercrombie.com/ ===== */
+function o(){return i}
+
+
+/* ===== Resolved function: c | source: https://trackukqa.abercrombie.com/ ===== */
+function c(t,e){return e}
+========================================================================================
