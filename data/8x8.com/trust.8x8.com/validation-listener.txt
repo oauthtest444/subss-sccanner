@@ -1,0 +1,60 @@
+
+========================================================================================
+ROUTE: https://trust.8x8.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://assets.vanta.com/static/edit-media-modal-CC9RHSHH.js, https://assets.vanta.com/static/rolldown-runtime-C0FnF6B9.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){if(P(t.origin)&&!(!t.data||t.data.event!==`spacechange`)){for(var n=e.querySelectorAll(`iframe`),r=0;r<n.length;r++)if(n[r].contentWindow===t.source){var i=n[r].parentElement;i.style.paddingBottom=`${t.data.data[0].bottom}px`;break}}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://trust.8x8.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://assets.vanta.com/static/edit-media-modal-CC9RHSHH.js, https://assets.vanta.com/static/rolldown-runtime-C0FnF6B9.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){if(P(t.origin)){var n=wt(t.data);if(!(!n||n.event!==`ready`))for(var r=e.querySelectorAll(`iframe`),i=0;i<r.length;i++){var a=r[i],o=a.contentWindow===t.source;gt(a.src)&&o&&new H(a).callMethod(`appendVideoMetadata`,window.location.href)}}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://trust.8x8.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://assets.vanta.com/static/edit-media-modal-CC9RHSHH.js, https://assets.vanta.com/static/rolldown-runtime-C0FnF6B9.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(n){if(P(n.origin)){var r=wt(n.data);if(!(!r||r.event!==`ready`))for(var i=e.querySelectorAll(`iframe`),a=function(){var e=i[o],r=e.contentWindow===n.source;if(gt(e.src)&&r){var a=new H(e);a.getVideoId().then(function(e){var t=RegExp(`[?&]vimeo_t_${e}=([^&#]*)`).exec(window.location.href);if(t&&t[1]){var n=decodeURI(t[1]);a.setCurrentTime(n)}}).catch(t)}},o=0;o<i.length;o++)a()}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://trust.8x8.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback&render=explicit
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(i){if(Eu(i)){var v=i.data;if(!Tu(i)){R("Ignored message from wrong origin: ".concat(i.origin,"."));return}if(!(v.widgetId===""||!y.widgetMap.has(v.widgetId))){var h=Y(v.widgetId),p=y.widgetMap.get(v.widgetId);if(p!==void 0){if(!xu(i,p,h)){R("Ignored message from unexpected source for event: ".concat(v.event,"."));return}P(v)}}}}
+========================================================================================
