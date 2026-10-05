@@ -1,7 +1,7 @@
 {
   "domain": "abritel.fr",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "hote.abritel.fr",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 3
 }
