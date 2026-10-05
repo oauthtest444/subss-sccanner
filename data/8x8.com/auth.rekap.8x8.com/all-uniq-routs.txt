@@ -1,0 +1,2 @@
+https://auth.rekap.8x8.com/en/login
+https://auth.rekap.8x8.com/en/forgot_password
