@@ -1,7 +1,7 @@
 {
   "domain": "acesso.io",
-  "subdomain": "identityqa.acesso.io",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 9
+  "subdomain_index": 10
 }
