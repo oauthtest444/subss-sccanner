@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "academy.acronis.com",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
