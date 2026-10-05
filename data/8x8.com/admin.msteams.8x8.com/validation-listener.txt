@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=dfbf91de-951e-48fd-a6a5-17eed69a38b6%2F.default%20openid%20profile&client_id=dfbf91de-951e-48fd-a6a5-17eed69a38b6&redirect_uri=https%3A%2F%2Fadmin.msteams.8x8.com&state=eyJpZCI6IjBhMzQ3MzhiLTE2MGItNGJkYS05ZTRjLTQyYjBmOTU2NzgzNiIsInRzIjoxNzkxMTY5ODk3LCJtZXRob2QiOiJyZWRpcmVjdEludGVyYWN0aW9uIn0%3D&nonce=2cab0c23-14d1-41e1-95f8-88fee2fbc311&client_info=1&x-client-SKU=MSAL.JS&x-client-Ver=1.4.18&client-request-id=cebc47a5-1a28-4c22-bc0b-8e5678577f8a&response_mode=fragment
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://aadcdn.msftauth.net/shared/1.0/content/js/ConvergedLogin_PCore_gVhYQwpSW-2B6af-e8QqcQ2.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function rt(e){if(En&&n.dfpUrl()){if(!e||!T.doOriginsMatch(n.dfpUrl(),e.origin))return;var t=null,r=e.data,i=s.DFPPrefix;if(r&&"string"==typeof r&&""!==r){if(0!==r.indexOf(i))return;t=r.substring(i.length),n.dfpResult(t)}}}
+========================================================================================
