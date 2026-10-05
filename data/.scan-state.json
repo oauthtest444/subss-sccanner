@@ -1,7 +1,7 @@
 {
   "domain": "8x8.com",
   "subdomain": "pay.8x8.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 29
 }
