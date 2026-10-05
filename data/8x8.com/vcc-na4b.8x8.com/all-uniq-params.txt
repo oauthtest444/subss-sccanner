@@ -1,0 +1,9 @@
+uuid
+tenant
+domain
+channel
+referrer
+popup
+popuporigin
+startedbychatapi
+syncrequired
