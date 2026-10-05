@@ -1,0 +1,2 @@
+https://login.3cx.com/Account/Login
+https://login.3cx.com/Password/ConfirmPasswordReset
