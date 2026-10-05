@@ -1,7 +1,7 @@
 {
   "domain": "8x8.com",
-  "subdomain": "supersite.8x8.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 37
+  "subdomain_index": 38
 }
