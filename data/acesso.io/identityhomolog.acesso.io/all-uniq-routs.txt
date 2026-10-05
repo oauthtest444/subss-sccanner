@@ -1,0 +1,2 @@
+https://identityhomolog.acesso.io/signin?service=6a1c72cd-a47e-4272-918b-16e56d312c0c&continue=https%3A%2F%2Fidentityhomolog.acesso.io%2Fauth%2Fidp%2Fcallback
+https://identityhomolog.acesso.io/signout
