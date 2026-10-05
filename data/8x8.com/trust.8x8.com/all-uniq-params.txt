@@ -1,0 +1,4 @@
+requestedResources
+requestAccessOpen
+s
+operation
