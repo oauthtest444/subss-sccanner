@@ -1,0 +1,16 @@
+id
+mes
+canal
+cod
+error
+cat
+p
+recoveryId
+service
+continue
+directoryId
+redirect_uri
+tid
+ReturnUrl
+Logoff
+tokenIntegration
