@@ -1,7 +1,7 @@
 {
   "domain": "23andme.org",
   "subdomain": "support.23andme.org",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 1
 }
