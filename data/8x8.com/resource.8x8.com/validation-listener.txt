@@ -1,0 +1,45 @@
+
+========================================================================================
+ROUTE: https://resource.8x8.com/all-access-landing-page/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://assets.foleon.com/us-east-1/us-publications-208r3957/20003725v14r1-eb7a3f/assets/vendor.1.107.0.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+({source:i,data:s})=>{i===M3&&s===r&&n.length&&n.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://resource.8x8.com/all-access-landing-page/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://assets.foleon.com/us-east-1/us-publications-208r3957/20003725v14r1-eb7a3f/assets/vendor.1.107.0.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+({source:i,data:s})=>{i===N3&&s===r&&n.length&&n.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://resource.8x8.com/all-access-landing-page/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://assets.foleon.com/us-east-1/us-publications-208r3957/20003725v14r1-eb7a3f/assets/index.1.107.0.js, https://assets.foleon.com/us-east-1/us-publications-208r3957/20003725v14r1-eb7a3f/assets/vendor.1.107.0.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+g=>{if(!Ih(g.origin))return;const f=Ph(g.data);if(!f)return;const h=Lh(f,l.current,c.current);if(!h){console.warn("cc-widget navigation: target not in route map, ignoring",f.target);return}if(d.current){p.current=h;return}s.current.push(h)}
+========================================================================================
