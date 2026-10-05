@@ -1,7 +1,7 @@
 {
   "domain": "23andme.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "npvcb.23andme.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 4
 }
