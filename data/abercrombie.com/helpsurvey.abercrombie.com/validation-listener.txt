@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://helpsurvey.abercrombie.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://helpsurvey.abercrombie.com/assets/index-C-MB4khM.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+({source:o,data:u})=>{o===ec&&u===n&&r.length&&r.shift()()}
+========================================================================================

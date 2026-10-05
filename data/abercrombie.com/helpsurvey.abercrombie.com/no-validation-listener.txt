@@ -1,0 +1,30 @@
+
+========================================================================================
+ROUTE: https://helpsurvey.abercrombie.com/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://helpsurvey.abercrombie.com/
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function (event) {
+          if (event.data.type === 'set_content') {
+            var styleElement = window.document.createElement('style')
+            styleElement.innerText = event.data.content
+
+            var previewStyleId = 'simplesat-preview-style-tag'
+            styleElement.id = previewStyleId
+
+            var simplesatCustomStyleTag = document.getElementById(previewStyleId)
+            if (simplesatCustomStyleTag) {
+              document.head.replaceChild(styleElement, simplesatCustomStyleTag)
+            } else {
+              document.head.appendChild(styleElement)
+            }
+          }
+        }
+========================================================================================
