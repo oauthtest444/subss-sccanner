@@ -1,0 +1,23 @@
+
+========================================================================================
+ROUTE: https://form.rh.homolog.acesso.io/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://form.rh.homolog.acesso.io/polyfills-es2015.9f98264ccf6dc9813354.js, https://static.userguiding.com/media/user-guiding-BY298908NLUID-embedded.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){return _(this,t,!1)}
+
+
+/* ===== Resolved function: _ | source: https://form.rh.homolog.acesso.io/polyfills-es2015.9f98264ccf6dc9813354.js ===== */
+function _(t){0===z&&0===v.length&&y(b),t&&v.push(t)}
+
+
+/* ===== Resolved function: y | source: https://form.rh.homolog.acesso.io/polyfills-es2015.9f98264ccf6dc9813354.js ===== */
+function y(e){if(d||t[h]&&(d=t[h].resolve(0)),d){let t=d[p];t||(t=d.then),t.call(d,e)}else t[f](e,0)}
+========================================================================================
