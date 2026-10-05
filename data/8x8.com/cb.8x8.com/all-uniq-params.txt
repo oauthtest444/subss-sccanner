@@ -1,0 +1,4 @@
+callback
+_
+locale
+receiverDomain
