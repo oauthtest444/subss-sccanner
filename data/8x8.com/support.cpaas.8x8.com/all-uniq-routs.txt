@@ -1,0 +1,4 @@
+https://support.cpaas.8x8.com/hc/en-us
+https://support.cpaas.8x8.com/agent/admin/brands
+https://support.cpaas.8x8.com/auth/v3/signin?return_to=https%3A%2F%2Fsupport.cpaas.8x8.com%2Fusers%2Frevert&role=end_user
+https://support.cpaas.8x8.com/auth/v3/signin?brand_id=459206&return_to=https%3A%2F%2Fsupport.cpaas.8x8.com%2Ftheming&role=end_user
