@@ -1,7 +1,7 @@
 {
-  "domain": "8x8.com",
+  "domain": "",
   "subdomain": "",
-  "stage": "subdomain",
+  "stage": "done-domain",
   "domain_index": 0,
-  "subdomain_index": 126
+  "subdomain_index": 0
 }
