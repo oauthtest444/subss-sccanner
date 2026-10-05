@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
   "subdomain": "valerian.1password.com",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 192
 }
