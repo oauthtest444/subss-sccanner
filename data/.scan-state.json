@@ -1,7 +1,7 @@
 {
   "domain": "3cx.net",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "status.3cx.net",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 3
 }
