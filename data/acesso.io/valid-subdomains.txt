@@ -1,0 +1,14 @@
+admin.rh.homolog.acesso.io
+benefits.rh.homolog.acesso.io
+collaborators.rh.homolog.acesso.io
+doc.acesso.io
+form-benefits.rh.homolog.acesso.io
+form.rh.homolog.acesso.io
+identity.acesso.io
+identitydev.acesso.io
+identityhomolog.acesso.io
+identityqa.acesso.io
+seu.acesso.io
+sign.acesso.io
+signhom.acesso.io
+www2.acesso.io
