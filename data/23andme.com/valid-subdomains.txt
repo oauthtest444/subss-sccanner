@@ -1,0 +1,8 @@
+fulfillment.23andme.com
+maintenance-page.23andme.com
+merch.23andme.com
+notify-assets.23andme.com
+npvcb.23andme.com
+portal.23andme.com
+refer.23andme.com
+view.mailer.23andme.com
