@@ -1,0 +1,42 @@
+
+========================================================================================
+ROUTE: https://converse.8x8.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://converse.8x8.com/_nuxt/b19eba5.js, https://converse.8x8.com/_nuxt/5f31d1d.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){e.source===t&&"string"==typeof e.data&&0===e.data.indexOf(i)&&d(+e.data.slice(i.length))}
+
+
+/* ===== Resolved function: d | source: https://converse.8x8.com/_nuxt/b19eba5.js ===== */
+function d(t){return"string"==typeof t}
+========================================================================================
+
+========================================================================================
+ROUTE: https://converse.8x8.com/auth/login
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://converse.8x8.com/_nuxt/24046e5.js, https://www.gstatic.com/recaptcha/releases/guXhH0v-XMxlzmbTwqkaT4i5/recaptcha__en.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(){u(o),h(function(){u(null)},0);var e=i.apply(this,arguments);return u(null),e}
+
+
+/* ===== Resolved function: u | source: https://converse.8x8.com/_nuxt/24046e5.js ===== */
+function u(){}
+
+
+/* ===== Resolved function: h | source: https://converse.8x8.com/_nuxt/24046e5.js ===== */
+function h(){}
+========================================================================================
