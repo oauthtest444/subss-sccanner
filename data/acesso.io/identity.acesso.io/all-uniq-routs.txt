@@ -1,0 +1,3 @@
+https://identity.acesso.io/signin?service=6a1c72cd-a47e-4272-918b-16e56d312c0c&continue=https%3A%2F%2Fidentity.acesso.io%2Fauth%2Fidp%2Fcallback
+https://identity.acesso.io/signout
+https://identity.acesso.io/signup/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJraW5kIjoiYWRtaXNzaW9uIiwib3JnIjoiOGI1MjUyNDUtZDg4NS00Mzg5LWIxZmItOWE0NzZkYTNkYWFmIiwicG9zIjoiMzAzNjE1NWUtMmVkNi00Y2U3LWJhNmItZGQ4NGEwZjc5MmNmIn0.P1A3TVnBJ3eqS05UD8CWAyKez8eplugA2zTWAYX2f90
