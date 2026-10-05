@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://community.abercrombie.com/a/dallas
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type, type:
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://community.abercrombie.com/assets/app/dist/2025/member-page.js?v=f6f7083
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t;if(e.origin===DUEL.embedURL&&DUEL.activeVideo){var r={entry_id:DUEL.activeVideo.entryId,type:e.data.type,timestamp:(new Date).toISOString(),duration:e.data.payload.watchedDuration,product_skus:(null===(t=DUEL.activeVideo.products)||void 0===t?void 0:t.map(function(e){return null==e?void 0:e.sku}).filter(Boolean))||[]};DUEL.trackVideoPlayback(r)}}
+========================================================================================
