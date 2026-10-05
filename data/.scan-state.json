@@ -1,7 +1,7 @@
 {
   "domain": "8x8.com",
   "subdomain": "vcc-na19.8x8.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 91
 }
