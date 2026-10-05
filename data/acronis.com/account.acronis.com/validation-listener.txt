@@ -1,0 +1,19 @@
+
+========================================================================================
+ROUTE: https://account.acronis.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://account.acronis.com/js/chunk-vendors.215f4274.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(n){n.source===t&&"string"===typeof n.data&&0===n.data.indexOf(e)&&d(+n.data.slice(e.length))}
+
+
+/* ===== Resolved function: d | source: https://account.acronis.com/js/chunk-vendors.215f4274.js ===== */
+function d(){}
+========================================================================================
