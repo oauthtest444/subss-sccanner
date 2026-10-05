@@ -1,7 +1,7 @@
 {
   "domain": "abercrombie.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "www.abercrombie.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 11
 }
