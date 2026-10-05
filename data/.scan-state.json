@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
-  "subdomain": "wildcard.ent.1password.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 201
+  "subdomain_index": 202
 }
