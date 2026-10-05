@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://corporate.abercrombie.com/investors/news-and-events/news/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://corporate.abercrombie.com/wp-content/themes/anfco/blocks/build/press-listing/frontend/frontend.js?m=1790832213g
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+({source:n,data:r})=>{n===Cr&&r===e&&t.length&&t.shift()()}
+========================================================================================
