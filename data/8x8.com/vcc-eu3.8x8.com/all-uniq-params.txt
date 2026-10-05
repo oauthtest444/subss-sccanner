@@ -1,0 +1,12 @@
+action
+callback
+tenant
+channel
+script
+uuid
+domain
+referrer
+popup
+popuporigin
+startedbychatapi
+syncrequired
