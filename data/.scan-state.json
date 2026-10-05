@@ -1,7 +1,7 @@
 {
   "domain": "acesso.io",
   "subdomain": "signhom.acesso.io",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 12
 }
