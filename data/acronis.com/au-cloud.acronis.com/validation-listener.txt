@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://au-cloud.acronis.com/login
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn.managed-protection.com/api/platform-web-assets/public/latest/login-app/js/vendors.3d9de8e6a1ac975933b4.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){t.source===e&&"string"==typeof t.data&&0===t.data.indexOf(i)&&f(+t.data.slice(i.length))}
+========================================================================================
