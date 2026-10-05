@@ -1,0 +1,19 @@
+
+========================================================================================
+ROUTE: https://video-agent.8x8.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://video-agent.8x8.com/_nuxt/fb60f51.js, https://video-agent.8x8.com/_nuxt/e050772.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){e.source===t&&"string"==typeof e.data&&0===e.data.indexOf(o)&&m(+e.data.slice(o.length))}
+
+
+/* ===== Resolved function: m | source: https://video-agent.8x8.com/_nuxt/fb60f51.js ===== */
+function m(t){return"function"==typeof t}
+========================================================================================
