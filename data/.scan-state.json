@@ -1,7 +1,7 @@
 {
   "domain": "abercrombie.com",
   "subdomain": "e.em.abercrombie.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 3
 }
