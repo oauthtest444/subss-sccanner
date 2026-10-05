@@ -1,0 +1,15 @@
+uuid
+tenant
+domain
+channel
+referrer
+popup
+popuporigin
+startedbychatapi
+syncrequired
+busHandlerURL
+stylesheetURL
+_ga
+channelUuid
+chatAlign
+waitbusinitialize
