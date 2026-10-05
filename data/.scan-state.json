@@ -1,7 +1,7 @@
 {
   "domain": "3cx.net",
   "subdomain": "downloads.3cx.net",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 0
 }
