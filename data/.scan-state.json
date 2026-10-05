@@ -1,7 +1,7 @@
 {
-  "domain": "37signals.com",
+  "domain": "",
   "subdomain": "",
-  "stage": "enumerate",
+  "stage": "done-domain",
   "domain_index": 0,
   "subdomain_index": 0
 }
