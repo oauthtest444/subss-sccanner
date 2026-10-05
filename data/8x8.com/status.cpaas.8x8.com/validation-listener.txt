@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://status.cpaas.8x8.com/uptime
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://dka575ofm4ao0.cloudfront.net/packs/common-b57e85f6a60348cdd566.chunk.js, https://dka575ofm4ao0.cloudfront.net/packs/runtime-e9fe27ac357824763c7d.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){t.source===e&&"string"==typeof t.data&&0===t.data.indexOf(c)&&z(+t.data.slice(c.length))}
+========================================================================================
