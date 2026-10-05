@@ -1,0 +1,42 @@
+
+========================================================================================
+ROUTE: https://support.1password.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .type, data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://support.1password.com/js/ada-chat.bundle.dc6a571fad5c7de24e20883c15924a1f.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{let{data:e}=t;ag(e)}
+
+
+/* ===== Resolved function: ag | source: https://support.1password.com/js/ada-chat.bundle.dc6a571fad5c7de24e20883c15924a1f.js ===== */
+function ag(t){t.type===ig.NOTIFICATION_CLICK&&setTimeout(()=>{var e;return(e=window.adaEmbed)===null||e===void 0?void 0:e.handleNotification()},0)}
+
+
+/* ===== Resolved function: return | source: https://support.1password.com/js/ada-chat.bundle.dc6a571fad5c7de24e20883c15924a1f.js ===== */
+function(){return i}
+========================================================================================
+
+========================================================================================
+ROUTE: https://support.1password.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, type:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://support.1password.com/js/ada-chat.bundle.dc6a571fad5c7de24e20883c15924a1f.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+r=>{let o;if(!this.isValidMessageEvent(r))return;try{Oa.isMessageEvent(r)&&(o=JSON.parse(r.data))}catch(S){return}let{name:s,type:p,payload:d,id:_,status:y}=o;s===this.name&&e(p,d,_,y)}
+
+
+/* ===== Resolved function: e | source: https://support.1password.com/js/ada-chat.bundle.dc6a571fad5c7de24e20883c15924a1f.js ===== */
+function e(){return t!==null&&t.apply(this,arguments)||this}
+========================================================================================
