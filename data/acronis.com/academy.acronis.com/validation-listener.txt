@@ -1,0 +1,180 @@
+
+========================================================================================
+ROUTE: https://academy.acronis.com/en-us/catalogue/automation-for-msps-streamlining-professional-services-delivery/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+({ source: o, data: i }) => {
+      o === tt && i === n && r.length && r.shift()();
+    }
+========================================================================================
+
+========================================================================================
+ROUTE: https://academy.acronis.com/en-us/catalogue/automation-for-msps-streamlining-professional-services-delivery/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js, https://academy.acronis.com/dist/site-client/chunks/c-vendor-common-B7TuGSj7.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+({source:i,data:o})=>{i===rr&&o===r&&n.length&&n.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://academy.acronis.com/en-us/catalogue/automation-for-msps-streamlining-professional-services-delivery/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js, https://www.acronis.com/mat/matomo.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(az){if(!az||!az.origin){return}var aB,ax,av;var aC=d(az.origin);var ay=v.getAsyncTrackers();for(ax=0;ax<ay.length;ax++){av=d(ay[ax].getMatomoUrl());if(av===aC){aB=ay[ax];break}}if(!aB){return}var aw=null;try{aw=JSON.parse(az.data)}catch(aA){return}if(!aw){return}function au(aF){var aH=K.getElementsByTagName("iframe");for(ax=0;ax<aH.length;ax++){var aG=aH[ax];var aD=d(aG.src);if(aG.contentWindow&&N(aG.contentWindow.postMessage)&&aD===aC){var aE=JSON.stringify(aF);aG.contentWindow.postMessage(aE,az.origin)}}}if(N(aw.maq_initial_value)){au({maq_opted_in:aw.maq_initial_value&&aB.hasConsent(),maq_url:aB.getMatomoUrl(),maq_optout_by_default:aB.isConsentRequired()})}else{if(N(aw.maq_opted_in)){ay=v.getAsyncTrackers();for(ax=0;ax<ay.length;ax++){aB=ay[ax];if(aw.maq_opted_in){aB.rememberConsentGiven()
+}else{aB.forgetConsentGiven()}}au({maq_confirm_opted_in:aB.hasConsent(),maq_url:aB.getMatomoUrl(),maq_optout_by_default:aB.isConsentRequired()})}}}
+
+
+/* ===== Resolved function: d | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function d(_) {
+      if (_ > u)
+        throw new S(
+          "Object is too deeply nested (" + _ + " levels). Max depth: " + u,
+          S.ERR_FORM_DATA_DEPTH_EXCEEDED
+        );
+    }
+
+
+/* ===== Resolved function: au | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function au(e, t) {
+    return De().captureEvent(e, t);
+  }
+
+
+/* ===== Resolved function: De | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function De() {
+    const e = Qn();
+    return Ho(e).getCurrentScope();
+  }
+
+
+/* ===== Resolved function: Qn | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Qn() {
+    return er(B), B;
+  }
+
+
+/* ===== Resolved function: Ho | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Ho(e) {
+    const t = er(e);
+    return t.acs ? t.acs : h_();
+  }
+
+
+/* ===== Resolved function: er | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function er(e) {
+    const t = e.__SENTRY__ = e.__SENTRY__ || {};
+    return t.version = t.version || rt, t[rt] = t[rt] || {};
+  }
+
+
+/* ===== Resolved function: h_ | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function h_() {
+    return {
+      withIsolationScope: Ss,
+      withScope: d_,
+      withSetScope: p_,
+      withSetIsolationScope: (e, t) => Ss(t),
+      getCurrentScope: () => Ct().getScope(),
+      getIsolationScope: () => Ct().getIsolationScope()
+    };
+  }
+
+
+/* ===== Resolved function: Ss | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Ss(e) {
+    return Ct().withScope(() => e(Ct().getIsolationScope()));
+  }
+
+
+/* ===== Resolved function: Ct | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Ct() {
+    const e = Qn(), t = er(e);
+    return t.stack = t.stack || new f_(a_(), c_());
+  }
+
+
+/* ===== Resolved function: e | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function e(n) {
+      try {
+        return JSON.stringify(n);
+      } catch {
+        return '"[Circular]"';
+      }
+    }
+
+
+/* ===== Resolved function: c_ | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function c_() {
+    return Lt("defaultIsolationScope", () => new xe());
+  }
+
+
+/* ===== Resolved function: Lt | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Lt(e, t, n = B) {
+    const r = n.__SENTRY__ = n.__SENTRY__ || {}, o = r[rt] = r[rt] || {};
+    return o[e] || (o[e] = t());
+  }
+========================================================================================
+
+========================================================================================
+ROUTE: https://academy.acronis.com/en-us/catalogue/automation-for-msps-streamlining-professional-services-delivery/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function tt(e){if(ze())return;const t=e.data;if(!t||t.name!==Ke)return;const n=t.data;n&&n.accountId===window._vwo_acc_id&&n.name&&(Ze[n.msgId]||(Je(n.msgId),function(e,t,n){var o,i;const s=window.VWO._.cookies;if(!s||!s._create)return;const r=null===(i=null===(o=window.VWO._.libUtils)||void 0===o?void 0:o.syncThirdPartyGlobalCookies)||void 0===i?void 0:i.bind(window.VWO._.libUtils);if(r&&Xe.test(e)){const n=e.indexOf("uuid")>=0?t:encodeURIComponent(t);return void r({[e]:n})}if("_vwo_sn"===e){const n=window.VWO._.commonCookieHandler;if((null==n?void 0:n.getSnLastUpdatedTime)&&n.getSnLastUpdatedTime(s.get(e))>n.getSnLastUpdatedTime(t))return}s._create(e,t,n,window._vwo_cookieDomain,void 0,!0)}(n.name,n.value,n.days),et(t,e.source)))}
+
+
+/* ===== Resolved function: Je | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Je() {
+      const A = new Error().stack;
+      if (!A) return null;
+      const w = A.split(`
+`);
+      for (let C = 1; C < w.length; C++) {
+        const D = w[C].trim();
+        if (/(^at\s+)?(createWrap|LOG|set\s*\(|asObject|Object\.apply|Function\.apply)/.test(D) || D.indexOf("browser.js") !== -1 || D.indexOf("node:internal") !== -1 || D.indexOf("node_modules") !== -1) continue;
+        let k = D.match(/\((.*?):(\d+):(\d+)\)/);
+        if (k || (k = D.match(/at\s+(.*?):(\d+):(\d+)/)), k) {
+          const U = k[1], F = k[2], j = k[3];
+          return U + ":" + F + ":" + j;
+        }
+      }
+      return null;
+    }
+
+
+/* ===== Resolved function: r | source: https://academy.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function r(s) {
+      t.delete(s);
+    }
+========================================================================================
