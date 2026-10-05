@@ -1,7 +1,7 @@
 {
   "domain": "acesso.io",
   "subdomain": "sign.acesso.io",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 11
 }
