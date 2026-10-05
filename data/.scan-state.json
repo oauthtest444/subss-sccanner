@@ -1,7 +1,7 @@
 {
   "domain": "abritel.fr",
   "subdomain": "aide.abritel.fr",
-  "stage": "subdomain",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 0
 }
