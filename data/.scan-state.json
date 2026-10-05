@@ -1,7 +1,7 @@
 {
   "domain": "8x8.com",
   "subdomain": "vcc-eu5b.8x8.com",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 62
 }
