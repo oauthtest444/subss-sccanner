@@ -1,7 +1,7 @@
 {
-  "domain": "acesso.io",
+  "domain": "",
   "subdomain": "",
-  "stage": "subdomain",
+  "stage": "done-domain",
   "domain_index": 0,
-  "subdomain_index": 14
+  "subdomain_index": 0
 }
