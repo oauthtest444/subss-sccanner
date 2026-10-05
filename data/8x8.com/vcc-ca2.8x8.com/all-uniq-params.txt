@@ -1,0 +1,13 @@
+uuid
+tenant
+domain
+channel
+channelUuid
+referrer
+popup
+chatAlign
+popuporigin
+startedbychatapi
+waitbusinitialize
+syncrequired
+stylesheetURL
