@@ -1,0 +1,5 @@
+downloads.3cx.net
+qos.3cx.net
+room.3cx.net
+status.3cx.net
+wmr-admin.3cx.net
