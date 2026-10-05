@@ -1,0 +1,16 @@
+action
+callback
+tenant
+channel
+script
+step
+langfrom
+langto
+tenantOEMPath
+uuid
+domain
+referrer
+popup
+popuporigin
+startedbychatapi
+syncrequired
