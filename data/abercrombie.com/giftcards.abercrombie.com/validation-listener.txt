@@ -1,0 +1,93 @@
+
+========================================================================================
+ROUTE: https://giftcards.abercrombie.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://cmp.osano.com/169xOfUMIHuHs3x4W/4dbb7be8-ef57-49b1-ba34-afd8c027fea4/osano.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(n){const{data:r,source:o}=n,i="string"==typeof r;let c={};try{c=i?JSON.parse(r):r}catch(a){c=r}const s="object"==typeof c&&c[`${t}Call`];if(s){const{command:n,parameter:r,version:c,callId:a}=s,u=function(e,n=!0){let r={[`${t}Return`]:{returnValue:e,success:n,callId:a}};i&&(r=JSON.stringify(r)),o.postMessage(r,"*")},l=e?[n,c,u,r]:[n,u,r],f=qn[`${t}`].apply(this,l);f&&u(f)}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://giftcards.abercrombie.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://cmp.osano.com/169xOfUMIHuHs3x4W/4dbb7be8-ef57-49b1-ba34-afd8c027fea4/osano.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(c){const{data:u,origin:l,source:f}=c;if((0,r.DQ)(s(),l)&&f===ct.contentWindow){const{storeKey:r,eventName:c,consent:l=null,expDate:f}=function(t){switch(typeof t){case"string":try{const{storeKey:e,eventName:n,consent:r,consentTimestamp:o,expDate:i}=JSON.parse(t);return{storeKey:e,eventName:n,consent:r,consentTimestamp:o,expDate:i,format:"json"}}catch(n){if(t&&""!==t.replace(/"|'/gm,"")){const[n,o,i,c]=t.split("|"),s=parseInt(c,10);let a=i;try{a=JSON.parse(i)}catch(r){}return o===e.Kq?{storeKey:n,eventName:o,consent:a,expDate:Number.isNaN(s)?0:s,format:"string"}:{storeKey:n,eventName:o,format:"string"}}}break;case"object":{const{storeKey:e,eventName:n,consent:r,consentTimestamp:o,expDate:i}=t;return{storeKey:e,eventName:n,consent:r,consentTimestamp:o,expDate:i,format:"object"}}}return{}}(u);if(r===e.AQ)switch(c){case e.Kq:clearTimeout(i),e.gg.removeEventListener("message",a,!1),null!==l?n(me(s(),l,f)):o(`No value for ${e.AQ}_${t}`);break;case e.ex:n(!0)}}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://giftcards.abercrombie.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://cmp.osano.com/169xOfUMIHuHs3x4W/4dbb7be8-ef57-49b1-ba34-afd8c027fea4/osano.js, https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js, https://giftcards.abercrombie.com/_nuxt/20260930.5/da3c46b54dbabbcd1571.min.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(i){i.source===C&&typeof i.data=="string"&&i.data.indexOf(u)===0&&j(+i.data.slice(u.length))}
+
+
+/* ===== Resolved function: j | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function j(u){if(W)setTimeout(j,0,u);else{var o=g[u];if(o){W=!0;try{b(o)}finally{M(u),W=!1}}}}
+
+
+/* ===== Resolved function: b | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function b(u){var o=u.callback,i=u.args;switch(i.length){case 0:o();break;case 1:o(i[0]);break;case 2:o(i[0],i[1]);break;case 3:o(i[0],i[1],i[2]);break;default:o.apply(q,i);break}}
+
+
+/* ===== Resolved function: M | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function M(u){delete g[u]}
+
+
+/* ===== Resolved function: o | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function o(n,a,f,l){if(!V(f))throw new TypeError;return Q(l)||(l=ee(l)),Oe(n,a,f,l)}
+
+
+/* ===== Resolved function: V | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function V(n){return typeof n=="object"?n!==null:typeof n=="function"}
+
+
+/* ===== Resolved function: Q | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function Q(n){return n===void 0}
+
+
+/* ===== Resolved function: ee | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function ee(n){var a=Te(n,3);return He(a)?a:Ue(a)}
+
+
+/* ===== Resolved function: Oe | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function Oe(e){return J(e.replace(s," "))}
+
+
+/* ===== Resolved function: Te | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function Te(n,a){switch(Me(n)){case 0:return n;case 1:return n;case 2:return n;case 3:return n;case 4:return n;case 5:return n}var f=a===3?"string":a===5?"number":"default",l=ge(n,R);if(l!==void 0){var y=l.call(n,f);if(V(y))throw new TypeError;return y}return Le(n,f==="default"?"number":f)}
+
+
+/* ===== Resolved function: He | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function He(n){return typeof n=="symbol"}
+
+
+/* ===== Resolved function: Ue | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function Ue(n){return""+n}
+
+
+/* ===== Resolved function: J | source: https://giftcards.abercrombie.com/_nuxt/20260930.5/dfaf289f652045a589f3.min.js ===== */
+function J(e=""){try{return decodeURIComponent(""+e)}catch(r){return""+e}}
+========================================================================================
