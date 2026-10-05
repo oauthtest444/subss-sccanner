@@ -1,7 +1,7 @@
 {
   "domain": "3lateral.com",
   "subdomain": "www.3lateral.com",
-  "stage": "listener",
+  "stage": "complete-subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }

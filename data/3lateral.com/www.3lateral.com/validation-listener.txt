@@ -1,0 +1,19 @@
+
+========================================================================================
+ROUTE: https://www.3lateral.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.3lateral.com/polyfills-6ISPNSXF.js, https://static.elfsight.com/platform/platform.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(m){return j(this,m,!1)}
+
+
+/* ===== Resolved function: j | source: https://www.3lateral.com/polyfills-6ISPNSXF.js ===== */
+function j(S){return S[n]}
+========================================================================================
