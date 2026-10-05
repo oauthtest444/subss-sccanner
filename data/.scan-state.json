@@ -1,7 +1,7 @@
 {
   "domain": "3cx.net",
   "subdomain": "downloads.3cx.net",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 0
 }
