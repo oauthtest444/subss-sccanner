@@ -1,7 +1,7 @@
 {
   "domain": "3cx.com",
-  "subdomain": "integrations.3cx.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 10
+  "subdomain_index": 11
 }
