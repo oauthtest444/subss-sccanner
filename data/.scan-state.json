@@ -1,7 +1,7 @@
 {
   "domain": "3cx.com",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "discoverv4.3cx.com",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
