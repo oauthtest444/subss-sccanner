@@ -1,7 +1,7 @@
 {
   "domain": "23andme.com",
   "subdomain": "refer.23andme.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 6
 }
