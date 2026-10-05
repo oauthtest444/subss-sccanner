@@ -1,7 +1,7 @@
 {
   "domain": "abercrombie.com",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "cert-giftcards.abercrombie.com",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }

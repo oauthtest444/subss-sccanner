@@ -1,0 +1,12 @@
+cert-giftcards.abercrombie.com
+community.abercrombie.com
+corporate.abercrombie.com
+e.em.abercrombie.com
+giftcards.abercrombie.com
+helpsurvey.abercrombie.com
+se.em.abercrombie.com
+track.abercrombie.com
+trackuk.abercrombie.com
+trackukqa.abercrombie.com
+view.email.abercrombie.com
+www.abercrombie.com
