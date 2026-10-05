@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "wpcommunity.1password.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 202
 }
