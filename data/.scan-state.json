@@ -1,7 +1,7 @@
 {
   "domain": "3cx.com",
-  "subdomain": "downloads-us.3cx.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 7
+  "subdomain_index": 8
 }
