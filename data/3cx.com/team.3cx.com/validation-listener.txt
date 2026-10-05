@@ -1,0 +1,38 @@
+
+========================================================================================
+ROUTE: https://team.3cx.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://team.3cx.com/polyfills.ff7c1950982e09de.js, https://team.3cx.com/main.0a19d6610412c9c4.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(fe){return Pe(this,fe,!0)}
+
+
+/* ===== Resolved function: Pe | source: https://team.3cx.com/polyfills.ff7c1950982e09de.js ===== */
+function Pe(pe){return pe[m]}
+========================================================================================
+
+========================================================================================
+ROUTE: https://team.3cx.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://team.3cx.com/polyfills.ff7c1950982e09de.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(fe){return Pe(this,fe,!1)}
+
+
+/* ===== Resolved function: Pe | source: https://team.3cx.com/polyfills.ff7c1950982e09de.js ===== */
+function Pe(pe){return pe[m]}
+========================================================================================
