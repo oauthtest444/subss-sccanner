@@ -1,7 +1,7 @@
 {
   "domain": "23andme.com",
   "subdomain": "notify-assets.23andme.com",
-  "stage": "bootstrap",
+  "stage": "archive",
   "domain_index": 0,
   "subdomain_index": 3
 }
