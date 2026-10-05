@@ -1,0 +1,12 @@
+__cf_chl_rt_tk
+__cf_chl_tk
+return_url
+ray
+page
+phcursor
+variant
+pr_prod_strat
+pr_rec_id
+pr_ref_pid
+pr_seq
+q
