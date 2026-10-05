@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://referto8.8x8.com/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .type
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://go.8x8.com/js/forms2/js/forms2.min.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(b){return"undefined"!=typeof ya&&ya.event.triggered!==b.type?ya.event.dispatch.apply(a,arguments):void 0}
+========================================================================================
