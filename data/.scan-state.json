@@ -1,7 +1,7 @@
 {
   "domain": "3cx.com",
   "subdomain": "repo.3cx.com",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 14
 }
