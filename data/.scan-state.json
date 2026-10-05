@@ -1,7 +1,7 @@
 {
   "domain": "3cx.com",
   "subdomain": "portal.3cx.com",
-  "stage": "listener",
+  "stage": "complete-subdomain",
   "domain_index": 0,
   "subdomain_index": 13
 }
