@@ -1,7 +1,7 @@
 {
   "domain": "1password.com",
-  "subdomain": "team-habitat.1password.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 170
+  "subdomain_index": 171
 }
