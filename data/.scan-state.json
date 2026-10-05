@@ -1,7 +1,7 @@
 {
   "domain": "8x8.com",
-  "subdomain": "vcc-eu10.8x8.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 50
+  "subdomain_index": 51
 }
