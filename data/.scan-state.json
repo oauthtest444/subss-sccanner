@@ -1,7 +1,7 @@
 {
   "domain": "23andme.org",
   "subdomain": "www.23andme.org",
-  "stage": "listener",
+  "stage": "complete-subdomain",
   "domain_index": 0,
   "subdomain_index": 3
 }
