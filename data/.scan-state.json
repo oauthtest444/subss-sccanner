@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "notary-tb.acronis.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 88
+  "subdomain_index": 89
 }
