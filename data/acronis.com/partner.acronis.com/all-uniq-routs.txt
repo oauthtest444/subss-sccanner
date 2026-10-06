@@ -1,0 +1,3 @@
+https://partner.acronis.com/aspx/OAuthCustomLogin
+https://partner.acronis.com/home/unsupportedbrowser
+https://partner.acronis.com/home/Error/?error=Unauthorized%20Access
