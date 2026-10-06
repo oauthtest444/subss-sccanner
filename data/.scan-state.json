@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "bg-vpn-qa.acronis.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 14
+  "subdomain_index": 15
 }
