@@ -1,0 +1,2 @@
+https://affinityembed1.looker.affinity.co/login
+https://affinityembed1.looker.affinity.co/login/email
