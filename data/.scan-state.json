@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "jp-vpn.acronis.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 73
+  "subdomain_index": 74
 }
