@@ -1,0 +1,23 @@
+
+========================================================================================
+ROUTE: https://security-advisory.acronis.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://security-advisory.acronis.com/js/chunk-vendors.561ceabf.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){e.source===t&&"string"==typeof e.data&&0===e.data.indexOf(o)&&p(+e.data.slice(o.length))}
+
+
+/* ===== Resolved function: p | source: https://security-advisory.acronis.com/js/chunk-vendors.561ceabf.js ===== */
+function p(t){f(t,"")}
+
+
+/* ===== Resolved function: f | source: https://security-advisory.acronis.com/js/chunk-vendors.561ceabf.js ===== */
+function f(){}
+========================================================================================
