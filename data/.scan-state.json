@@ -1,7 +1,7 @@
 {
-  "domain": "adjust.com",
+  "domain": "",
   "subdomain": "",
-  "stage": "subdomain",
+  "stage": "done-domain",
   "domain_index": 0,
-  "subdomain_index": 22
+  "subdomain_index": 0
 }
