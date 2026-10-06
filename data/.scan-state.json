@@ -1,7 +1,7 @@
 {
   "domain": "acronis.work",
-  "subdomain": "passport.acronis.work",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 0
+  "subdomain_index": 1
 }
