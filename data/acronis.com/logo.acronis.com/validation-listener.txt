@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://logo.acronis.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://st-p.rmcdn1.net/369c09a3/dist/c/c-JGEJJEFY.js, https://st-p.rmcdn1.net/369c09a3/dist/c/c-DSFEM2UF.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(O){O.source===e&&typeof O.data=="string"&&O.data.indexOf(k)===0&&d(+O.data.slice(k.length))}
+========================================================================================
