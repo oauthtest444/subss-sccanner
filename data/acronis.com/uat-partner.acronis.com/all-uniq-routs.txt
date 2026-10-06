@@ -1,0 +1,6 @@
+https://uat-partner.acronis.com/aspx/OAuthCustomLogin
+https://uat-partner.acronis.com/home/unsupportedbrowser
+https://uat-partner.acronis.com/aspx/OAuthCustomLogin?un=&pw=&returnUrl=%2Fsys%2Fcustomlabel%2Flookup
+https://uat-partner.acronis.com/home/Error/?error=Unauthorized%20Access
+https://uat-partner.acronis.com/aspx/OAuthCustomLogin?un=&pw=&returnUrl=%2Fsetup%2Faiassistantsetting%2Fgetaisuggestdocuments
+https://uat-partner.acronis.com/aspx/OAuthCustomLogin?un=&pw=&returnUrl=%2Fsys%2Fdocument%2Ftileimage%2F_tile
