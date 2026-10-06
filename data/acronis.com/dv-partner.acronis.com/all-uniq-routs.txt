@@ -1,0 +1,6 @@
+https://dv-partner.acronis.com/aspx/OAuthCustomLogin
+https://dv-partner.acronis.com/home/unsupportedbrowser
+https://dv-partner.acronis.com/aspx/OAuthCustomLogin?un=&pw=&returnUrl=%2Fsys%2Fcustomlabel%2Flookup
+https://dv-partner.acronis.com/home/Error/?error=Unauthorized%20Access
+https://dv-partner.acronis.com/aspx/OAuthCustomLogin?un=&pw=&returnUrl=%2Fsetup%2Faiassistantsetting%2Fgetaisuggestdocuments
+https://dv-partner.acronis.com/aspx/OAuthCustomLogin?un=&pw=&returnUrl=%2Fsys%2Fdocument%2Ftileimage%2F_tile
