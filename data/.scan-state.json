@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
   "subdomain": "partners.acronis.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 92
 }
