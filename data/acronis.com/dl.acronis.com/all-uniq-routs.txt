@@ -1,0 +1,7 @@
+https://dl.acronis.com/
+https://dl.acronis.com/u/ATI2021/help/cs-CZ/indexpage.html
+https://dl.acronis.com/u/baas/rn/26.07/en-US/AcronisCyberProtectCloud_relnotes.htm
+https://dl.acronis.com/u/software-defined/html/AcronisCyberInfrastructure_3_5_abgw_quick_start_guide_for_amazon_s3_ec2_en-US/setting-up-abgw.html
+https://dl.acronis.com/u/software-defined/html/AcronisCyberInfrastructure_4_0_admins_guide_en-US/index.html
+https://dl.acronis.com/u/software-defined/html/AcronisCyberInfrastructure_4_0_admins_guide_en-US/installation.html
+https://dl.acronis.com/u/software-defined/html/AcronisCyberInfrastructure_6_3_admins_guide_en-US/welcome.html
