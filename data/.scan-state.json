@@ -1,7 +1,7 @@
 {
   "domain": "adminml.com",
-  "subdomain": "auth2-meli.adminml.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 3
+  "subdomain_index": 4
 }
