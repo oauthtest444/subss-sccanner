@@ -1,0 +1,7 @@
+https://auth-testing-meli.adminml.com/app/UserHome
+https://auth-testing-meli.adminml.com/activate
+https://auth-testing-meli.adminml.com/help/login
+https://auth-testing-meli.adminml.com/auth/services/devicefingerprint
+https://auth-testing-meli.adminml.com/login/signout
+https://auth-testing-meli.adminml.com/error/enduser-error-page
+https://auth-testing-meli.adminml.com/account-settings/home
