@@ -1,0 +1,4 @@
+https://staging.partners.acronis.com/
+https://staging.partners.acronis.com/login
+https://staging.partners.acronis.com/login/user/register
+https://staging.partners.acronis.com/user/register
