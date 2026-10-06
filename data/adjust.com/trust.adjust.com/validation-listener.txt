@@ -1,0 +1,73 @@
+
+========================================================================================
+ROUTE: https://trust.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://trust.adjust.com/static/js/npm.jszip.c0783752.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function d(e){e.source===t&&"string"==typeof e.data&&0===e.data.indexOf(s)&&c(+e.data.slice(s.length))}
+
+
+/* ===== Resolved function: d | source: https://trust.adjust.com/static/js/npm.jszip.c0783752.js ===== */
+function d(t,e){var r;return t?((t.state=new u).window=null,0!==(r=c(t,e))&&(t.state=null),r):-2}
+
+
+/* ===== Resolved function: c | source: https://trust.adjust.com/static/js/npm.jszip.c0783752.js ===== */
+function c(t,e){var r=new f(e);if(r.push(t,!0),r.err)throw r.msg||o[r.err];return r.result}
+
+
+/* ===== Resolved function: f | source: https://trust.adjust.com/static/js/npm.jszip.c0783752.js ===== */
+function f(t){delete o[t]}
+========================================================================================
+
+========================================================================================
+ROUTE: https://trust.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://trust.adjust.com/static/js/npm.sentry.browser.d51ca54e.js, https://trust.adjust.com/static/js/npm.sentry-internal.browser-utils.ef8b98bd.js, https://trust.adjust.com/static/js/npm.sentry-internal.replay.1ca1e7e5.js, https://trust.adjust.com/static/js/npm.sentry.core.b839b51d.js, https://trust.adjust.com/static/js/index.fb3bcf03.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+({data:r})=>{r.success?e():t()}
+
+
+/* ===== Resolved function: e | source: https://trust.adjust.com/static/js/npm.sentry.browser.d51ca54e.js ===== */
+let e=t=>{if("__sentry_reportdialog_closed__"===t.data)try{v()}finally{l.jf.removeEventListener("message",e)}}
+
+
+/* ===== Resolved function: t | source: https://trust.adjust.com/static/js/npm.sentry-internal.replay.1ca1e7e5.js ===== */
+function t(t){this.ondata=t}
+
+
+/* ===== Resolved function: v | source: https://trust.adjust.com/static/js/npm.sentry.core.b839b51d.js ===== */
+function v(e,t,n){e[t]=(0,g.h)(e[t],n,1)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://trust.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://trust.adjust.com/static/js/npm.sentry.browser.d51ca54e.js, https://trust.adjust.com/static/js/npm.sentry-internal.browser-utils.ef8b98bd.js, https://trust.adjust.com/static/js/npm.sentry-internal.replay.1ca1e7e5.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+({data:t})=>{if(t.method===e&&t.id===r){if(this._worker.removeEventListener("message",s),!t.success){t3&&t4.error("Error in compression worker: ",t.response),i(Error("Error in compression worker"));return}n(t.response)}}
+
+
+/* ===== Resolved function: n | source: https://trust.adjust.com/static/js/npm.sentry-internal.replay.1ca1e7e5.js ===== */
+function n(e){let n,i=e.exec(t.substring(r));return i?(n=i[0],r+=n.length,n):""}
+========================================================================================
