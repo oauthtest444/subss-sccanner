@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
   "subdomain": "snactivation.acronis.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 106
 }
