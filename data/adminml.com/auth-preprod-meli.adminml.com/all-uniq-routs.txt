@@ -1,0 +1,7 @@
+https://auth-preprod-meli.adminml.com/app/UserHome
+https://auth-preprod-meli.adminml.com/auth/services/devicefingerprint
+https://auth-preprod-meli.adminml.com/login/signout
+https://auth-preprod-meli.adminml.com/error/enduser-error-page
+https://auth-preprod-meli.adminml.com/account-settings/home
+https://auth-preprod-meli.adminml.com/activate
+https://auth-preprod-meli.adminml.com/help/login
