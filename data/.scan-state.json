@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "mc-beta-cloud.acronis.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 82
+  "subdomain_index": 83
 }
