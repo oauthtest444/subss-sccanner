@@ -1,7 +1,7 @@
 {
   "domain": "adjust.com",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "ams-zbx-frontend-1.adjust.com",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
