@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://dl.acronis.com/u/software-defined/html/AcronisCyberInfrastructure_4_0_admins_guide_en-US/index.html
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .type
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://dl.acronis.com/u/software-defined/html/AcronisCyberInfrastructure_4_0_admins_guide_en-US/resources/Scripts/jquery.min.js, https://dl.acronis.com/u/software-defined/html/AcronisCyberInfrastructure_4_0_admins_guide_en-US/resources/Scripts/MadCapAll.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){return"undefined"!=typeof S&&S.event.triggered!==e.type?S.event.dispatch.apply(t,arguments):void 0}
+========================================================================================
