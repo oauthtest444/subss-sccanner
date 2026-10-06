@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "eu-baas.acronis.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 49
+  "subdomain_index": 50
 }
