@@ -1,0 +1,135 @@
+
+========================================================================================
+ROUTE: https://qa-2.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://consent.cookiebot.com/uc.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function handleUspapiMessage(event){if(""!==event.origin&&event.origin.startsWith("https")){var data=event&&event.data&&event.data.__uspapiCall;data&&"function"==typeof window.__uspapi&&window.__uspapi(data.command,data.version,function(returnValue,success){var eventSource=event.source;null==eventSource||eventSource.postMessage({__uspapiReturn:{returnValue:returnValue,success:success,callId:data.callId}},event.origin)})}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://qa-2.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: .origin, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://consent.cookiebot.com/uc.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(event){""!==event.origin&&(event.origin.startsWith("https")?that.handleBulkConsentIframeMessage(event):console.warn("Ignoring Unsecure message event origin:",event.origin))}
+========================================================================================
+
+========================================================================================
+ROUTE: https://qa-2.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://qa-2.adjust.com/_nuxt/e5fa878.js, https://qa-2.adjust.com/_nuxt/ce2dfe3.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){e.source===t&&"string"==typeof e.data&&0===e.data.indexOf(c)&&w(+e.data.slice(c.length))}
+
+
+/* ===== Resolved function: w | source: https://qa-2.adjust.com/_nuxt/e5fa878.js ===== */
+function w(t){return c(t)&&"function"==typeof t.then&&"function"==typeof t.catch}
+
+
+/* ===== Resolved function: c | source: https://qa-2.adjust.com/_nuxt/e5fa878.js ===== */
+function c(t){return null!=t}
+========================================================================================
+
+========================================================================================
+ROUTE: https://qa-2.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type, type:
+ORIGIN MATCHES: .origin, source:, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://qa-2.adjust.com/_nuxt/3d0766d.js, https://qa-2.adjust.com/_nuxt/ce2dfe3.js, https://qa-2.adjust.com/_nuxt/6fe4d0d.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function A(e){function t(){o("Height"),o("Width"),B((function(){U(A),z(I),x("onResized",A)}),A,"init")}function r(e){return"border-box"!==e.boxSizing?0:(e.paddingTop?parseInt(e.paddingTop,10):0)+(e.paddingBottom?parseInt(e.paddingBottom,10):0)}function n(e){return"border-box"!==e.boxSizing?0:(e.borderTopWidth?parseInt(e.borderTopWidth,10):0)+(e.borderBottomWidth?parseInt(e.borderBottomWidth,10):0)}function o(e){var t=Number(S[I]["max"+e]),r=Number(S[I]["min"+e]),n=e.toLowerCase(),o=Number(A[n]);D(I,"Checking "+n+" is in range "+r+"-"+t),o<r&&(o=r,D(I,"Set "+n+" to min value")),o>t&&(o=t,D(I,"Set "+n+" to max value")),A[n]=""+o}function c(e){return R.substr(R.indexOf(":")+m+e)}function l(iframe,e){var t,time,r;t=function(){var t,r;W("Send Page Info","pageInfo:"+(t=document.body.getBoundingClientRect(),r=A.iframe.getBoundingClientRect(),JSON.stringify({iframeHeight:r.height,iframeWidth:r.width,clientHeight:Math.max(document.documentElement.clientHeight,window.innerHeight||0),clientWidth:Math.max(document.documentElement.clientWidth,window.innerWidth||0),offsetTop:parseInt(r.top-t.top,10),offsetLeft:parseInt(r.left-t.left,10),scrollTop:window.pageYOffset,scrollLeft:window.pageXOffset,documentHeight:document.documentElement.clientHeight,documentWidth:document.documentElement.clientWidth,windowHeight:window.innerHeight,windowWidth:window.innerWidth})),iframe,e)},time=32,P[r=e]||(P[r]=setTimeout((function(){P[r]=null,t()}),time))}function f(e){var t=e.getBoundingClientRect();return $(I),{x:Math.floor(Number(t.left)+Number(_.x)),y:Math.floor(Number(t.top)+Number(_.y))}}function h(e){var t=e?f(A.iframe):{x:0,y:0},r={x:Number(A.width)+t.x,y:Number(A.height)+t.y};D(I,"Reposition requested from iFrame (offset x:"+t.x+" y:"+t.y+")"),window.top!==window.self?window.parentIFrame?window.parentIFrame["scrollTo"+(e?"Offset":"")](r.x,r.y):F(I,"Unable to scroll to requested position, window.parentIFrame not found"):(_=r,d(),D(I,"--"))}function d(){!1!==x("onScroll",_)?z(I):Y()}function w(e){var t={};if(0===Number(A.width)&&0===Number(A.height)){var data=c(9).split(":");t={x:data[1],y:data[0]}}else t={x:A.width,y:A.height};x(e,{iframe:A.iframe,screenX:Number(t.x),screenY:Number(t.y),type:A.type})}function x(e,t){return L(I,e,t)}var k,T,data,E,iframe,C,R=e.data,A={},I=null;"[iFrameResizerChild]Ready"===R?function(){for(var e in S)W("iFrame requested init",V(e),S[e].iframe,e)}():v===(""+R).substr(0,y)&&R.substr(y).split(":")[0]in S?(data=R.substr(y).split(":"),E=data[1]?parseInt(data[1],10):0,iframe=S[data[0]]&&S[data[0]].iframe,C=getComputedStyle(iframe),A={iframe:iframe,id:data[0],height:E+r(C)+n(C),width:data[2],type:data[3]},I=A.id,S[I]&&(S[I].loaded=!0),(T=A.type in{true:1,false:1,undefined:1})&&D(I,"Ignoring init message from meta parent page"),!T&&function(e){var t=!0;return S[e]||(t=!1,F(A.type+" No settings for "+e+". Message was: "+R)),t}(I)&&(D(I,"Received: "+R),k=!0,null===A.iframe&&(F(I,"IFrame ("+A.id+") not found"),k=!1),k&&function(){var t,r=e.origin,n=S[I]&&S[I].checkOrigin;if(n&&""+r!="null"&&!(n.constructor===Array?function(){var i=0,e=!1;for(D(I,"Checking connection is from allowed list of origins: "+n);i<n.length;i++)if(n[i]===r){e=!0;break}return e}():(t=S[I]&&S[I].remoteHost,D(I,"Checking connection is from: "+t),r===t)))throw new Error("Unexpected message received from: "+r+" for "+A.iframe.id+". Message was: "+e.data+". This error can be disabled by setting the checkOrigin: false option or by providing of array of trusted domains.");return!0}()&&function(){switch(S[I]&&S[I].firstRun&&S[I]&&(S[I].firstRun=!1),A.type){case"close":N(A.iframe);break;case"message":e=c(6),D(I,"onMessage passed: {iframe: "+A.iframe.id+", message: "+e+"}"),x("onMessage",{iframe:A.iframe,message:JSON.parse(e)}),D(I,"--");break;case"mouseenter":w("onMouseEnter");break;case"mouseleave":w("onMouseLeave");break;case"autoResize":S[I].autoResize=JSON.parse(c(9));break;case"scrollTo":h(!1);break;case"scrollToOffset":h(!0);break;case"pageInfo":l(S[I]&&S[I].iframe,I),function(){function e(e,n){function o(){S[r]?l(S[r].iframe,r):t()}["scroll","resize"].forEach((function(t){D(r,e+t+" listener for sendPageInfo"),n(window,t,o)}))}function t(){e("Remove ",O)}var r=I;e("Add ",M),S[r]&&(S[r].stopPageInfo=t)}();break;case"pageInfoStop":S[I]&&S[I].stopPageInfo&&(S[I].stopPageInfo(),delete S[I].stopPageInfo);break;case"inPageLink":!function(e){var t,r=e.split("#")[1]||"",n=decodeURIComponent(r),o=document.getElementById(n)||document.getElementsByName(n)[0];o?(t=f(o),D(I,"Moving to in page link (#"+r+") at x: "+t.x+" y: "+t.y),_={x:t.x,y:t.y},d(),D(I,"--")):window.top!==window.self?window.parentIFrame?window.parentIFrame.moveToAnchor(r):D(I,"In page link #"+r+" not found and window.parentIFrame not found"):D(I,"In page link #"+r+" not found")}(c(9));break;case"reset":H(A);break;case"init":t(),x("onInit",A.iframe);break;default:0===Number(A.width)&&0===Number(A.height)?F("Unsupported message received ("+A.type+"), this is likely due to the iframe containing a later version of iframe-resizer than the parent page"):t()}var e}())):j(I,"Ignored: "+R)}
+
+
+/* ===== Resolved function: A | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function A(e){return e!==Object(e)}
+
+
+/* ===== Resolved function: t | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function t(){e("Remove ",O)}
+
+
+/* ===== Resolved function: o | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function o(e){return e.slice(-1)[0]}
+
+
+/* ===== Resolved function: B | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function B(s,e,t){var r="double"===(t.quoteStyle||e)?'"':"'";return r+s+r}
+
+
+/* ===== Resolved function: U | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function U(e,t,r,n){var o,c=arguments.length>4&&void 0!==arguments[4]?arguments[4]:[],l={type:t,attributeName:r,name:n},f=D(c,(function(e){return e.name===r}));"hierarchical"===t?function(){for(var t=e.getHierarchicalFacetByName(r),c=n.split(t.separator),l=function(i){var e;f=f&&f.data&&D(Object.keys(f.data).map((e=f.data,function(t){return e[t]})),(function(e){return e.name===c[i]}))},i=0;void 0!==f&&i<c.length;++i)l(i);o=f&&f.count}():o=f&&f.data&&f.data[l.name];var h=f&&f.exhaustive;return void 0!==o&&(l.count=o),void 0!==h&&(l.exhaustive=h),l}
+
+
+/* ===== Resolved function: z | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function z(e){null!==_&&(window.scrollTo(_.x,_.y),D(e,"Set page position: "+_.x+","+_.y),Y())}
+
+
+/* ===== Resolved function: x | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function x(e,t){return L(I,e,t)}
+
+
+/* ===== Resolved function: r | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function r(e){return null!==e.offsetParent}
+
+
+/* ===== Resolved function: n | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function n(){this.__rules__=[],this.__cache__=null}
+
+
+/* ===== Resolved function: D | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function D(e,t){output("log",e,t,R(e))}
+
+
+/* ===== Resolved function: c | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function c(e){t=e}
+
+
+/* ===== Resolved function: l | source: https://qa-2.adjust.com/_nuxt/3d0766d.js ===== */
+function l(){c&&c()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://qa-2.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://qa-2.adjust.com/_nuxt/6fe4d0d.js, https://qa-2.adjust.com/_nuxt/e5fa878.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){if(Object(tt.t)(t.origin)){if(t.data===et.f.callGtagReportConversion)return void window.dataLayer.push(function(e){for(var i=1;i<arguments.length;i++){var source=null!=arguments[i]?arguments[i]:{};i%2?Xa(Object(source),!0).forEach((function(t){Object(r.a)(e,t,source[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(source)):Xa(Object(source)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(source,t))}))}return e}({event:et.l.genericEvent,action:"tracking_handler_form_success",label:e.store.state.googleAdsConversionParams.conversionValue},e.store.state.googleAdsConversionParams));Object(tt.s)(t.data)&&t.data.includes(et.f.formSubmissionFailed)&&window.dataLayer.push({event:et.l.genericEvent,action:"tracking_handler_form_failed",label:t.data.split(":::")[1]})}}
+
+
+/* ===== Resolved function: Xa | source: https://qa-2.adjust.com/_nuxt/6fe4d0d.js ===== */
+function Xa(object,e){var t=Object.keys(object);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(object);e&&(n=n.filter((function(e){return Object.getOwnPropertyDescriptor(object,e).enumerable}))),t.push.apply(t,n)}return t}
+========================================================================================
