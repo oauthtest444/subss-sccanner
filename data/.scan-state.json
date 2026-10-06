@@ -1,7 +1,7 @@
 {
   "domain": "adulttime.com",
   "subdomain": "lp.adulttime.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 0
 }
