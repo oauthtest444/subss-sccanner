@@ -1,0 +1,4 @@
+https://grafana.adjust.com/login
+https://grafana.adjust.com/login?redirectTo=%2Flog-grafana-javascript-agent
+https://grafana.adjust.com/login?redirectTo=%2Flogin%2Falerting%2F%3Aid%2Fedit
+https://grafana.adjust.com/public-dashboards/:accessToken
