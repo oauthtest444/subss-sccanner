@@ -1,0 +1,6 @@
+https://support-tools.adjust.com/
+https://support-tools.adjust.com/rs-api
+https://support-tools.adjust.com/blocklist-api
+https://support-tools.adjust.com/dlg-api
+https://support-tools.adjust.com/qr-api
+https://support-tools.adjust.com/rsqg
