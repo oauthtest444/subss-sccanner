@@ -1,0 +1,4 @@
+auth-meli.adminml.com
+auth-preprod-meli.adminml.com
+auth-testing-meli.adminml.com
+auth2-meli.adminml.com
