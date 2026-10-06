@@ -1,0 +1,127 @@
+
+========================================================================================
+ROUTE: https://iq.adjust.com/student/catalog
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://iq.adjust.com/vite/assets/axios-wqCnfrY2.js, https://iq.adjust.com/vite/assets/rolldown-runtime-DAXXjFlN.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+({source:n,data:r})=>{n===He&&r===e&&t.length&&t.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://iq.adjust.com/student/catalog
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js, https://iq.adjust.com/vite/assets/rolldown-runtime-DAXXjFlN.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{if(!R(t.origin)||!t.data||t.data.event!==`spacechange`)return;let n=t.source?z(t.source,e):null;if(n){let e=n.parentElement;e.style.paddingBottom=`${t.data.data[0].bottom}px`}}
+
+
+/* ===== Resolved function: R | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function R(e){return/^(https?:)?\/\/((((player|www)\.)?vimeo\.com)|((player\.)?[a-zA-Z0-9-]+\.(videoji\.(hk|cn)|vimeo\.work)))(?=$|\/)/.test(e)}
+
+
+/* ===== Resolved function: z | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function z(e){let t=arguments.length>1&&arguments[1]!==void 0?arguments[1]:document;if(!e||!t||typeof t.querySelectorAll!=`function`)return null;let n=t.querySelectorAll(`iframe`);for(let t=0;t<n.length;t++)if(n[t]&&n[t].contentWindow===e)return n[t];return null}
+========================================================================================
+
+========================================================================================
+ROUTE: https://iq.adjust.com/student/catalog
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js, https://iq.adjust.com/vite/assets/rolldown-runtime-DAXXjFlN.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{if(!R(t.origin))return;let n=U(t.data);if(!n||n.event!==`ready`)return;let r=t.source?z(t.source,e):null;r&&Qn(r.src)&&new Z(r).callMethod(`appendVideoMetadata`,window.location.href)}
+
+
+/* ===== Resolved function: R | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function R(e){return/^(https?:)?\/\/((((player|www)\.)?vimeo\.com)|((player\.)?[a-zA-Z0-9-]+\.(videoji\.(hk|cn)|vimeo\.work)))(?=$|\/)/.test(e)}
+
+
+/* ===== Resolved function: U | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function U(e){if(typeof e==`string`)try{e=JSON.parse(e)}catch(e){return console.warn(e),{}}return e}
+
+
+/* ===== Resolved function: z | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function z(e){let t=arguments.length>1&&arguments[1]!==void 0?arguments[1]:document;if(!e||!t||typeof t.querySelectorAll!=`function`)return null;let n=t.querySelectorAll(`iframe`);for(let t=0;t<n.length;t++)if(n[t]&&n[t].contentWindow===e)return n[t];return null}
+
+
+/* ===== Resolved function: Qn | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function Qn(e){return/^https:\/\/player\.((vimeo\.com)|([a-zA-Z0-9-]+\.(videoji\.(hk|cn)|vimeo\.work)))\/video\/\d+/.test(e)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://iq.adjust.com/student/catalog
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js, https://iq.adjust.com/vite/assets/rolldown-runtime-DAXXjFlN.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+n=>{if(!R(n.origin))return;let r=U(n.data);if(!r||r.event!==`ready`)return;let i=n.source?z(n.source,e):null;if(i&&Qn(i.src)){let e=new Z(i);e.getVideoId().then(t=>{let n=RegExp(`[?&]vimeo_t_${t}=([^&#]*)`).exec(window.location.href);if(n&&n[1]){let t=decodeURI(n[1]);e.setCurrentTime(t)}}).catch(t)}}
+
+
+/* ===== Resolved function: R | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function R(e){return/^(https?:)?\/\/((((player|www)\.)?vimeo\.com)|((player\.)?[a-zA-Z0-9-]+\.(videoji\.(hk|cn)|vimeo\.work)))(?=$|\/)/.test(e)}
+
+
+/* ===== Resolved function: U | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function U(e){if(typeof e==`string`)try{e=JSON.parse(e)}catch(e){return console.warn(e),{}}return e}
+
+
+/* ===== Resolved function: z | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function z(e){let t=arguments.length>1&&arguments[1]!==void 0?arguments[1]:document;if(!e||!t||typeof t.querySelectorAll!=`function`)return null;let n=t.querySelectorAll(`iframe`);for(let t=0;t<n.length;t++)if(n[t]&&n[t].contentWindow===e)return n[t];return null}
+
+
+/* ===== Resolved function: Qn | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function Qn(e){return/^https:\/\/player\.((vimeo\.com)|([a-zA-Z0-9-]+\.(videoji\.(hk|cn)|vimeo\.work)))\/video\/\d+/.test(e)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://iq.adjust.com/student/catalog
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js, https://iq.adjust.com/vite/assets/rolldown-runtime-DAXXjFlN.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+e=>{if(!R(e.origin))return;let t=U(e.data);if(!t||t.event!==`drminitfailed`)return;let n=e.source?z(e.source):null;if(!n)return;let r=n.getAttribute(`allow`)||``;if(!r.includes(`encrypted-media`)){n.setAttribute(`allow`,`${r}; encrypted-media`);let e=new URL(n.getAttribute(`src`));e.searchParams.set(`forcereload`,`drm`),n.setAttribute(`src`,e.toString());return}}
+
+
+/* ===== Resolved function: R | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function R(e){return/^(https?:)?\/\/((((player|www)\.)?vimeo\.com)|((player\.)?[a-zA-Z0-9-]+\.(videoji\.(hk|cn)|vimeo\.work)))(?=$|\/)/.test(e)}
+
+
+/* ===== Resolved function: U | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function U(e){if(typeof e==`string`)try{e=JSON.parse(e)}catch(e){return console.warn(e),{}}return e}
+
+
+/* ===== Resolved function: z | source: https://iq.adjust.com/vite/assets/packs/components.js-DydnflJ4.js ===== */
+function z(e){let t=arguments.length>1&&arguments[1]!==void 0?arguments[1]:document;if(!e||!t||typeof t.querySelectorAll!=`function`)return null;let n=t.querySelectorAll(`iframe`);for(let t=0;t<n.length;t++)if(n[t]&&n[t].contentWindow===e)return n[t];return null}
+========================================================================================
