@@ -1,0 +1,25 @@
+
+========================================================================================
+ROUTE: https://support.acronis.com/start-chat?userType=guest&type=msp&language=en
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data, .type, type:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://support.acronis.com/start-chat?userType=guest&type=msp&language=en
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(event) {
+                    if (event.data.type === 'LWC_READY') {
+
+                        const iframe = document.querySelector('#embedded-messaging iframe');
+                        if (iframe && iframe.contentWindow) {
+                            iframe.contentWindow.postMessage({ type: 'USER_TYPE', userType: userType, firstName: firstName,
+                                lastName: lastName,	phone: phone, email: email,country: country,product:product  }, '*');
+                            console.log('Sent USER_TYPE to LWC after it is ready:'+userType);
+                        }
+                    }
+                }
+========================================================================================
