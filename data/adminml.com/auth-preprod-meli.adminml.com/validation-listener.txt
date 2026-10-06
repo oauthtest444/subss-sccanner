@@ -1,0 +1,122 @@
+
+========================================================================================
+ROUTE: https://auth-preprod-meli.adminml.com/auth/services/devicefingerprint
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://auth-preprod-meli.adminml.com/auth/services/devicefingerprint
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function onMessageReceived(event) {
+
+  if (!event || !event.data || event.origin != "https\x3A\x2F\x2Fauth\x2Dpreprod\x2Dmeli.adminml.com") {
+    return;
+  }
+  try {
+    var message = JSON.parse(event.data);
+    if (message == null || message.type != "GetFingerprint") {
+      return;
+    }
+    computeFingerprintHashViaFingerPrintJs();
+  } catch (error) {
+
+    postErrorMessage(error);
+  }
+}
+
+
+/* ===== Resolved function: onMessageReceived | source: https://auth-preprod-meli.adminml.com/auth/services/devicefingerprint ===== */
+function onMessageReceived(event) {
+
+  if (!event || !event.data || event.origin != "https\x3A\x2F\x2Fauth\x2Dpreprod\x2Dmeli.adminml.com") {
+    return;
+  }
+  try {
+    var message = JSON.parse(event.data);
+    if (message == null || message.type != "GetFingerprint") {
+      return;
+    }
+    computeFingerprintHashViaFingerPrintJs();
+  } catch (error) {
+
+    postErrorMessage(error);
+  }
+}
+
+
+/* ===== Resolved function: computeFingerprintHashViaFingerPrintJs | source: https://auth-preprod-meli.adminml.com/auth/services/devicefingerprint ===== */
+function computeFingerprintHashViaFingerPrintJs() {
+
+  var options = {
+    excludeCanvas: true,
+    excludeWebGL: true,
+    excludeAdBlock: true,
+    excludeScreenResolution: true,
+    excludeAvailableScreenResolution: true,
+    excludeDeviceMemory: true
+  };
+  try {
+    new Fingerprint2(options).get(function(result, components) {
+      getNonceAndSignFingerprint(result);
+    });
+  } catch(error) {
+    
+    postErrorMessage(error);
+  }
+}
+
+
+/* ===== Resolved function: postErrorMessage | source: https://auth-preprod-meli.adminml.com/auth/services/devicefingerprint ===== */
+function postErrorMessage(error) {
+  var errorMessage = {
+    type : "FingerprintError",
+    error: error
+  };
+  parent.postMessage(JSON.stringify(errorMessage), "https\x3A\x2F\x2Fauth\x2Dpreprod\x2Dmeli.adminml.com");
+}
+
+
+/* ===== Resolved function: getNonceAndSignFingerprint | source: https://auth-preprod-meli.adminml.com/auth/services/devicefingerprint ===== */
+function getNonceAndSignFingerprint(fingerprintHash) {
+
+  $.post("/api/v1/internal/device/nonce",
+      function (data, status) {
+        if (status == "success") {
+          signFingerprintUsingDeviceNonce(fingerprintHash, data);
+        } else {
+          var errorMessage = "Error while generating nonce. Status code = " + status;
+          
+          postErrorMessage(errorMessage); 
+        }
+      }).fail(function() {
+        var errorMessage = "Nonce call failed";
+        
+        postErrorMessage(errorMessage); 
+      });
+}
+
+
+/* ===== Resolved function: signFingerprintUsingDeviceNonce | source: https://auth-preprod-meli.adminml.com/auth/services/devicefingerprint ===== */
+function signFingerprintUsingDeviceNonce(fingerprintHashValue, nonceResponse) {
+  try {
+    var nonce = nonceResponse.nonce;
+
+    var fingerprintHmac = CryptoJS.HmacSHA256(fingerprintHashValue.toString(), nonce);
+    var deviceFingerprint = nonce + "|" + fingerprintHmac + "|" + fingerprintHashValue;
+    var message = {
+      type : "FingerprintAvailable",
+      fingerprint : deviceFingerprint,
+      fingerprintExpiry : nonceResponse.expiresAt
+    }
+    
+    parent.postMessage(JSON.stringify(message), "https\x3A\x2F\x2Fauth\x2Dpreprod\x2Dmeli.adminml.com");
+  } catch (error) {
+    
+    postErrorMessage(error);
+  }
+}
+========================================================================================
