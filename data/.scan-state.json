@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "beta-cloud.acronis.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 13
+  "subdomain_index": 14
 }
