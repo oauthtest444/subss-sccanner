@@ -1,7 +1,7 @@
 {
   "domain": "adulttime.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "surveys.adulttime.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 2
 }
