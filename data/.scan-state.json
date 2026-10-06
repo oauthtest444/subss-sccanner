@@ -1,7 +1,7 @@
 {
   "domain": "adaptive-shield.com",
   "subdomain": "status.adaptive-shield.com",
-  "stage": "listener",
+  "stage": "complete-subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
