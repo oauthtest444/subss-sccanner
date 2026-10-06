@@ -1,0 +1,2 @@
+https://es01-cloud.acronis.com/login
+https://es01-cloud.acronis.com/mc/app;group_id=8d41ead1-e89b-41f0-a196-a5688a0ecedd/extension;id=cti.acronis.platform.ui.management-portal.nav-menu.integration-list
