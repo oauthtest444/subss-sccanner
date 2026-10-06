@@ -1,0 +1,135 @@
+
+========================================================================================
+ROUTE: https://qa-1.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://consent.cookiebot.com/uc.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function handleUspapiMessage(event){if(""!==event.origin&&event.origin.startsWith("https")){var data=event&&event.data&&event.data.__uspapiCall;data&&"function"==typeof window.__uspapi&&window.__uspapi(data.command,data.version,function(returnValue,success){var eventSource=event.source;null==eventSource||eventSource.postMessage({__uspapiReturn:{returnValue:returnValue,success:success,callId:data.callId}},event.origin)})}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://qa-1.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: .origin, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://consent.cookiebot.com/uc.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(event){""!==event.origin&&(event.origin.startsWith("https")?that.handleBulkConsentIframeMessage(event):console.warn("Ignoring Unsecure message event origin:",event.origin))}
+========================================================================================
+
+========================================================================================
+ROUTE: https://qa-1.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://qa-1.adjust.com/_nuxt/f10c3c2.js, https://qa-1.adjust.com/_nuxt/7d19e8f.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){e.source===t&&"string"==typeof e.data&&0===e.data.indexOf(c)&&w(+e.data.slice(c.length))}
+
+
+/* ===== Resolved function: w | source: https://qa-1.adjust.com/_nuxt/f10c3c2.js ===== */
+function w(t){return"[object Object]"===m.call(t)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://qa-1.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type, type:
+ORIGIN MATCHES: .origin, source:, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://qa-1.adjust.com/_nuxt/5692bdb.js, https://qa-1.adjust.com/_nuxt/7d19e8f.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function L(e){function t(){o("Height"),o("Width"),V((function(){U(L),B(F),w("onResized",L)}),L,"init")}function n(e){return"border-box"!==e.boxSizing?0:(e.paddingTop?parseInt(e.paddingTop,10):0)+(e.paddingBottom?parseInt(e.paddingBottom,10):0)}function r(e){return"border-box"!==e.boxSizing?0:(e.borderTopWidth?parseInt(e.borderTopWidth,10):0)+(e.borderBottomWidth?parseInt(e.borderBottomWidth,10):0)}function o(e){var t=Number(x[F]["max"+e]),n=Number(x[F]["min"+e]),r=e.toLowerCase(),o=Number(L[r]);N(F,"Checking "+r+" is in range "+n+"-"+t),o<n&&(o=n,N(F,"Set "+r+" to min value")),o>t&&(o=t,N(F,"Set "+r+" to max value")),L[r]=""+o}function l(e){return E.slice(E.indexOf(":")+m+e)}function c(iframe,e){var t,time,n;t=function(){var t,n;G("Send Page Info","pageInfo:"+(t=document.body.getBoundingClientRect(),n=L.iframe.getBoundingClientRect(),JSON.stringify({iframeHeight:n.height,iframeWidth:n.width,clientHeight:Math.max(document.documentElement.clientHeight,window.innerHeight||0),clientWidth:Math.max(document.documentElement.clientWidth,window.innerWidth||0),offsetTop:parseInt(n.top-t.top,10),offsetLeft:parseInt(n.left-t.left,10),scrollTop:window.pageYOffset,scrollLeft:window.pageXOffset,documentHeight:document.documentElement.clientHeight,documentWidth:document.documentElement.clientWidth,windowHeight:window.innerHeight,windowWidth:window.innerWidth})),iframe,e)},time=32,D[n=e]||(D[n]=setTimeout((function(){D[n]=null,t()}),time))}function d(e){var t=e.getBoundingClientRect();return z(F),{x:Math.floor(Number(t.left)+Number(k.x)),y:Math.floor(Number(t.top)+Number(k.y))}}function f(e){var t=e?d(L.iframe):{x:0,y:0},n={x:Number(L.width)+t.x,y:Number(L.height)+t.y};N(F,"Reposition requested from iFrame (offset x:"+t.x+" y:"+t.y+")"),window.top===window.self?(k=n,h(),N(F,"--")):window.parentIFrame?window.parentIFrame["scrollTo"+(e?"Offset":"")](n.x,n.y):A(F,"Unable to scroll to requested position, window.parentIFrame not found")}function h(){!1===w("onScroll",k)?$():B(F)}function _(e){var t={};if(0===Number(L.width)&&0===Number(L.height)){var data=l(9).split(":");t={x:data[1],y:data[0]}}else t={x:L.width,y:L.height};w(e,{iframe:L.iframe,screenX:Number(t.x),screenY:Number(t.y),type:L.type})}function w(e,t){return I(F,e,t)}var S,T,data,j,iframe,O,E=e.data,L={},F=null;"[iFrameResizerChild]Ready"===E?function(){for(var e in x)G("iFrame requested init",W(e),x[e].iframe,e)}():v===(""+E).slice(0,y)&&E.slice(y).split(":")[0]in x?(data=E.slice(y).split(":"),j=data[1]?parseInt(data[1],10):0,iframe=x[data[0]]&&x[data[0]].iframe,O=getComputedStyle(iframe),L={iframe:iframe,id:data[0],height:j+n(O)+r(O),width:data[2],type:data[3]},F=L.id,x[F]&&(x[F].loaded=!0),(T=L.type in{true:1,false:1,undefined:1})&&N(F,"Ignoring init message from meta parent page"),!T&&function(e){var t=!0;return x[e]||(t=!1,A(L.type+" No settings for "+e+". Message was: "+E)),t}(F)&&(N(F,"Received: "+E),S=!0,null===L.iframe&&(A(F,"IFrame ("+L.id+") not found"),S=!1),S&&function(){var t,n=e.origin,r=x[F]&&x[F].checkOrigin;if(r&&""+n!="null"&&!(r.constructor===Array?function(){var i=0,e=!1;for(N(F,"Checking connection is from allowed list of origins: "+r);i<r.length;i++)if(r[i]===n){e=!0;break}return e}():(t=x[F]&&x[F].remoteHost,N(F,"Checking connection is from: "+t),n===t)))throw new Error("Unexpected message received from: "+n+" for "+L.iframe.id+". Message was: "+e.data+". This error can be disabled by setting the checkOrigin: false option or by providing of array of trusted domains.");return!0}()&&function(){switch(x[F]&&x[F].firstRun&&x[F]&&(x[F].firstRun=!1),L.type){case"close":M(L.iframe);break;case"message":e=l(6),N(F,"onMessage passed: {iframe: "+L.iframe.id+", message: "+e+"}"),w("onMessage",{iframe:L.iframe,message:JSON.parse(e)}),N(F,"--");break;case"mouseenter":_("onMouseEnter");break;case"mouseleave":_("onMouseLeave");break;case"autoResize":x[F].autoResize=JSON.parse(l(9));break;case"scrollTo":f(!1);break;case"scrollToOffset":f(!0);break;case"pageInfo":c(x[F]&&x[F].iframe,F),function(){function e(e,r){function o(){x[n]?c(x[n].iframe,n):t()}["scroll","resize"].forEach((function(t){N(n,e+t+" listener for sendPageInfo"),r(window,t,o)}))}function t(){e("Remove ",P)}var n=F;e("Add ",C),x[n]&&(x[n].stopPageInfo=t)}();break;case"pageInfoStop":x[F]&&x[F].stopPageInfo&&(x[F].stopPageInfo(),delete x[F].stopPageInfo);break;case"inPageLink":!function(e){var t,n=e.split("#")[1]||"",r=decodeURIComponent(n),o=document.getElementById(r)||document.getElementsByName(r)[0];o?(t=d(o),N(F,"Moving to in page link (#"+n+") at x: "+t.x+" y: "+t.y),k={x:t.x,y:t.y},h(),N(F,"--")):window.top===window.self?N(F,"In page link #"+n+" not found"):window.parentIFrame?window.parentIFrame.moveToAnchor(n):N(F,"In page link #"+n+" not found and window.parentIFrame not found")}(l(9));break;case"reset":H(L);break;case"init":t(),w("onInit",L.iframe);break;default:0===Number(L.width)&&0===Number(L.height)?A("Unsupported message received ("+L.type+"), this is likely due to the iframe containing a later version of iframe-resizer than the parent page"):t()}var e}())):R(F,"Ignored: "+E)}
+
+
+/* ===== Resolved function: L | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function L(e){return e!==Object(e)}
+
+
+/* ===== Resolved function: t | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function t(){e("Remove ",P)}
+
+
+/* ===== Resolved function: o | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function o(e){return e.slice(-1)[0]}
+
+
+/* ===== Resolved function: V | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function V(e){return e.replace(/([.+*?=^!:${}()[\]|/\\])/g,"\\$1")}
+
+
+/* ===== Resolved function: U | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function U(e){return H(e,!0)}
+
+
+/* ===== Resolved function: B | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function B(e){null!==k&&(window.scrollTo(k.x,k.y),N(e,"Set page position: "+k.x+","+k.y),$())}
+
+
+/* ===== Resolved function: w | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function w(e,t){return I(F,e,t)}
+
+
+/* ===== Resolved function: n | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function n(e){return null!==e.offsetParent}
+
+
+/* ===== Resolved function: r | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function r(){this.__rules__=[],this.__cache__=null}
+
+
+/* ===== Resolved function: N | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function N(){}
+
+
+/* ===== Resolved function: l | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function l(e){return"[object Function]"===o(e)}
+
+
+/* ===== Resolved function: c | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function c(){l&&l()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://qa-1.adjust.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://qa-1.adjust.com/_nuxt/5692bdb.js, https://qa-1.adjust.com/_nuxt/f10c3c2.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){return Ur(e,t,n)}
+
+
+/* ===== Resolved function: Ur | source: https://qa-1.adjust.com/_nuxt/f10c3c2.js ===== */
+function Ur(t,data,e,n,r){var o=Ct(t);return o.fnContext=e,o.fnOptions=n,data.slot&&((o.data||(o.data={})).slot=data.slot),o}
+
+
+/* ===== Resolved function: Ct | source: https://qa-1.adjust.com/_nuxt/5692bdb.js ===== */
+function Ct(e){return function(e){if(Array.isArray(e)){for(var i=0,t=new Array(e.length);i<e.length;i++)t[i]=e[i];return t}}(e)||function(e){if(Symbol.iterator in Object(e)||"[object Arguments]"===Object.prototype.toString.call(e))return Array.from(e)}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance")}()}
+========================================================================================

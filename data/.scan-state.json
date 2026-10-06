@@ -1,7 +1,7 @@
 {
   "domain": "adjust.com",
   "subdomain": "qa-1.adjust.com",
-  "stage": "listener",
+  "stage": "complete-subdomain",
   "domain_index": 0,
   "subdomain_index": 12
 }
