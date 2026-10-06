@@ -1,0 +1,4 @@
+https://sandfly.adjust.com/
+https://sandfly.adjust.com/hosts/retry
+https://sandfly.adjust.com/results/getMaxID
+https://sandfly.adjust.com/sandflies/activate
