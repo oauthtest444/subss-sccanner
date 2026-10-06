@@ -1,0 +1,5 @@
+domain
+returnUrl
+email
+redirectUrl
+selfRegistered

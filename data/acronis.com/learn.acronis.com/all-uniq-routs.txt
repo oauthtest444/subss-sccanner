@@ -1,0 +1,3 @@
+https://learn.acronis.com/
+https://learn.acronis.com/idp/Account/PreLogin?ReturnUrl=%2Fidp%2Fconnect%2Fauthorize%2Fcallback%3Faudience%3Dlearn.acronis.com%26client_id%3Dweb-ui%26code_challenge%3D8Nu_Tt3JPkM8B64aaM8dWI3EYPCXG3c4MlQ6qbTBk5U%26code_challenge_method%3DS256%26redirect_uri%3Dhttps%253A%252F%252Flearn.acronis.com%252Foidc%252Fcallback%253FredirectUrl%253D%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520user%2520platform%2520offline_access%26state%3DOvOuiwxjOFq7cYApq9im7tyedQqGmrXT
+https://learn.acronis.com/login
