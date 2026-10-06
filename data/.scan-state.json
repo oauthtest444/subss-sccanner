@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
   "subdomain": "proctor.acronis.com",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 96
 }
