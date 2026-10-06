@@ -1,0 +1,25 @@
+
+========================================================================================
+ROUTE: https://care.acronis.com/s/support-portal/service-provider?language=en_US
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data, .type, type:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://care.acronis.com/s/support-portal/service-provider?language=en_US
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(event) {
+                if (event.data.type === 'LWC_READY') {
+        console.log('LWC_READY ');
+         const iframe = document.querySelector('#embedded-messaging iframe');
+        console.log('iframe',iframe);
+                    if (iframe && iframe.contentWindow) {
+                        iframe.contentWindow.postMessage({ type: 'PRE_CHAT_FIELDS',chatFields: chatFields}, '*');
+                    }
+                 
+                }
+  }
+========================================================================================

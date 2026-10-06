@@ -1,0 +1,49 @@
+
+========================================================================================
+ROUTE: https://care.acronis.com/s/support-portal/service-provider?language=en_US
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: .origin, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://care.acronis.com/s/support-portal/service-provider?language=en_US
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+(event) => {
+	if (event.data?.type === 'CHAT_FIELDS' && event.data.fields) {
+    	const expectedOrigin = window.location.origin;
+		console.log('expectedOrigin: '+expectedOrigin);
+    	if (event.origin !== expectedOrigin) {
+        	console.warn('Message ignored: unexpected origin', event.origin);
+            return;
+        }
+        chatFields = event.data.fields;
+        console.log('Received chat fields:', chatFields);
+    }
+}
+========================================================================================
+
+========================================================================================
+ROUTE: https://care.acronis.com/s/support-portal/service-provider?language=en_US
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://care.acronis.com/s/sfsites/auraFW/javascript/WUdfaXlIZDNDQ0lZLWNFZDMtVGZ3d2tVMjdnTGFERUU2S3FfSVdrcU92bkExNC4xOTIuODM4ODYwOA/aura_prod.js, https://service.force.com/embeddedservice/5.0/esw.min.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){const n=tt.call(t);if(In(t,Wn(t),n))return R(e)?e.call(this,t):e.handleEvent&&e.handleEvent(t)}
+
+
+/* ===== Resolved function: Wn | source: https://care.acronis.com/s/sfsites/auraFW/javascript/WUdfaXlIZDNDQ0lZLWNFZDMtVGZ3d2tVMjdnTGFERUU2S3FfSVdrcU92bkExNC4xOTIuODM4ODYwOA/aura_prod.js ===== */
+function Wn(e){return ml.get(e)??et.call(e)}
+
+
+/* ===== Resolved function: R | source: https://care.acronis.com/s/sfsites/auraFW/javascript/WUdfaXlIZDNDQ0lZLWNFZDMtVGZ3d2tVMjdnTGFERUU2S3FfSVdrcU92bkExNC4xOTIuODM4ODYwOA/aura_prod.js ===== */
+function R(e){null!=e&&this.set(e)}
+========================================================================================
