@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "cz01-cloud.acronis.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 39
+  "subdomain_index": 40
 }
