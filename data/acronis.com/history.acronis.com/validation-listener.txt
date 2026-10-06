@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://history.acronis.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type, data:, type:
+ORIGIN MATCHES: .origin, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn.optimizely.com/js/627870150.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function _(n){var t;if(i.find(m.getFrames(),{origin:n.origin})){try{t=d.parse(n.data)}catch(u){return void g.debug("XDomain","Ignoring malformed message event:",n)}if("ERROR"===t.type)a.dispatch(o.XDOMAIN_SET_DISABLED,{disabled:!0}),s.emitInternalError(new y("Xdomain Error: "+t.response));else if("SYNC"===t.type)i.each(m.getSubscribers(),(function(n){n(t.response.key,t.response.value)}));else{var e=m.getMessageById(t.id);if(!e){if(g.warn("XDomain","No stored message found for ID",t.id),i.isNumber(t.id)){var r=m.getNextMessageId();t.id>=r?s.emitInternalError(new y("Message ID is greater than expected maximum ID ("+t.id+">"+r+")")):t.id<0?s.emitInternalError(new y("Message ID is < 0: "+t.id)):s.emitInternalError(new y("No stored message found for message ID: "+t.id))}else s.emitInternalError(new y("Message ID is not a number: "+t.id));return}if(!e.resolver)return void g.warn("XDomain","Message already resolved, ignoring:",t.id);e.resolver(t.response),a.dispatch(o.XDOMAIN_SET_MESSAGE,{messageId:t.id,message:{data:{id:t.id,type:e.data.type,key:e.data.key},startTime:e.startTime,endTime:f.now()}})}}else g.debug("XDomain","No frame found for origin: "+n.origin)}
+========================================================================================
