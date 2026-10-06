@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "uat-partner.acronis.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 117
+  "subdomain_index": 118
 }
