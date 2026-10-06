@@ -1,7 +1,7 @@
 {
   "domain": "adaptive-shield.com",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "status.adaptive-shield.com",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
