@@ -1,0 +1,5 @@
+https://iq.adjust.com/student/catalog
+https://iq.adjust.com/student/all_sessions
+https://iq.adjust.com/student/authentication/public_modal
+https://iq.adjust.com/student/collection/2481296-policy-center
+https://iq.adjust.com/student/catalog/list
