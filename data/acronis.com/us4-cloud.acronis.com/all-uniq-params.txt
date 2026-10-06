@@ -1,0 +1,9 @@
+v
+_dc
+jwt
+allow_default
+scope
+code
+state
+return_url
+token
