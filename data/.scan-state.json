@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "info.acronis.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 67
 }
