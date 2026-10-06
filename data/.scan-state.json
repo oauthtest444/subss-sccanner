@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
-  "subdomain": "cloud-wr-eu8.acronis.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 30
+  "subdomain_index": 31
 }
