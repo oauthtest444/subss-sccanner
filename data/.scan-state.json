@@ -1,7 +1,7 @@
 {
   "domain": "adjust.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "esh-zbx-frontend-1.adjust.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 8
 }
