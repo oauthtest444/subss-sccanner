@@ -1,7 +1,7 @@
 {
   "domain": "adaptive-shield.com",
   "subdomain": "status.adaptive-shield.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 0
 }
