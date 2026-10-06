@@ -1,7 +1,7 @@
 {
   "domain": "adminml.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "auth-testing-meli.adminml.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 2
 }
