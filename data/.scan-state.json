@@ -1,7 +1,7 @@
 {
   "domain": "adjust.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "sandfly.adjust.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 14
 }
