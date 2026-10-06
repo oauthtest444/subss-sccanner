@@ -1,7 +1,7 @@
 {
   "domain": "adulttime.com",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "lp.adulttime.com",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
