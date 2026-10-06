@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://brand.adjust.com/finder
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn.frontify.com/js/frontify-vendors.84876206334fe270.js, https://cdn.frontify.com/js/frontify-terrific-module-ofinder.a2759b998962f3f4.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+s=>{s.data.domainError&&this.displayError(s.data.domainError)}
+========================================================================================
