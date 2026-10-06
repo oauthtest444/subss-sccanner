@@ -1,0 +1,475 @@
+
+========================================================================================
+ROUTE: https://www.acronis.com/en/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.acronis.com/dist/site-header/header.f2g36B9n.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+({ source: o, data: i }) => {
+      o === tt && i === n && r.length && r.shift()();
+    }
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.acronis.com/en/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.acronis.com/dist/site-client/chunks/c-vendor-common-B7TuGSj7.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+({source:i,data:o})=>{i===rr&&o===r&&n.length&&n.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.acronis.com/en/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.acronis.com/dist/site-header/header.f2g36B9n.js, https://www.acronis.com/mat/matomo.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(az){if(!az||!az.origin){return}var aB,ax,av;var aC=d(az.origin);var ay=v.getAsyncTrackers();for(ax=0;ax<ay.length;ax++){av=d(ay[ax].getMatomoUrl());if(av===aC){aB=ay[ax];break}}if(!aB){return}var aw=null;try{aw=JSON.parse(az.data)}catch(aA){return}if(!aw){return}function au(aF){var aH=K.getElementsByTagName("iframe");for(ax=0;ax<aH.length;ax++){var aG=aH[ax];var aD=d(aG.src);if(aG.contentWindow&&N(aG.contentWindow.postMessage)&&aD===aC){var aE=JSON.stringify(aF);aG.contentWindow.postMessage(aE,az.origin)}}}if(N(aw.maq_initial_value)){au({maq_opted_in:aw.maq_initial_value&&aB.hasConsent(),maq_url:aB.getMatomoUrl(),maq_optout_by_default:aB.isConsentRequired()})}else{if(N(aw.maq_opted_in)){ay=v.getAsyncTrackers();for(ax=0;ax<ay.length;ax++){aB=ay[ax];if(aw.maq_opted_in){aB.rememberConsentGiven()
+}else{aB.forgetConsentGiven()}}au({maq_confirm_opted_in:aB.hasConsent(),maq_url:aB.getMatomoUrl(),maq_optout_by_default:aB.isConsentRequired()})}}}
+
+
+/* ===== Resolved function: d | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function d(_) {
+      if (_ > u)
+        throw new S(
+          "Object is too deeply nested (" + _ + " levels). Max depth: " + u,
+          S.ERR_FORM_DATA_DEPTH_EXCEEDED
+        );
+    }
+
+
+/* ===== Resolved function: au | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function au(e, t) {
+    return De().captureEvent(e, t);
+  }
+
+
+/* ===== Resolved function: N | source: https://www.acronis.com/mat/matomo.js ===== */
+function N(av){var au=typeof av;return au!=="undefined"}
+
+
+/* ===== Resolved function: S | source: https://www.acronis.com/mat/matomo.js ===== */
+function S(aA){var aC="Matomo_Overlay";var av=new RegExp("index\\.php\\?module=Overlay&action=startOverlaySession&idSite=([0-9]+)&period=([^&]+)&date=([^&]+)(&segment=[^&]*)?");var aw=av.exec(K.referrer);if(aw){var ay=aw[1];if(ay!==String(aA)){return false}var az=aw[2],au=aw[3],ax=aw[4];if(!ax){ax=""}else{if(ax.indexOf("&segment=")===0){ax=ax.substr("&segment=".length)}}X.name=aC+"###"+az+"###"+au+"###"+ax}var aB=X.name.split("###");return aB.length===4&&aB[0]===aC}
+
+
+/* ===== Resolved function: De | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function De() {
+    const e = Qn();
+    return Ho(e).getCurrentScope();
+  }
+
+
+/* ===== Resolved function: Qn | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Qn() {
+    return er(B), B;
+  }
+
+
+/* ===== Resolved function: Ho | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Ho(e) {
+    const t = er(e);
+    return t.acs ? t.acs : h_();
+  }
+
+
+/* ===== Resolved function: er | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function er(e) {
+    const t = e.__SENTRY__ = e.__SENTRY__ || {};
+    return t.version = t.version || rt, t[rt] = t[rt] || {};
+  }
+
+
+/* ===== Resolved function: h_ | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function h_() {
+    return {
+      withIsolationScope: Ss,
+      withScope: d_,
+      withSetScope: p_,
+      withSetIsolationScope: (e, t) => Ss(t),
+      getCurrentScope: () => Ct().getScope(),
+      getIsolationScope: () => Ct().getIsolationScope()
+    };
+  }
+
+
+/* ===== Resolved function: Ss | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Ss(e) {
+    return Ct().withScope(() => e(Ct().getIsolationScope()));
+  }
+
+
+/* ===== Resolved function: Ct | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Ct() {
+    const e = Qn(), t = er(e);
+    return t.stack = t.stack || new f_(a_(), c_());
+  }
+
+
+/* ===== Resolved function: e | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function e(n) {
+      try {
+        return JSON.stringify(n);
+      } catch {
+        return '"[Circular]"';
+      }
+    }
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.acronis.com/en/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.acronis.com/dist/site-header/header.f2g36B9n.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function tt(e){if(ze())return;const t=e.data;if(!t||t.name!==Ke)return;const n=t.data;n&&n.accountId===window._vwo_acc_id&&n.name&&(Ze[n.msgId]||(Je(n.msgId),function(e,t,n){var o,i;const s=window.VWO._.cookies;if(!s||!s._create)return;const r=null===(i=null===(o=window.VWO._.libUtils)||void 0===o?void 0:o.syncThirdPartyGlobalCookies)||void 0===i?void 0:i.bind(window.VWO._.libUtils);if(r&&Xe.test(e)){const n=e.indexOf("uuid")>=0?t:encodeURIComponent(t);return void r({[e]:n})}if("_vwo_sn"===e){const n=window.VWO._.commonCookieHandler;if((null==n?void 0:n.getSnLastUpdatedTime)&&n.getSnLastUpdatedTime(s.get(e))>n.getSnLastUpdatedTime(t))return}s._create(e,t,n,window._vwo_cookieDomain,void 0,!0)}(n.name,n.value,n.days),et(t,e.source)))}
+
+
+/* ===== Resolved function: Je | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Je() {
+      const A = new Error().stack;
+      if (!A) return null;
+      const w = A.split(`
+`);
+      for (let C = 1; C < w.length; C++) {
+        const D = w[C].trim();
+        if (/(^at\s+)?(createWrap|LOG|set\s*\(|asObject|Object\.apply|Function\.apply)/.test(D) || D.indexOf("browser.js") !== -1 || D.indexOf("node:internal") !== -1 || D.indexOf("node_modules") !== -1) continue;
+        let k = D.match(/\((.*?):(\d+):(\d+)\)/);
+        if (k || (k = D.match(/at\s+(.*?):(\d+):(\d+)/)), k) {
+          const U = k[1], F = k[2], j = k[3];
+          return U + ":" + F + ":" + j;
+        }
+      }
+      return null;
+    }
+
+
+/* ===== Resolved function: r | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function r(s) {
+      t.delete(s);
+    }
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.acronis.com/en/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, type:
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.acronis.com/dist/site-header/header.f2g36B9n.js, https://connect.facebook.net/en_US/fbevents.js, https://connect.facebook.net/signals/config/1677765275843431?v=2.9.414&r=stable&domain=www.acronis.com&hme=a4c28c8787325ac3f8f9eac68364f47df2a8c4266e43177443e5d7f6289c9774&ex_m=117%2C240%2C170%2C27%2C81%2C82%2C161%2C77%2C76%2C11%2C180%2C101%2C20%2C152%2C140%2C46%2C84%2C89%2C148%2C175%2C182%2C8%2C4%2C5%2C7%2C6%2C3%2C102%2C114%2C32%2C17%2C31%2C18%2C33%2C34%2C35%2C37%2C55%2C162%2C86%2C125%2C22%2C24%2C51%2C47%2C49%2C48%2C94%2C103%2C107%2C123%2C159%2C163%2C53%2C124%2C29%2C26%2C132%2C78%2C43%2C165%2C164%2C166%2C156%2C154%2C30%2C42%2C66%2C122%2C177%2C79%2C21%2C127%2C92%2C75%2C23%2C96%2C97%2C129%2C95%2C150%2C149%2C153%2C108%2C176%2C179%2C41%2C56%2C126%2C54%2C160%2C71%2C184%2C109%2C183%2C209%2C254%2C83%2C273%2C272%2C271%2C14%2C25%2C28%2C40%2C62%2C116%2C68%2C10%2C72%2C110%2C111%2C112%2C118%2C143%2C38%2C36%2C145%2C146%2C147%2C142%2C141%2C171%2C85%2C174%2C172%2C173%2C57%2C67%2C136%2C19%2C178%2C52%2C322%2C323%2C324%2C321%2C337%2C359%2C247%2C236%2C69%2C237%2C235%2C362%2C353%2C59%2C248%2C120%2C144%2C91%2C134%2C61%2C133%2C139%2C138%2C65%2C73%2C167%2C87%2C88%2C128%2C44%2C39%2C60%2C63%2C113%2C181%2C1%2C137%2C16%2C135%2C12%2C2%2C64%2C104%2C15%2C74%2C70%2C131%2C100%2C99%2C186%2C187%2C105%2C106%2C9%2C115%2C185%2C58%2C157%2C98%2C90%2C80%2C130%2C119%2C168%2C50%2C158%2C0%2C93%2C151%2C155%2C169%2C45%2C121%2C13%2C188
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function L(t){var n=t.data,r=n.graphToken,a=n.msg_type,i=n.pixelID,s=n.sessionStartTime,c=n.source,d=n.valueCurrencyDiagnostics,y=n.deepLinkContext;if(o&&o.pixelsByID&&o.pixelsByID[i]&&o.pixelsByID[i].codeless==="false"){m({pixelID:i,type:"SITE_CODELESS_OPT_OUT"});return}var b=_.test(t.origin)||f.test(t.origin)||c===h&&t.source===e;if(!(C.getItem(g)||!b||!(t.data&&(a==="FACEBOOK_IWL_BOOTSTRAP"||a==="FACEBOOK_IWL_CONFIRM_DOMAIN")))){if(!u(o.pixelsByID,i)){t.source.postMessage("FACEBOOK_IWL_ERROR_PIXEL_DOES_NOT_MATCH",t.origin);return}switch(a){case"FACEBOOK_IWL_BOOTSTRAP":{e.__iwlBootstrapTiming={listenerReadyAt:l,bootstrapReceivedAt:p()},t.source.postMessage("FACEBOOK_IWL_BOOTSTRAP_ACK",t.origin);var v=c===h&&t.source===e,L=v?function(){return t.source.postMessage("FACEBOOK_IWL_SESSION_ENDED",t.origin)}:void 0;R(r,i,s,L,v,d,y);break}case"FACEBOOK_IWL_CONFIRM_DOMAIN":{t.source.postMessage("FACEBOOK_IWL_CONFIRM_DOMAIN_ACK",t.origin),S(i,r);break}}}}
+
+
+/* ===== Resolved function: L | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function L(A) {
+      return typeof A.timestamp == "function" ? A.timestamp : A.timestamp === !1 ? ee : ce;
+    }
+
+
+/* ===== Resolved function: m | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function m(_, b, v = 0) {
+      if (!h.isUndefined(_)) {
+        if (d(v), f.indexOf(_) !== -1)
+          throw new Error("Circular reference detected in " + b.join("."));
+        f.push(_), h.forEach(_, function(L, x) {
+          (!(h.isUndefined(L) || L === null) && i.call(t, L, h.isString(x) ? x.trim() : x, b, E)) === !0 && m(L, b ? b.concat(x) : [x], v + 1);
+        }), f.pop();
+      }
+    }
+
+
+/* ===== Resolved function: u | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function u(A, w) {
+      return Array.isArray(A) ? A.filter(function(D) {
+        return D !== "!stdSerializers.err";
+      }) : A === !0 ? Object.keys(w) : !1;
+    }
+
+
+/* ===== Resolved function: p | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function p(A) {
+      const w = {};
+      return Object.keys(A).forEach(function(C) {
+        w[A[C]] = C;
+      }), w;
+    }
+
+
+/* ===== Resolved function: R | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function R(A) {
+      const w = {
+        type: A.constructor.name,
+        msg: A.message,
+        stack: A.stack
+      };
+      for (const C in A)
+        w[C] === void 0 && (w[C] = A[C]);
+      return w;
+    }
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.acronis.com/en/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.acronis.com/dist/site-header/header.f2g36B9n.js, https://cdn.vector.co/pixel.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+n=>{n.origin===e&&n.data&&"string"==typeof n.data&&(Ar=!0,Nr(t,n.data,r,o.cookieDomain))}
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.acronis.com/en/blog/posts/managed-service-software/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type, data:, type:
+ORIGIN MATCHES: .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.acronis.com/dist/site-header/header.f2g36B9n.js, https://www.youtube.com/s/player/1f293754/www-widgetapi.vflset/www-widgetapi.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){a:if(gb.has(e.origin)){try{var h=JSON.parse(e.data)}catch(d){break a}var k=Z[h.id];if(k&&e.origin===k.P)switch(e=k.T,e.u=!0,e.u&&(E(e.m,e.sendMessage,e),e.m.length=0),k=h.event,h=h.info,k){case "apiInfoDelivery":if(B(h))for(var f in h)h.hasOwnProperty(f)&&(e.v[f]=h[f]);break;case "infoDelivery":eb(e,h);break;case "initialDelivery":B(h)&&(clearInterval(e.i),e.playerInfo={},e.v={},fb(e,h.apiInterface),eb(e,h));break;case "alreadyInitialized":clearInterval(e.i);
+break;case "readyToListen":bb(e);break;default:e.j.j||(f={target:e,data:h},e.j.H(k,f),Sa("player."+k,f))}}}
+
+
+/* ===== Resolved function: E | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function E() {
+        d && d(), g && g(), o.cancelToken && o.cancelToken.unsubscribe(l), o.signal && o.signal.removeEventListener("abort", l);
+      }
+
+
+/* ===== Resolved function: fb | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function fb(e, t, n, r) {
+    const i = ae()?.getOptions().normalizeDepth, s = bb(t), a = {
+      __serialized__: Hc(t, i)
+    };
+    if (s)
+      return {
+        exception: {
+          values: [Jo(e, s)]
+        },
+        extra: a
+      };
+    const c = {
+      exception: {
+        values: [
+          {
+            type: nr(t) ? t.constructor.name : r ? "UnhandledRejection" : "Error",
+            value: Ab(t, { isUnhandledRejection: r })
+          }
+        ]
+      },
+      extra: a
+    };
+    if (n) {
+      const u = ir(e, n);
+      u.length && (c.exception.values[0].stacktrace = { frames: u });
+    }
+    return c;
+  }
+
+
+/* ===== Resolved function: bb | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function bb(e) {
+    return Object.values(e).find(Le);
+  }
+
+
+/* ===== Resolved function: d | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function d(_) {
+      if (_ > u)
+        throw new S(
+          "Object is too deeply nested (" + _ + " levels). Max depth: " + u,
+          S.ERR_FORM_DATA_DEPTH_EXCEEDED
+        );
+    }
+
+
+/* ===== Resolved function: g | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function g(_, b) {
+      if (u === 1 / 0)
+        return JSON.stringify(_);
+      const v = [];
+      return JSON.stringify(_, function(L, x) {
+        if (!h.isObject(x))
+          return x;
+        for (; v.length && v[v.length - 1] !== this; )
+          v.pop();
+        return v.push(x), d(b + v.length - 1), x;
+      });
+    }
+
+
+/* ===== Resolved function: ae | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function ae() {
+    return De().getClient();
+  }
+
+
+/* ===== Resolved function: Hc | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Hc(e, t = 3, n = 100 * 1024) {
+    const r = Oe(e, t);
+    return Zy(r) > n ? Hc(e, t - 1, n) : r;
+  }
+
+
+/* ===== Resolved function: Jo | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Jo(e, t) {
+    const n = ir(e, t), r = {
+      type: mb(t),
+      value: gb(t)
+    };
+    return n.length && (r.stacktrace = { frames: n }), r.type === void 0 && r.value === "" && (r.value = "Unrecoverable error caught"), r;
+  }
+
+
+/* ===== Resolved function: nr | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function nr(e) {
+    return typeof Event < "u" && Fo(e, Event);
+  }
+
+
+/* ===== Resolved function: Ab | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function Ab(e, { isUnhandledRejection: t }) {
+    const n = Hy(e), r = t ? "promise rejection" : "exception";
+    return Bc(e) ? `Event \`ErrorEvent\` captured as ${r} with message \`${e.message}\`` : nr(e) ? `Event \`${Eb(e)}\` (type=${e.type}) captured as ${r}` : `Object captured as ${r} with keys: ${n}`;
+  }
+
+
+/* ===== Resolved function: ir | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function ir(e, t) {
+    const n = t.stacktrace || t.stack || "", r = pb(t), o = hb(t);
+    try {
+      return e(n, r, o);
+    } catch {
+    }
+    return [];
+  }
+
+
+/* ===== Resolved function: De | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function De() {
+    const e = Qn();
+    return Ho(e).getCurrentScope();
+  }
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.acronis.com/de-de/lp/acronis-cyber-protect-home-office/welcome/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type, data:, type:
+ORIGIN MATCHES: .origin, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn.optimizely.com/js/627870150.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function _(n){var t;if(i.find(m.getFrames(),{origin:n.origin})){try{t=d.parse(n.data)}catch(u){return void g.debug("XDomain","Ignoring malformed message event:",n)}if("ERROR"===t.type)a.dispatch(o.XDOMAIN_SET_DISABLED,{disabled:!0}),s.emitInternalError(new y("Xdomain Error: "+t.response));else if("SYNC"===t.type)i.each(m.getSubscribers(),(function(n){n(t.response.key,t.response.value)}));else{var e=m.getMessageById(t.id);if(!e){if(g.warn("XDomain","No stored message found for ID",t.id),i.isNumber(t.id)){var r=m.getNextMessageId();t.id>=r?s.emitInternalError(new y("Message ID is greater than expected maximum ID ("+t.id+">"+r+")")):t.id<0?s.emitInternalError(new y("Message ID is < 0: "+t.id)):s.emitInternalError(new y("No stored message found for message ID: "+t.id))}else s.emitInternalError(new y("Message ID is not a number: "+t.id));return}if(!e.resolver)return void g.warn("XDomain","Message already resolved, ignoring:",t.id);e.resolver(t.response),a.dispatch(o.XDOMAIN_SET_MESSAGE,{messageId:t.id,message:{data:{id:t.id,type:e.data.type,key:e.data.key},startTime:e.startTime,endTime:f.now()}})}}else g.debug("XDomain","No frame found for origin: "+n.origin)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.acronis.com/en/products/cyber-protect/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.acronis.com/dist/site-header/header.f2g36B9n.js, https://dev.visualwebsiteoptimizer.com/cdn/static/1.0/va_survey-80d0c7e0b7f06a74b1e8d6a11768a0d4br.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function v(e){if(!e||!e.data)return!1;var t=e.data;return"VWO_CROSS_STORE"!==t.namespace?!1:void("isWorkerReady"===t.id?(m=!0,c&&c.contentWindow&&c.contentWindow.postMessage(f,"*"),f=[]):i(t))}
+
+
+/* ===== Resolved function: v | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function v(A) {
+      return {
+        ts: 0,
+        messages: [],
+        bindings: A || [],
+        level: { label: "", value: 0 }
+      };
+    }
+
+
+/* ===== Resolved function: i | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function i(l, f) {
+      if (!h.isUndefined(f))
+        return r(void 0, f);
+    }
+
+
+/* ===== Resolved function: r | source: https://www.acronis.com/dist/site-header/header.f2g36B9n.js ===== */
+function r(s) {
+      t.delete(s);
+    }
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.acronis.com/en/products/cyber-protect/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.acronis.com/dist/site-header/header.f2g36B9n.js, https://dev.visualwebsiteoptimizer.com/cdn/static/1.0/va_survey-80d0c7e0b7f06a74b1e8d6a11768a0d4br.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=window.JSON;if(""!==e.origin&&e.data&&e.origin===vwo_jquery_1.getWingifyServiceDomain().replace(/\/$/,"")){try{e.data="string"==typeof e.data?t.parse(e.data):e.data}catch(e){return}var r=e.data.action,n=exports.listeners.childFrame.on[r];if(n)if(utils_1.utils.log("Processed Child Event",e),r==EventTypeEnum_1.EventTypeEnum.TELL_BACKEND){var i=core_1.surveyWrapper.surveys[core_1.surveyWrapper.visibleSurvey];i&&i.isCollapsed&&!i.openedOnce?core_1.surveyWrapper.afterOpenCallbacks.push(n.bind(core_1.surveyWrapper,e)):n.call(core_1.surveyWrapper,e)}else n.call(core_1.surveyWrapper,e.data);r===EventTypeEnum_1.EventTypeEnum.LANGUAGE_CHANGED&&core_1.surveyWrapper.previewDebugger&&core_1.surveyWrapper.informChild(EventTypeEnum_1.EventTypeEnum.LANGUAGE_CHANGED,e.data)}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.acronis.com/public/integrations/sfchat
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, type:
+ORIGIN MATCHES: .source, .origin, origin:
+XSS SINK MATCHES: window.open(, src=
+SOURCE URLS: https://acronis.my.site.com/ESWSalesMessaging1768379938074/assets/js/bootstrap.min.js, https://www.acronis.com/public/integrations/sfchat
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function kt(i){if(i&&i.data&&i.origin)if(embeddedservice_bootstrap.filePreviewFrame&&embeddedservice_bootstrap.filePreviewFrame.contentWindow===i.source)switch(i.data.method){case"ESW_APP_SHOW_FILE_PREVIEW_FRAME":qt(!0);break;case"ESW_APP_HIDE_FILE_PREVIEW_FRAME":qt(!1);break;default:Nt("handleMessageEvent","Unrecognized event name: "+i.data.method)}else if(embeddedservice_bootstrap.siteContextFrame&&embeddedservice_bootstrap.siteContextFrame.contentWindow===i.source)switch(i.data.method){case"ESW_3RDPARTY_STORAGE_READY":xe();break;case"ESW_3RDPARTY_STORAGE_RESPONSE":i.data.data&&i.data.data.localStorage&&wt(i.data.data.localStorage,localStorage),i.data.data&&i.data.data.sessionStorage&&wt(i.data.data.sessionStorage,sessionStorage),Ze();break;default:Nt("handleMessageEvent","Unrecognized event name: "+i.data.method)}else if(0===fs().indexOf(i.origin)&&embeddedservice_bootstrap.utilAPI.getEmbeddedMessagingFrame()&&embeddedservice_bootstrap.utilAPI.getEmbeddedMessagingFrame().contentWindow===i.source&&embeddedservice_bootstrap.isMessageFromSalesforceDomain(i.origin)||embeddedservice_bootstrap.settings.customDomain&&embeddedservice_bootstrap.isMessageFromCustomDomain(i.origin)){let d=embeddedservice_bootstrap.utilAPI.getEmbeddedMessagingFrame();switch(i.data.method){case"ESW_APP_READY_EVENT":Be();break;case"ESW_APP_LOADED":!function(){let e=Vt(),t=document.getElementById(z),s=document.getElementById(G),n=document.getElementById(J);embeddedservice_bootstrap.utilAPI.getEmbeddedMessagingFrame()||Nt("handleAfterAppLoad","Embedded Messaging iframe not available for post-app-load updates."),e?(t&&n&&t.removeChild(n),s&&(s.style.display="none"),e.disabled=!1,e.classList.remove(g),e.classList.add(u),e.classList.add("no-hover")):Nt("handleAfterAppLoad","Embedded Messaging static button not available for post-app-load updates."),pt(),function(){Fe=!0;try{$t(pe)}catch(e){Fe=!1,Rt("emitEmbeddedMessagingInitSuccessEvent",`Something went wrong in firing onEmbeddedMessagingInitSuccess event ${e}.`)}}()}();break;case"ESW_APP_INITIALIZATION_ERROR":Ht();break;case e:embeddedservice_bootstrap.minimizeIframe(d,i.data.data);break;case t:embeddedservice_bootstrap.maximizeIframe(d,i.data.data);break;case"ESW_APP_RESET_INITIAL_STATE":tn();break;case s:xt(i.data.data);break;case"ESW_CLEAR_WEBSTORAGE_EVENT":Tt();break;case"ESW_DOWNLOAD_FILE":!function(e){let t;if(!function(e){try{var t=new URL(e);return Boolean(t)&&"https:"===t.protocol}catch(e){return!1}}(e.attachmentDownloadURL))throw new Error(`Invalid attachmentDownloadURL : ${e.attachmentDownloadURL}.`);t=document.createElement("iframe"),t.style.display="none",t.src=e.attachmentDownloadURL||"",document.body.appendChild(t),e.shouldOpenFileInNewTab&&window.open(t.src,"_blank","noreferrer noopener"),setTimeout(()=>{document.body.removeChild(t)},3e4)}(i.data.data);break;case"ESW_SET_WEBSTORAGE_FAILEDMESSAGES_EVENT":"object"==typeof(a=i.data.data)?At(it,a,!1):Rt("storeFailedMessagesInWebStorage",`Expected to receive object, instead received: ${a}.`);break;case"ESW_CLEAN_UP_WEBSTORAGE_FAILEDMESSAGES_EVENT":Ct(it);break;case"ESW_APP_UPDATE_TITLE_NOTIFICATION":Wt(i.data.data);break;case"ESW_APP_SEND_HIDDEN_PRECHAT_FIELDS":js("ESW_APP_RECEIVE_HIDDEN_PRECHAT_FIELDS",ze);break;case"ESW_APP_SEND_AUTORESPONSE_PARAMETERS":js("ESW_APP_RECEIVE_AUTORESPONSE_PARAMETERS",Ve);break;case"EMBEDDED_MESSAGING_IDENTITY_TOKEN_EXPIRED_EVENT":gn()===ce.AUTH||gn()===ce.EXCHANGE_JWT_AUTH?$t(fe):Nt("handleIdentityTokenExpiredEvent","handleIdentityTokenExpiredEvent method called but User Verification isn’t enabled in Messaging Settings.");break;case"EMBEDDED_MESSAGING_JWT_RETRIEVAL_FAILURE_EVENT":ln();break;case"ESW_APP_PRECHAT_SUBMIT":!function(e){const t=Object.assign(e,ze);$t("onEmbeddedMessagingPreChatSubmitted",{detail:{[le]:"Conversation",[me]:t}}),bn()?cs().then(e=>{e&&e.isExistingConversation?(Pt("handlePrechatSubmit","Pre-chat submitted but a conversation already exits for the verified user. Joining the existing conversation."),js(n,e)):(Pt("handlePrechatSubmit","Pre-chat submitted. Creating a new conversation."),ms(t).then(e=>{js(n,e)}))}):gn()===ce.UNAUTH&&(Qs()?(Pt("handlePrechatSubmit","Pre-chat submitted but a JWT exists in web storage. Fetching existing conversations."),Pe=It(nt),ns().then(e=>{js(s,e),cs().then(e=>{e&&e.isExistingConversation?(Pt("handlePrechatSubmit","Pre-chat submitted but a conversation already exits for the unverified user. Joining the existing conversation."),js(n,e)):(Pt("handlePrechatSubmit","Pre-chat submitted and no existing conversations found. Creating a new conversation."),ms(t).then(e=>{js(n,e)}))})})):(Pt("handlePrechatSubmit","Pre-chat submitted. Fetching a JWT and starting a new conversation."),is().then(e=>{js(s,e),ms(t).then(e=>{js(n,e)})})))}(i.data.data);break;case"ESW_APP_SHOW_MINIMIZED_STATE_NOTIFICATION":!function(){const e=embeddedservice_bootstrap.utilAPI.getEmbeddedMessagingFrame();e&&e.classList.add(_)}();break;case"EMBEDDED_MESSAGING_REQUEST_TRANSCRIPT_EVENT":$t("onEmbeddedMessagingTranscriptRequested",{detail:{conversationId:Le}}),bs(embeddedservice_bootstrap.settings.scrt2URL.concat(ne,"/",Le,"/transcript"),"GET","cors",null,null,"getTranscript").then(e=>e.arrayBuffer()).then(e=>{!function(e,t){const s=new Blob([t],{type:"octet/stream"}),n=window.URL.createObjectURL(s),i=document.createElement("a");i.href=n,i.download=e,i.click(),window.URL.revokeObjectURL(n)}("ConversationTranscript.pdf",e),js("EMBEDDED_MESSAGING_REQUEST_TRANSCRIPT_SUCCESS_EVENT"),$t("onEmbeddedMessagingTranscriptDownloadSuccessful",{detail:{conversationId:Le}})}).catch(e=>{if(e){const t=e.status,s=e.message||void 0;js(o,{detail:{errorCode:t,errorMessage:s}}),Rt("handleRequestTranscript",`Transcript request failed with status code: ${t} & message: ${s}`,t)}else js(o);$t("onEmbeddedMessagingTranscriptRequestFailed",{detail:{conversationId:Le}})});break;case"EMBEDDED_MESSAGING_DISPATCH_EVENT_TO_HOST":$t(i.data.data&&i.data.data.eventName,{detail:i.data.data.eventDetails||{}});break;case"EMBEDDED_MESSAGING_PUBLIC_SEND_TEXT_MESSAGE_API_RESPONSE":(r=i.data.data).success?gt():bt(r.error),gt=void 0,bt=void 0;break;case"EMBEDDED_MESSAGING_TEXT_MESSAGE_LINK_CLICK":!function(e){try{if(e&&e.data&&e.data.data){let t=e.data.data;if($t("onEmbeddedMessageLinkClicked",{detail:Object.assign({},JSON.parse(t.conversationEntry),{link:t.link})}),t.link){const e=document.createElement("a");e.setAttribute("href",t.link),e.setAttribute("rel","noopener noreferrer"),!Ms()&&Boolean(embeddedservice_bootstrap.settings.shouldOpenLinksInSameTab)||e.setAttribute("target","_blank"),e.click()}}}catch(e){Rt("handleLinkClick",`Something went wrong in handling a link click: ${e}`)}}(i);break;case"EMBEDDED_MESSAGING_SCREENREADER_ANNOUNCEMENT":!function(e){const t=document.getElementById("embeddedMessagingLiveRegion");t.textContent=e.text,tt&&clearTimeout(tt),tt=setTimeout(()=>{t.textContent=""},3e3)}(i.data.data);break;case"ESW_APP_RESET_AND_RELAUNCH":bn()||embeddedservice_bootstrap.userVerificationAPI.clearSession().then(()=>{embeddedservice_bootstrap.utilAPI.launchChat().then(()=>{Pt("handleAppResetAndRelaunch","Reset and Relaunched the client.")}).catch(e=>{Rt("handleAppResetAndRelaunch",`Failed to Reset and Relaunch the client: ${e}`)})}).catch(e=>{Rt("handleAppResetAndRelaunch",`Failed to Reset and Relaunch the client: ${e}`)});break;case"EMBEDDED_MESSAGING_CLEAR_USER_SESSION_ERROR":ut(i.data.data);break;default:Nt("handleMessageEvent","Unrecognized event name: "+i.data.method)}}else if(i.origin===window.location.origin&&i.source===window)switch(i.data.method){case"EMBEDDED_MESSAGING_INVITATIONS_NO_CONDITIONS_CONFIGURED":Pt("handleMessageEvent","Invitation is enabled but no conditions configured");break;case"EMBEDDED_MESSAGING_INVITATIONS_RULE_TREE_CREATED":Pt("handleMessageEvent",`Invitations rule tree created from formula: ${i.data.data.formula}`);break;case"EMBEDDED_MESSAGING_INVITATIONS_RULE_TREE_EVALUATED":Pt("handleMessageEvent",`Invitations rule tree evaluated with result: ${i.data.data.result}`);break;case"EMBEDDED_MESSAGING_INVITATIONS_CONDITIONS_MET":$s()?function(){const e=embeddedservice_bootstrap.settings.embeddedServiceConfig.invitation||{};return Boolean(e.isChatInvitationCustomizable)}()?($t(Ee),Pt("handleInvitationConditionsMet","Default invitation skipped to allow custom invitation"),embeddedservice_bootstrap.invitations.reset()):function(){const e=embeddedservice_bootstrap.settings&&embeddedservice_bootstrap.settings.embeddedServiceConfig,t=e&&"object"==typeof e.invitation?e.invitation:{};return Boolean(t.isContextualInvitationsEnabled)}()?(Je=!0,Ds()?ks():Pt("handleContextualInvitation","Invitation conditions met. Waiting for invitation context to trigger personalized message.")):Fs():(Pt("handleInvitationConditionsMet","Invitation conditions met but should not show invitation based on settings/previous actions"),embeddedservice_bootstrap.invitations.reset());break;case"EMBEDDED_MESSAGING_INVITATIONS_RULE_TREE_CREATION_ERROR":Rt("handleMessageEvent",`Failed to create invitations rule tree with formula "${i.data.data.formula}": ${i.data.data.error}`);break;case"EMBEDDED_MESSAGING_INVITATIONS_RULE_TREE_EVALUATION_ERROR":Rt("handleMessageEvent",`Failed to evaluate invitations rule tree: ${i.data.data.error}`);break;default:Nt("handleMessageEvent","Unrecognized event name: "+i.data.method)}else Rt("handleMessageEvent",`Unexpected message origin: ${i.origin}`);var r,a}
+========================================================================================

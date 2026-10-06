@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://www.acronis.com/de/support/documentation/AcronisCyberCloud/index.html
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .type
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://www.acronis.com/de/support/documentation/AcronisCyberCloud/resources/Scripts/jquery.min.js, https://www.acronis.com/de/support/documentation/AcronisCyberCloud/resources/Scripts/MadCapAll.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){return"undefined"!=typeof S&&S.event.triggered!==e.type?S.event.dispatch.apply(t,arguments):void 0}
+========================================================================================
