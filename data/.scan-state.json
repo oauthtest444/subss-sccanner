@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
   "subdomain": "cloud-wr-us2.acronis.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 35
 }
