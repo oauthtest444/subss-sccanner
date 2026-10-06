@@ -34,6 +34,73 @@ XSS_CONTENT_TYPES = {
 # Use your environment variable instead of hard-coding a webhook.
 WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 
+# Hop-by-hop / browser-managed headers that must not be forced.
+FORBIDDEN_HEADERS = {
+    "host",
+    "content-length",
+    "content-encoding",
+    "transfer-encoding",
+    "connection",
+    "keep-alive",
+    "upgrade",
+    "te",
+    "trailer",
+    "proxy-connection",
+    "proxy-authenticate",
+    "proxy-authorization",
+    "accept-encoding",
+}
+
+COOKIE_ATTR_NAMES = {
+    "samesite", "path", "domain", "secure", "httponly",
+    "max-age", "expires", "priority", "partitioned",
+}
+
+
+def load_headers_file(path):
+    """
+    Parse a Burp-style headers file (one 'Name: value' per line).
+    Returns a dict suitable for urllib request headers.
+    Cookie/Cookies is normalized to Cookie; attributes like SameSite are dropped.
+    """
+    headers = {}
+    cookie_parts = []
+
+    with open(path, "r", encoding="utf-8", errors="ignore") as f:
+        for raw in f:
+            line = raw.strip()
+            if not line or line.startswith("#") or ":" not in line:
+                continue
+            key, value = line.split(":", 1)
+            key = key.strip()
+            value = value.strip()
+            if not key:
+                continue
+            lower = key.lower()
+            if lower in FORBIDDEN_HEADERS:
+                continue
+            if lower in ("cookie", "cookies"):
+                for part in value.split(";"):
+                    part = part.strip()
+                    if not part or "=" not in part:
+                        continue
+                    name, val = part.split("=", 1)
+                    name = name.strip()
+                    val = val.strip()
+                    if not name or name.lower() in COOKIE_ATTR_NAMES:
+                        continue
+                    cookie_parts.append(f"{name}={val}")
+                continue
+            if lower == "user-agent":
+                headers["User-Agent"] = value
+                continue
+            headers[key] = value
+
+    if cookie_parts:
+        headers["Cookie"] = "; ".join(cookie_parts)
+
+    return headers
+
 
 # ============================================================
 # JSON PARAMETER EXTRACTION
@@ -182,14 +249,18 @@ def url_encode_value(value):
     return urllib.parse.quote(value, safe="")
 
 
-def fetch_url(url):
+def fetch_url(url, extra_headers=None):
     try:
+        headers = {
+            "User-Agent": USER_AGENT,
+            "Accept": "*/*",
+        }
+        if extra_headers:
+            headers.update(extra_headers)
+
         req = urllib.request.Request(
             url,
-            headers={
-                "User-Agent": USER_AGENT,
-                "Accept": "*/*",
-            },
+            headers=headers,
         )
 
         with urllib.request.urlopen(req, timeout=15) as resp:
@@ -582,10 +653,25 @@ def main():
         help="Delay between requests",
     )
 
+    parser.add_argument(
+        "-hf",
+        "--headers",
+        dest="headers_file",
+        help="Optional auth/header file, e.g. Cookie: a=b / Csrf: token",
+    )
+
     args = parser.parse_args()
 
     payload = args.payload_value
     delay = args.delay
+
+    auth_headers = {}
+    if args.headers_file:
+        auth_headers = load_headers_file(args.headers_file)
+        print(
+            f"[+] Loaded {len(auth_headers)} header(s) "
+            f"from {args.headers_file}"
+        )
 
     print(
         "[+] Advanced XSS Reflection Checker"
@@ -691,8 +777,9 @@ def main():
         # Initial request
         # ----------------------------------------------------
 
-        _, initial_ct, initial_status = fetch_url(
-            base_url
+        initial_body, initial_ct, initial_status = fetch_url(
+            base_url,
+            extra_headers=auth_headers or None,
         )
 
         print(
@@ -717,6 +804,45 @@ def main():
             time.sleep(delay)
             continue
 
+        # ----------------------------------------------------
+        # Extract empty/unset params from the page body
+        # (field = '', field: '', "field": null, etc.)
+        # and merge with the -p list for this URL only.
+        # ----------------------------------------------------
+
+        page_params = []
+        if initial_body:
+            extracted = extract_json_params(initial_body)
+            seen_local = set(parameters)
+            page_params = [
+                name for name in sorted(extracted)
+                if name not in seen_local
+            ]
+
+        url_parameters = list(parameters) + page_params
+
+        print(
+            f"    Params from list : {len(parameters)}"
+        )
+        print(
+            f"    Params from page : {len(page_params)}"
+        )
+        print(
+            f"    Params to test   : {len(url_parameters)}"
+        )
+
+        if not url_parameters:
+            print(
+                "    ⏭️ No parameters to test"
+            )
+            time.sleep(delay)
+            continue
+
+        url_batches = build_batches(
+            url_parameters,
+            payload,
+        )
+
         print(
             "    ✅ Starting parameter fuzzing..."
         )
@@ -726,7 +852,7 @@ def main():
         # ----------------------------------------------------
 
         for batch_number, query in enumerate(
-            batches,
+            url_batches,
             1,
         ):
 
@@ -739,12 +865,13 @@ def main():
 
             print(
                 f"    → Batch "
-                f"{batch_number}/{len(batches)} "
+                f"{batch_number}/{len(url_batches)} "
                 f"({parameter_count} params)"
             )
 
             body, response_ct, status = fetch_url(
-                test_url
+                test_url,
+                extra_headers=auth_headers or None,
             )
 
             # ------------------------------------------------
@@ -768,91 +895,13 @@ def main():
                 )
             )
 
-            if reflected:
-
-                print()
-                print(
-                    "    🎯🎯🎯 VULNERABLE"
-                )
-
-                print(
-                    f"    HTTP status : {status}"
-                )
-
-                print(
-                    f"    Content-Type: {response_ct}"
-                )
-
-                print(
-                    f"    URL: {test_url}"
-                )
-
-                vulnerable.append(
-                    test_url
-                )
-
-                send_to_webhook(
-                    test_url,
-                    base_url,
-                )
-
-            else:
-
+            # Empty Content-Type + 303/400: browsers treat the body as
+            # text/plain, not HTML — skip even if the payload reflects.
+            if (
+                reflected
+                and not (response_ct or "").strip()
+                and status in (403, 400)
+            ):
                 print(
                     f"       HTTP {status} | "
-                    f"{response_ct or 'no content-type'} "
-                    f"| reflection: NO"
-                )
-
-            time.sleep(delay)
-
-    # ========================================================
-    # REMOVE DUPLICATES
-    # ========================================================
-
-    vulnerable = list(
-        dict.fromkeys(vulnerable)
-    )
-
-    # ========================================================
-    # SAVE
-    # ========================================================
-
-    with open(
-        args.output,
-        "w",
-        encoding="utf-8",
-    ) as f:
-
-        for url in vulnerable:
-
-            f.write(
-                url + "\n"
-            )
-
-    print()
-    print(
-        "========================================"
-    )
-
-    print(
-        f"🎉 Scan Finished!"
-    )
-
-    print(
-        f"🎯 Vulnerable: "
-        f"{len(vulnerable)}"
-    )
-
-    print(
-        f"📄 Output: "
-        f"{args.output}"
-    )
-
-    print(
-        "========================================"
-    )
-
-
-if __name__ == "__main__":
-    main()
+    
