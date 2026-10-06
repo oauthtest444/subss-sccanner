@@ -1,0 +1,9 @@
+https://casestudies.acronis.com/
+https://casestudies.acronis.com/b/cksaodock00083b9rn5hn7o3f/Hawkins_Technologies_sees_significant_improvement_with_Acronis_Advanced_Email_Security_powered_by_Perception_Point/
+https://casestudies.acronis.com/b/api/user
+https://casestudies.acronis.com/b/oauth/token
+https://casestudies.acronis.com/b/authorize
+https://casestudies.acronis.com/b/team
+https://casestudies.acronis.com/b/connect
+https://casestudies.acronis.com/b/api/email/send-share-view-notification
+https://casestudies.acronis.com/b/client/boards
