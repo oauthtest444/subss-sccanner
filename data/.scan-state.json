@@ -1,7 +1,7 @@
 {
   "domain": "adjust.com",
   "subdomain": "demo-1.suite.adjust.com",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 4
 }
