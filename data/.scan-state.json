@@ -1,7 +1,7 @@
 {
   "domain": "adjust.com",
-  "subdomain": "brand.adjust.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 1
+  "subdomain_index": 2
 }
