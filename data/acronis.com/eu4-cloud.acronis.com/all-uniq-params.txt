@@ -1,0 +1,14 @@
+login
+for_ui
+v
+_dc
+jwt
+allow_default
+scope
+explicit_only
+tenant_id
+domain_object_id
+code
+state
+return_url
+token
