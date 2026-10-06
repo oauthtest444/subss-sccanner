@@ -1,0 +1,19 @@
+
+========================================================================================
+ROUTE: https://passport.acronis.work/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://passport.acronis.work/js/chunk-vendors-uikit.0e9f3ea9.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){t.source===e&&"string"==typeof t.data&&0===t.data.indexOf(s)&&p(+t.data.slice(s.length))}
+
+
+/* ===== Resolved function: p | source: https://passport.acronis.work/js/chunk-vendors-uikit.0e9f3ea9.js ===== */
+function p(e,t){this.fun=e,this.array=t}
+========================================================================================
