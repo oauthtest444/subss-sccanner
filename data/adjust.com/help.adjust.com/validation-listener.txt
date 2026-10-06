@@ -1,0 +1,65 @@
+
+========================================================================================
+ROUTE: https://help.adjust.com/en
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://consent.cookiebot.com/uc.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function handleUspapiMessage(event){if(""!==event.origin&&event.origin.startsWith("https")){var data=event&&event.data&&event.data.__uspapiCall;data&&"function"==typeof window.__uspapi&&window.__uspapi(data.command,data.version,function(returnValue,success){var eventSource=event.source;null==eventSource||eventSource.postMessage({__uspapiReturn:{returnValue:returnValue,success:success,callId:data.callId}},event.origin)})}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://help.adjust.com/en
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: .origin, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://consent.cookiebot.com/uc.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(event){""!==event.origin&&(event.origin.startsWith("https")?that.handleBulkConsentIframeMessage(event):console.warn("Ignoring Unsecure message event origin:",event.origin))}
+========================================================================================
+
+========================================================================================
+ROUTE: https://help.adjust.com/en/article/add-events
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://help.adjust.com/en/article/add-events, https://consent.cookiebot.com/uc.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function nrWrapper(){var i,a,f,p;try{a=this,i=d(arguments),f="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,s],f],t)}c(n+"start",[i,a,s],f,u);try{return p=e.apply(a,i)}catch(h){throw c(n+"err",[i,a,h],f,u),h}finally{c(n+"end",[i,a,p],f,u)}}
+
+
+/* ===== Resolved function: nrWrapper | source: https://help.adjust.com/en/article/add-events ===== */
+function nrWrapper(){var i,a,f,p;try{a=this,i=d(arguments),f="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,s],f],t)}c(n+"start",[i,a,s],f,u);try{return p=e.apply(a,i)}catch(h){throw c(n+"err",[i,a,h],f,u),h}finally{c(n+"end",[i,a,p],f,u)}}
+
+
+/* ===== Resolved function: d | source: https://help.adjust.com/en/article/add-events ===== */
+function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}
+
+
+/* ===== Resolved function: r | source: https://help.adjust.com/en/article/add-events ===== */
+function r(){}
+
+
+/* ===== Resolved function: o | source: https://help.adjust.com/en/article/add-events ===== */
+function o(){return i}
+
+
+/* ===== Resolved function: c | source: https://help.adjust.com/en/article/add-events ===== */
+function c(t,e){return e}
+========================================================================================
