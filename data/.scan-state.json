@@ -1,7 +1,7 @@
 {
   "domain": "acronis.com",
   "subdomain": "nz01-cloud.acronis.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 89
 }
