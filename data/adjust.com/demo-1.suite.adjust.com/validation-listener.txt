@@ -1,0 +1,39 @@
+
+========================================================================================
+ROUTE: https://demo-1.suite.adjust.com/login?redirectUrl=%2F
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://demo-1.suite.adjust.com/mfe/newrelic.js, https://demo-1.suite.adjust.com/mfe/dashboardexperience/static/js/async/8546.d459cc5b70.js, https://demo-1.suite.adjust.com/mfe/static/js/async/1207.7ef3935b4e.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function nrWrapper(){var o,a,d,l;try{a=this,o=[...arguments],d="function"==typeof n?n(o,a):n||{}}catch(t){u([t,"",[o,a,s],d],e)}i(r+"start",[o,a,s],d,c);try{return l=t.apply(a,o)}catch(e){throw i(r+"err",[o,a,e],d,c),e}finally{i(r+"end",[o,a,l],d,c)}}
+
+
+/* ===== Resolved function: nrWrapper | source: https://demo-1.suite.adjust.com/mfe/newrelic.js ===== */
+function nrWrapper(){var o,a,d,l;try{a=this,o=[...arguments],d="function"==typeof n?n(o,a):n||{}}catch(t){u([t,"",[o,a,s],d],e)}i(r+"start",[o,a,s],d,c);try{return l=t.apply(a,o)}catch(e){throw i(r+"err",[o,a,e],d,c),e}finally{i(r+"end",[o,a,l],d,c)}}
+
+
+/* ===== Resolved function: n | source: https://demo-1.suite.adjust.com/mfe/newrelic.js ===== */
+const n=(e,t)=>Object.entries(e||{}
+
+
+/* ===== Resolved function: u | source: https://demo-1.suite.adjust.com/mfe/newrelic.js ===== */
+function u(){return s(32)}
+
+
+/* ===== Resolved function: i | source: https://demo-1.suite.adjust.com/mfe/newrelic.js ===== */
+function i(e){r.inPlace(e,[g,m],"-",o)}
+
+
+/* ===== Resolved function: s | source: https://demo-1.suite.adjust.com/mfe/newrelic.js ===== */
+function s(e){this.params={method:e[0]},Y(this,e[1]),this.metrics={}}
+
+
+/* ===== Resolved function: Y | source: https://demo-1.suite.adjust.com/mfe/newrelic.js ===== */
+function Y(e,t){var r=(0,U.e)(t),n=e.params||e;n.hostname=r.hostname,n.port=r.port,n.protocol=r.protocol,n.host=r.hostname+":"+r.port,n.pathname=r.pathname,e.parsedOrigin=r,e.sameOrigin=r.sameOrigin}
+========================================================================================
