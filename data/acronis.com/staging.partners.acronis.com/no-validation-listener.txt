@@ -1,0 +1,31 @@
+
+========================================================================================
+ROUTE: https://staging.partners.acronis.com/user/register
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://staging.partners.acronis.com/bundles/0f3e67da41670e6c28e31565feafff4e1eb51df7/en/register.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function (evt) {
+    var obj = $("#content div:eq(0)").attr("id");
+    if (obj != undefined) {
+        if (evt.data == "SendAMPEmail") {
+            evtdata = evt.data;
+            FROMTPAPP = true;
+            $("#" + obj).trigger("send");
+            postmessage = "CloseSendEmail";
+        }
+        else if (evt.data == "PublishSocialTemplate") {
+            evtdata = evt.data;
+            FROMTPAPP = true;
+            $("#" + obj).trigger("publish");
+            postmessage = "CloseSendEmail";
+        }
+    }
+}
+========================================================================================
