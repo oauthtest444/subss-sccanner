@@ -1,7 +1,7 @@
 {
   "domain": "adminml.com",
   "subdomain": "auth-preprod-meli.adminml.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 1
 }
