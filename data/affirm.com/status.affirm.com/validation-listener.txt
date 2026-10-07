@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://status.affirm.com/history
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://dka575ofm4ao0.cloudfront.net/packs/common-dabd07da7ea127c80be8.chunk.js, https://dka575ofm4ao0.cloudfront.net/packs/runtime-48d873b69d5f01e5bef2.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){t.source===e&&"string"==typeof t.data&&0===t.data.indexOf(c)&&z(+t.data.slice(c.length))}
+========================================================================================
