@@ -1,0 +1,4 @@
+https://businesshub.uk.affirm.com/hc/en-gb
+https://businesshub.uk.affirm.com/auth/v3/signin?brand_id=27270495657876&locale=en-gb&return_to=https%3A%2F%2Fbusinesshub.uk.affirm.com%2Fhc%2Fen-gb%2Fsignin&role=end_user
+https://businesshub.uk.affirm.com/agent/admin/brands
+https://businesshub.uk.affirm.com/auth/v3/signin?brand_id=27270495657876&return_to=https%3A%2F%2Fbusinesshub.uk.affirm.com%2Ftheming&role=end_user
