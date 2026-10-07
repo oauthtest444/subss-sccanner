@@ -1,0 +1,8 @@
+cid
+los
+rooms
+adults
+children
+searchrequestid
+checkin
+checkout
