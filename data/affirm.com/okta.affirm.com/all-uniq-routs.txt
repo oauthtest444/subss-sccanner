@@ -1,0 +1,7 @@
+https://okta.affirm.com/app/UserHome
+https://okta.affirm.com/app/affirm_readme_1/exk3tq90a5OIzyVWv697/sso/saml
+https://okta.affirm.com/activate
+https://okta.affirm.com/auth/services/devicefingerprint
+https://okta.affirm.com/help/login
+https://okta.affirm.com/login/signout
+https://okta.affirm.com/error/enduser-error-page
