@@ -1,7 +1,7 @@
 {
   "domain": "affirm.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "view.debit.affirm.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 27
 }
