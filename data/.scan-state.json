@@ -1,7 +1,7 @@
 {
   "domain": "affinity.co",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "agent-platform.affinity.co",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 29
 }
