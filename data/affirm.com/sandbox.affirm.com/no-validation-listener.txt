@@ -1,0 +1,120 @@
+
+========================================================================================
+ROUTE: https://sandbox.affirm.com/apps/prequal/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1-sandbox.affirm.com/assets/prequal/master/prefetch-07431f0097bed3546614.js, https://cdn1-sandbox.affirm.com/assets/prequal/master/index-bdc6932d102e0f595154.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+({data:o})=>{o.success?e():t()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sandbox.affirm.com/apps/prequal/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1-sandbox.affirm.com/assets/prequal/master/prefetch-07431f0097bed3546614.js, https://cdn1-sandbox.affirm.com/assets/prequal/master/index-bdc6932d102e0f595154.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+({data:t})=>{const i=t;if(i.method===e&&i.id===n){if(this._worker.removeEventListener("message",s),!i.success)return nl&&il.error("Error in compression worker: ",i.response),void o(new Error("Error in compression worker"));r(i.response)}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sandbox.affirm.com/apps/prequal/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1-sandbox.affirm.com/assets/prequal/master/prefetch-07431f0097bed3546614.js, https://cdn1-sandbox.affirm.com/assets/prequal/master/index-bdc6932d102e0f595154.js, https://cdn1-sandbox.affirm.com/assets/prequal/master/809-3f940c504d100cfa86b9.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){try{var o,r="string"==typeof t.data?JSON.parse(t.data):t.data;"affirm"===(null==r?void 0:r.channel)&&null!=r&&null!=(o=r.name)&&o.endsWith("_SET_FOCUS")&&e()}catch(e){}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sandbox.affirm.com/apps/prequal/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1-sandbox.affirm.com/assets/prequal/master/prefetch-07431f0097bed3546614.js, https://cdn1-sandbox.affirm.com/assets/prequal/master/index-bdc6932d102e0f595154.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+({data:t})=>{const i=t;if(i.method===e&&i.id===o){if(this._worker.removeEventListener("message",a),!i.success)return Kt&&Xt.error("Error in compression worker: ",i.response),void n(new Error("Error in compression worker"));r(i.response)}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sandbox.affirm.com/apps/prequal/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1-sandbox.affirm.com/assets/prequal/master/prefetch-07431f0097bed3546614.js, https://cdn1-sandbox.affirm.com/assets/prequal/master/index-bdc6932d102e0f595154.js, https://cdn1-sandbox.affirm.com/assets/product_flows/master/microfrontend.js, https://cdn1-sandbox.affirm.com/assets/product_flows/master/8071-4330678d004380a981c5.js
+SOURCE LOAD WARNINGS: 4
+
+--- FULL LISTENER / TRACE CODE ---
+({data:t})=>{const i=t;if(i.method===e&&i.id===n){if(this._worker.removeEventListener("message",s),!i.success)return br&&Cr.error("Error in compression worker: ",i.response),void o(new Error("Error in compression worker"));r(i.response)}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sandbox.affirm.com/dashboard/signin
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn.pendo.io/agent/static/b2ef1854-1ff0-41e2-6e13-d8b6553fe187/pendo.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){if(e.data.tabId===o.getTabId())return n.apply(this,arguments)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sandbox.affirm.com/shop/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1-sandbox.affirm.com/assets/omnichannel_checkout/master/index-dfbd22562bb00e3a4220.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+({data:r})=>{r.success?e():t()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sandbox.affirm.com/shop/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1-sandbox.affirm.com/assets/omnichannel_checkout/master/index-dfbd22562bb00e3a4220.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+({data:t})=>{const c=t;if(c.method===e&&c.id===r){if(this._worker.removeEventListener("message",a),!c.success)return mw&&yw.error("Error in compression worker: ",c.response),void n(new Error("Error in compression worker"));o(c.response)}}
+========================================================================================
