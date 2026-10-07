@@ -1,0 +1,13 @@
+https://helpcenter.affirm.com/s/
+https://helpcenter.affirm.com/CommunitiesLanding
+https://helpcenter.affirm.com/embeddedservice/5.0/esw.html
+https://helpcenter.affirm.com/s/article/affirm-credit-reporting-policy
+https://helpcenter.affirm.com/s/secure-message
+https://helpcenter.affirm.com/secur/logout.jsp
+https://helpcenter.affirm.com/us/s/article/contact-us-ca
+https://helpcenter.affirm.com/us/s/article/payments-overview
+https://helpcenter.affirm.com/us/s/flow/HC_Merchant_Dispute
+https://helpcenter.affirm.com/us/s/sfsites/aura
+https://helpcenter.affirm.com/s/actionplantemplate/related/:recordId/:relationshipApiName
+https://helpcenter.affirm.com/s/actionplan/related/:recordId/:relationshipApiName
+https://helpcenter.affirm.com/s/relatedlist/:recordId/:relationshipApiName
