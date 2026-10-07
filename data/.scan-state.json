@@ -1,7 +1,7 @@
 {
   "domain": "affinity.co",
   "subdomain": "api-docs.affinity.co",
-  "stage": "bootstrap",
+  "stage": "archive",
   "domain_index": 0,
   "subdomain_index": 30
 }
