@@ -1,0 +1,30 @@
+
+========================================================================================
+ROUTE: https://ams.www.agoda.com/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-accom-web/js/assets/browser-bundle/ADSEFF-1308=A/1958-a6e008973b6b.js, https://cdn6.agoda.net/cdn-accom-web/js/assets/browser-bundle/ADSEFF-1308=A/home-e5fd38ac0bd4.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){e.handleMessage(t.data)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://ams.www.agoda.com/account/vip.html
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-loyalty-web/vipPage-desktop-DkRVOgVf.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(aa){ta.handleMessage(aa.data)}
+========================================================================================
