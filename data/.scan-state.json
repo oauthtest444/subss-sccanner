@@ -1,7 +1,7 @@
 {
   "domain": "affirm.com",
-  "subdomain": "mi.affirm.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 16
+  "subdomain_index": 17
 }
