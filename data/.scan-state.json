@@ -1,7 +1,7 @@
 {
   "domain": "affirm.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "view.e.uk.affirm.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 29
 }
