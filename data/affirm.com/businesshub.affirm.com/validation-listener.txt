@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://businesshub.affirm.com/hc/en-us
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://challenges.cloudflare.com/turnstile/v0/g/4df4a60fa397/api.js?onload=zeEi4&render=explicit
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(i){if(Eu(i)){var v=i.data;if(!Tu(i)){R("Ignored message from wrong origin: ".concat(i.origin,"."));return}if(!(v.widgetId===""||!y.widgetMap.has(v.widgetId))){var h=Y(v.widgetId),p=y.widgetMap.get(v.widgetId);if(p!==void 0){if(!xu(i,p,h)){R("Ignored message from unexpected source for event: ".concat(v.event,"."));return}P(v)}}}}
+========================================================================================
