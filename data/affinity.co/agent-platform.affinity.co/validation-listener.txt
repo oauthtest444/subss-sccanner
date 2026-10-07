@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://agent-platform.affinity.co/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://assets.affinity.co/agent-platform/assets/index-DA5hAU8H.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{t.source===window.parent&&G9(t.origin,window.location.hostname)&&e(t.data)}
+========================================================================================
