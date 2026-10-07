@@ -1,0 +1,10 @@
+https://businesshub.affirm.com/hc/en-us
+https://businesshub.affirm.com/auth/v3/signin?role=end_user
+https://businesshub.affirm.com/auth/v3/signin
+https://businesshub.affirm.com/auth/v3/signin?brand_id=360000261851&locale=en-ca&return_to=https%3A%2F%2Fbusinesshub.affirm.com%2Fhc%2Fen-ca%2Fsignin&role=end_user
+https://businesshub.affirm.com/auth/v3/signin?brand_id=360000261851&locale=en-us&return_to=https%3A%2F%2Fbusinesshub.affirm.com%2Fhc%2Fen-us%2Fsignin&role=end_user
+https://businesshub.affirm.com/hc/fr-ca/categories/5141744260756-Marchands-sur-PayBright
+https://businesshub.affirm.com/hc/en-us/search
+https://businesshub.affirm.com/agent/admin/brands
+https://businesshub.affirm.com/auth/v3/signin?return_to=https%3A%2F%2Fbusinesshub.affirm.com%2Fusers%2Frevert&role=end_user
+https://businesshub.affirm.com/auth/v3/signin?brand_id=360000261851&return_to=https%3A%2F%2Fbusinesshub.affirm.com%2Ftheming&role=end_user
