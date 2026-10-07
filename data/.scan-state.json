@@ -1,7 +1,7 @@
 {
   "domain": "affinity.co",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "www.affinity.co",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 38
 }
