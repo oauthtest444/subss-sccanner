@@ -1,0 +1,17 @@
+https://docs.affirm.com/
+https://docs.affirm.com/developers/changelog
+https://docs.affirm.com/payments/docs/promo-messaging-getting-started
+https://docs.affirm.com/affirm-partners/password
+https://docs.affirm.com/payments/docs/checkout-web
+https://docs.affirm.com/payments/docs/create-a-charge
+https://docs.affirm.com/payments/docs/payments-overview
+https://docs.affirm.com/developers/docs/email-marketing
+https://docs.affirm.com/developers/docs/home-introduction
+https://docs.affirm.com/en-CA/
+https://docs.affirm.com/en-CA/fr-CA/
+https://docs.affirm.com/en-CA/v1.1-developer-reference
+https://docs.affirm.com/v1.1-developer-reference
+https://docs.affirm.com/en-CA/v1.0.0
+https://docs.affirm.com/v1.0.0
+https://docs.affirm.com/en-CA/de?test
+https://docs.affirm.com/de?test
