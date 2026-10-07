@@ -1,7 +1,7 @@
 {
   "domain": "affinity.co",
   "subdomain": "developer.affinity.co",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 31
 }
