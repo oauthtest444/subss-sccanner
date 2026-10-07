@@ -1,7 +1,7 @@
 {
   "domain": "affinity.co",
   "subdomain": "affinityembed20.looker.affinity.co",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 12
 }
