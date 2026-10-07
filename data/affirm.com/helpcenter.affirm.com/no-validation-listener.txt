@@ -1,0 +1,45 @@
+
+========================================================================================
+ROUTE: https://www.affirm.com/user/signin?redirectPath=%2Flogin%2Fsso%2Fsaml2%2Fcomplete%2Fhelp_center%3FrequestId%3D_2CAAAAaGmCaLeMDAwMDAwMDAwMDAwMDAwAAABBjHAHcXvy0ZWP6DC4jozxLhYcDX66sn5nR8ioNSw60El8HrhiJoO6C8NOSglmFbiZSe3L_9tqpk59ZP8FmNS9Qp384NdKsJyNk59hEQQ9jLm6DWwhP6e-Jx1LRHrAILK211lU4XybgmGlHaA14IX3nyRWBSgQ82BGmr6srURtjLI-moL_q6IzTs7kecoNLFqtH_jFPLJuOqUGPzol-58BT312zC-IiKNR2VDBYHjONHOiO_GrejwiR-OJCl9XNwE-Q%26relayState%3D%252F
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1.affirm.com/assets/identity_app/master/index-64ab7c6f6bce758e0c5f.js, https://cdn1.affirm.com/assets/product_flows/master/8071-4330678d004380a981c5.js, https://cdn1.affirm.com/assets/product_flows/master/microfrontend.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+({data:n})=>{n.success?e():t()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.affirm.com/user/signin?redirectPath=%2Flogin%2Fsso%2Fsaml2%2Fcomplete%2Fhelp_center%3FrequestId%3D_2CAAAAaGmCaLeMDAwMDAwMDAwMDAwMDAwAAABBjHAHcXvy0ZWP6DC4jozxLhYcDX66sn5nR8ioNSw60El8HrhiJoO6C8NOSglmFbiZSe3L_9tqpk59ZP8FmNS9Qp384NdKsJyNk59hEQQ9jLm6DWwhP6e-Jx1LRHrAILK211lU4XybgmGlHaA14IX3nyRWBSgQ82BGmr6srURtjLI-moL_q6IzTs7kecoNLFqtH_jFPLJuOqUGPzol-58BT312zC-IiKNR2VDBYHjONHOiO_GrejwiR-OJCl9XNwE-Q%26relayState%3D%252F
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1.affirm.com/assets/identity_app/master/index-64ab7c6f6bce758e0c5f.js, https://cdn1.affirm.com/assets/product_flows/master/microfrontend.js, https://cdn1.affirm.com/assets/product_flows/master/8071-4330678d004380a981c5.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+({data:t})=>{const i=t;if(i.method===e&&i.id===n){if(this._worker.removeEventListener("message",s),!i.success)return br&&Cr.error("Error in compression worker: ",i.response),void o(new Error("Error in compression worker"));r(i.response)}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://www.affirm.com/user/signin?redirectPath=%2Flogin%2Fsso%2Fsaml2%2Fcomplete%2Fhelp_center%3FrequestId%3D_2CAAAAaGmCaLeMDAwMDAwMDAwMDAwMDAwAAABBjHAHcXvy0ZWP6DC4jozxLhYcDX66sn5nR8ioNSw60El8HrhiJoO6C8NOSglmFbiZSe3L_9tqpk59ZP8FmNS9Qp384NdKsJyNk59hEQQ9jLm6DWwhP6e-Jx1LRHrAILK211lU4XybgmGlHaA14IX3nyRWBSgQ82BGmr6srURtjLI-moL_q6IzTs7kecoNLFqtH_jFPLJuOqUGPzol-58BT312zC-IiKNR2VDBYHjONHOiO_GrejwiR-OJCl9XNwE-Q%26relayState%3D%252F
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1.affirm.com/assets/identity_app/master/index-64ab7c6f6bce758e0c5f.js, https://apps.rokt-api.com/wsdk/integrations/launcher.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+async function u(e){const{data:t}=e;var n;if(n=t,Array.isArray(n)&&"number"==typeof n[0]&&(null==n[1]||Array.isArray(n[1])))switch(t[0]){case 2:f();break;case 0:{const e=new lt,[n,o,i]=t[1],r=s.get(o);try{if(null==r)throw new Error(`No '${o}' method is exposed on this endpoint`);const[t,s]=d.encode(await r(...d.decode(i,[e])));l(1,[n,void 0,t],s)}catch(e){const{name:t,message:o,stack:i,code:r}=e;throw l(1,[n,{name:t,message:o,stack:i,code:r}]),e}finally{e.release()}break}case 1:{const[e]=t[1];c.get(e)(...t[1]),c.delete(e);break}case 3:{const[e]=t[1];d.release(e);break}case 6:{const[e]=t[1];c.get(e)(...t[1]),c.delete(e);break}case 5:{const[e,n,o]=t[1];try{const t=await d.call(n,o),[i,r]=d.encode(t);l(6,[e,void 0,i],r)}catch(t){const{name:n,message:o,stack:i,code:r}=t;throw l(6,[e,{name:n,message:o,stack:i,code:r}]),t}break}}}
+========================================================================================
