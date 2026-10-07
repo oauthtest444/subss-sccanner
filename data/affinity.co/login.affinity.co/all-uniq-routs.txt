@@ -1,0 +1,1 @@
+https://login.affinity.co/auth/oauth2/authorize?redirect_uri=https%3A%2F%2Flogin.affinity.co%2Fauth%2Foauth-global-redirect&response_type=code&client_id=global-oauth
