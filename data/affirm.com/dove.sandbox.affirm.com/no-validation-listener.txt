@@ -1,0 +1,30 @@
+
+========================================================================================
+ROUTE: https://dove.sandbox.affirm.com/user/signin
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn1-sandbox.affirm.com/assets/identity_app/master/index-72b94924b787fbeb6d58.js, https://cdn1-sandbox.affirm.com/assets/product_flows/master/microfrontend.js, https://cdn1-sandbox.affirm.com/assets/product_flows/master/8071-4330678d004380a981c5.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+({data:t})=>{const i=t;if(i.method===e&&i.id===n){if(this._worker.removeEventListener("message",s),!i.success)return br&&Cr.error("Error in compression worker: ",i.response),void o(new Error("Error in compression worker"));r(i.response)}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://dove.sandbox.affirm.com/dashboard/signin
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn.pendo.io/agent/static/b2ef1854-1ff0-41e2-6e13-d8b6553fe187/pendo.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){if(e.data.tabId===o.getTabId())return n.apply(this,arguments)}
+========================================================================================
