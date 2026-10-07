@@ -1,7 +1,7 @@
 {
   "domain": "affinity.co",
-  "subdomain": "support.affinity.co",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 35
+  "subdomain_index": 36
 }
