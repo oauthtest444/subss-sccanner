@@ -1,7 +1,7 @@
 {
   "domain": "affirm.com",
   "subdomain": "olympic.sandbox.affirm.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 19
 }
