@@ -1,7 +1,7 @@
 {
   "domain": "affirm.com",
-  "subdomain": "olympic.sandbox.affirm.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 19
+  "subdomain_index": 20
 }
