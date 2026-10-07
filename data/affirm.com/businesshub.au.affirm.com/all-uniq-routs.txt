@@ -1,0 +1,3 @@
+https://businesshub.au.affirm.com/hc/en-au
+https://businesshub.au.affirm.com/agent/admin/brands
+https://businesshub.au.affirm.com/auth/v3/signin?brand_id=51162195702420&return_to=https%3A%2F%2Fbusinesshub.au.affirm.com%2Ftheming&role=end_user
