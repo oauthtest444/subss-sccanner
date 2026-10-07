@@ -1,7 +1,7 @@
 {
   "domain": "affirm.com",
-  "subdomain": "businesshub.affirm.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 6
+  "subdomain_index": 7
 }
