@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://www.affinity.co/resources/case-studies
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/dist/src-T7SM3ONB.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+o=>{t.resolve(o.data),r()}
+========================================================================================
