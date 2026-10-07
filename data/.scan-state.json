@@ -1,7 +1,7 @@
 {
   "domain": "affirm.com",
   "subdomain": "view.e.affirm.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 28
 }
