@@ -1,7 +1,7 @@
 {
   "domain": "affinity.co",
   "subdomain": "userled.affinity.co",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 37
 }
