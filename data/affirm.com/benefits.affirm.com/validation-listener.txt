@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://benefits.affirm.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://cmp.osano.com/xpYRGjjVrA/ae62523f-a375-4ded-895e-cc9a3ecaf19b/osano.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(o){const{data:n,source:r}=o,i="string"==typeof n;let c={};try{c=i?JSON.parse(n):n}catch(a){c=n}const s="object"==typeof c&&c[`${e}Call`];if(s){const{command:o,parameter:n,version:c,callId:a}=s,l=function(t,o=!0){let n={[`${e}Return`]:{returnValue:t,success:o,callId:a}};i&&(n=JSON.stringify(n)),r.postMessage(n,"*")},u=t?[o,c,l,n]:[o,l,n],p=dn[`${e}`].apply(this,u);p&&l(p)}}
+========================================================================================
