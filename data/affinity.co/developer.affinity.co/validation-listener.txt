@@ -1,0 +1,30 @@
+
+========================================================================================
+ROUTE: https://developer.affinity.co/api-reference/2026-09-17/auth/get-current-user
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://developer.affinity.co/mintlify-assets/_next/static/chunks/9824eed64483dad5.js?dpl=dpl_AdgF69PdgrU7nYyZAbxVCHc36KNP
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.source;t!==window&&null!==t||"process-tick"!==e.data||(e.stopPropagation(),0<f.length&&f.shift()())}
+========================================================================================
+
+========================================================================================
+ROUTE: https://developer.affinity.co/api-reference/2026-09-17/auth/get-current-user
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://developer.affinity.co/mintlify-assets/_next/static/chunks/73e0aeb4812d9daf.js?dpl=dpl_AdgF69PdgrU7nYyZAbxVCHc36KNP, https://developer.affinity.co/mintlify-assets/_next/static/chunks/turbopack-9a419d41706b051f.js?dpl=dpl_AdgF69PdgrU7nYyZAbxVCHc36KNP, https://developer.affinity.co/mintlify-assets/_next/static/chunks/2f0e5b9aae17afc4.js?dpl=dpl_AdgF69PdgrU7nYyZAbxVCHc36KNP
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+({source:r,data:n})=>{r===F&&n===e&&t.length&&t.shift()()}
+========================================================================================
