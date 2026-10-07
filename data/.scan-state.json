@@ -1,7 +1,7 @@
 {
   "domain": "affinity.co",
-  "subdomain": "affinityembed8.looker.affinity.co",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 28
+  "subdomain_index": 29
 }
