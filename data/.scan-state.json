@@ -1,7 +1,7 @@
 {
   "domain": "affinity.co",
   "subdomain": "affinityembed7.looker.affinity.co",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 27
 }
