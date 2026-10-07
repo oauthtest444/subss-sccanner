@@ -1,0 +1,17 @@
+field
+page_type
+show_cta
+amount
+promo_external_id
+locale
+adjust_for_cart_floor
+presentational
+use_best_terms
+public_api_key
+referring_url
+unit_price
+use_promo
+root_flow_type
+path
+merchant_ari
+redirectPath
