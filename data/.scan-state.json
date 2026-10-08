@@ -1,7 +1,7 @@
 {
   "domain": "aida.de",
   "subdomain": "booking.aida.de",
-  "stage": "subdomain",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 0
 }
