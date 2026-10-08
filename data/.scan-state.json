@@ -1,7 +1,7 @@
 {
   "domain": "agoda.com",
-  "subdomain": "hotelbooking.agoda.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 12
+  "subdomain_index": 13
 }
