@@ -1,7 +1,7 @@
 {
   "domain": "ah.nl",
   "subdomain": "acc.sam.ah.nl",
-  "stage": "route-recon",
+  "stage": "xss",
   "domain_index": 0,
   "subdomain_index": 3
 }
