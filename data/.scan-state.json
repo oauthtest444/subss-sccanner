@@ -1,7 +1,7 @@
 {
   "domain": "agoda.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "homes.agoda.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 11
 }
