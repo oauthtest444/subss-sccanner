@@ -1,0 +1,201 @@
+
+========================================================================================
+ROUTE: https://folder.ah.nl/bonus-week-41-2026/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js, https://folder.ah.nl/bonus-week-41-2026/assets/desktop_reader.fedaa50e47e15cea00d8.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{if(!u(t.origin))return;if(!t.data||"spacechange"!==t.data.event)return;const n=t.source?f(t.source,e):null;n&&(n.parentElement.style.paddingBottom=`${t.data.data[0].bottom}px`)}
+
+
+/* ===== Resolved function: u | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function u(e){return e&&c[e]||"internal_error"}
+
+
+/* ===== Resolved function: f | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function f(e,t){return t?.[e]??g[e]}
+========================================================================================
+
+========================================================================================
+ROUTE: https://folder.ah.nl/bonus-week-41-2026/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js, https://folder.ah.nl/bonus-week-41-2026/assets/desktop_reader.fedaa50e47e15cea00d8.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{if(!u(t.origin))return;const n=P(t.data);if(!n||"ready"!==n.event)return;const r=t.source?f(t.source,e):null;r&&l(r.src)&&new R(r).callMethod("appendVideoMetadata",window.location.href)}
+
+
+/* ===== Resolved function: u | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function u(e){return e&&c[e]||"internal_error"}
+
+
+/* ===== Resolved function: P | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function P(e){U(),S=setTimeout(()=>{!T&&0===n.size&&y&&(E="idleTimeout",k.end(e))},b)}
+
+
+/* ===== Resolved function: f | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function f(e,t){return t?.[e]??g[e]}
+
+
+/* ===== Resolved function: l | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+let l=()=>{}
+
+
+/* ===== Resolved function: R | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function R(e,t){v||(v=!0,r.addOutgoingRequestBreadcrumb(e,t))}
+
+
+/* ===== Resolved function: U | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function U(e){return e[M]||e}
+========================================================================================
+
+========================================================================================
+ROUTE: https://folder.ah.nl/bonus-week-41-2026/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js, https://folder.ah.nl/bonus-week-41-2026/assets/desktop_reader.fedaa50e47e15cea00d8.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+n=>{if(!u(n.origin))return;const r=P(n.data);if(!r||"ready"!==r.event)return;const o=n.source?f(n.source,e):null;if(o&&l(o.src)){const e=new R(o);e.getVideoId().then(t=>{const n=new RegExp(`[?&]vimeo_t_${t}=([^&#]*)`).exec(window.location.href);if(n&&n[1]){const t=decodeURI(n[1]);e.setCurrentTime(t)}}).catch(t)}}
+
+
+/* ===== Resolved function: u | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function u(e){return e&&c[e]||"internal_error"}
+
+
+/* ===== Resolved function: P | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function P(e){U(),S=setTimeout(()=>{!T&&0===n.size&&y&&(E="idleTimeout",k.end(e))},b)}
+
+
+/* ===== Resolved function: f | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function f(e,t){return t?.[e]??g[e]}
+
+
+/* ===== Resolved function: l | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+let l=()=>{}
+
+
+/* ===== Resolved function: R | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function R(e,t){v||(v=!0,r.addOutgoingRequestBreadcrumb(e,t))}
+
+
+/* ===== Resolved function: U | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function U(e){return e[M]||e}
+========================================================================================
+
+========================================================================================
+ROUTE: https://folder.ah.nl/bonus-week-41-2026/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js, https://folder.ah.nl/bonus-week-41-2026/assets/desktop_reader.fedaa50e47e15cea00d8.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+e=>{if(!u(e.origin))return;const t=P(e.data);if(!t||"drminitfailed"!==t.event)return;const n=e.source?f(e.source):null;if(!n)return;const r=n.getAttribute("allow")||"";if(!r.includes("encrypted-media")){n.setAttribute("allow",`${r}; encrypted-media`);const e=new URL(n.getAttribute("src"));return e.searchParams.set("forcereload","drm"),void n.setAttribute("src",e.toString())}}
+
+
+/* ===== Resolved function: u | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function u(e){return e&&c[e]||"internal_error"}
+
+
+/* ===== Resolved function: P | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function P(e){U(),S=setTimeout(()=>{!T&&0===n.size&&y&&(E="idleTimeout",k.end(e))},b)}
+
+
+/* ===== Resolved function: f | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function f(e,t){return t?.[e]??g[e]}
+
+
+/* ===== Resolved function: U | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function U(e){return e[M]||e}
+========================================================================================
+
+========================================================================================
+ROUTE: https://folder.ah.nl/bonus-week-41-2026/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, data:
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js, https://folder.ah.nl/bonus-week-41-2026/assets/desktop_reader.fedaa50e47e15cea00d8.js, https://folder.ah.nl/bonus-week-41-2026/
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+e=>{let n,r;try{[r,n]=JSON.parse(e.data)}catch(e){return}if(t[r]){if(e.source!==window.parent&&e.source!==window)return void console.error("Invalid message source:",e.source,"Message data:",e.data);const o="setState"===r?n.state:n;t[r].map(e=>e&&e(o))}}
+
+
+/* ===== Resolved function: e | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+const e=()=>{n(o.devicePixelRatio)}
+
+
+/* ===== Resolved function: n | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function n(e){t.delete(e)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://folder.ah.nl/bonus-week-41-2026/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js, https://folder.ah.nl/bonus-week-41-2026/assets/desktop_reader.fedaa50e47e15cea00d8.js, https://folder.ah.nl/bonus-week-41-2026/
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+e=>{a(e)}
+
+
+/* ===== Resolved function: a | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+let a=()=>{setTimeout(i)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://folder.ah.nl/herfstspecial-2024/page/1
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js, https://folder.ah.nl/herfstspecial-2024/assets/desktop_reader.fedaa50e47e15cea00d8.js, https://folder.ah.nl/herfstspecial-2024/page/1
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(...o){r.GLOBAL_OBJ._sentryWrappedDepth=(r.GLOBAL_OBJ._sentryWrappedDepth||0)+1;try{const r=o.map(t=>e(t,n));return t.apply(this,r)}catch(e){throw a(),r.withScope(t=>{t.addEventProcessor(e=>(n.mechanism&&(r.addExceptionTypeValue(e,void 0,void 0),r.addExceptionMechanism(e,n.mechanism)),e.extra={...e.extra,arguments:o},e)),r.captureException(e)}),e}finally{r.GLOBAL_OBJ._sentryWrappedDepth=(r.GLOBAL_OBJ._sentryWrappedDepth||0)-1}}
+
+
+/* ===== Resolved function: e | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+const e=()=>{n(o.devicePixelRatio)}
+
+
+/* ===== Resolved function: a | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+let a=()=>{setTimeout(i)}
+
+
+/* ===== Resolved function: n | source: https://folder.ah.nl/assets/sentry.a5884ccf9e5570e289ca.js ===== */
+function n(e){t.delete(e)}
+========================================================================================
