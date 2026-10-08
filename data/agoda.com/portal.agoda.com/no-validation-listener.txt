@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://portal.agoda.com/mldc/en-us/public/login
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-supply-iam/zakaria-el-marouri-7907-supply-iam-supply-ia-df31253ea/static/js/dist.y5jpKL28.js, https://cdn6.agoda.net/cdn-supply-iam/zakaria-el-marouri-7907-supply-iam-supply-ia-df31253ea/static/js/rolldown-runtime.DA1D0FwL.js, https://cdn6.agoda.net/cdn-supply-iam/zakaria-el-marouri-7907-supply-iam-supply-ia-df31253ea/static/js/bootstrap.CcsM52cc.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+function(yt){Xe.handleMessage(yt.data)}
+========================================================================================

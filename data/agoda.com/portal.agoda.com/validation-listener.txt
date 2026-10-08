@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://portal.agoda.com/mldc/en-us/public/login
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-supply-iam/zakaria-el-marouri-7907-supply-iam-supply-ia-df31253ea/static/js/index-C4Cj5OXG.DU6uMh0X.js, https://cdn6.agoda.net/cdn-supply-iam/zakaria-el-marouri-7907-supply-iam-supply-ia-df31253ea/static/js/UniversalLogin.fDNlAxDu.js, https://cdn6.agoda.net/cdn-supply-iam/zakaria-el-marouri-7907-supply-iam-supply-ia-df31253ea/static/js/_virtual_mf___mfe_internal__supplyIam__mf_owner__1__loadShare__react_mf_2_dom__loadShare__.js.DK1oj8ER.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+function(u){var a,s,l=u.data,t=u.source,c=u.origin,f=t,v=l,h=v.procedureName,y=v.nonce,d=v.type,w=(s=window.location)==null?void 0:s.origin;if(!(!h||!y||!v.appId||v.appId!==n||d!=="request"||o==null&&c!==w||o!=null&&c!==o)){if(!Object.keys(r).includes(h)){mr(f,new Error('ULRpcExecutor:  procedurce "'+h+"' is not available yet."),h,y,n,c);return}var p=v.args;(a=wt(f,h,y,n,c).from(r[h])).execute.apply(a,[].concat(p))}}
+========================================================================================
