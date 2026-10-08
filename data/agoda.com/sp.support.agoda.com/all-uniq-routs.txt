@@ -1,0 +1,3 @@
+https://sp.support.agoda.com/support/s/
+https://sp.support.agoda.com/support/login?startURL=%2F_ui%2Fcommon%2Frequest%2Fservlet%2FRtaImageUploadServlet
+https://sp.support.agoda.com/support/secur/logout.jsp
