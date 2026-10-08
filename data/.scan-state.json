@@ -1,7 +1,7 @@
 {
   "domain": "agoda.com",
   "subdomain": "hkg.agoda.com",
-  "stage": "bootstrap",
+  "stage": "archive",
   "domain_index": 0,
   "subdomain_index": 9
 }
