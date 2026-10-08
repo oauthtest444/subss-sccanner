@@ -1,7 +1,7 @@
 {
   "domain": "aholdusa.com",
   "subdomain": "websrv2-vip.aholdusa.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 1
 }
