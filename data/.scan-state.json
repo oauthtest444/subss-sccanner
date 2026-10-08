@@ -1,7 +1,7 @@
 {
   "domain": "agoda.com",
   "subdomain": "developer.agoda.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 5
 }
