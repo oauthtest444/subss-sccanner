@@ -1,0 +1,90 @@
+
+========================================================================================
+ROUTE: https://hotelbooking.agoda.com/privacy-settings
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-marketing_cronos/js/assets/cronos/consentPage-0e732e7dce4d.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.source,r=e.data;t===t2&&r===tQ&&t0.length&&t0.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://hotelbooking.agoda.com/flights/results
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-flights-v2-spa/js/mspa/PER-10796=A/vendor.31757ad34e4d.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){t.source===e&&"string"==typeof t.data&&0===t.data.indexOf(r)&&b(+t.data.slice(r.length))}
+========================================================================================
+
+========================================================================================
+ROUTE: https://hotelbooking.agoda.com/app/packages/book
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-bfspa/js/mspa/FIX-CDN-260804=A/vendor.144891efe12a.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(n){n.source===e&&"string"==typeof n.data&&0===n.data.indexOf(t)&&p(+n.data.slice(t.length))}
+========================================================================================
+
+========================================================================================
+ROUTE: https://hotelbooking.agoda.com/cart
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-cart-web/main-82b2bd8d29442ffc.js, https://cdn6.agoda.net/cdn-cart-web/runtime-ce23f6b36e997d3e.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.source,r=e.data;t===rz&&r===rM&&rT.length&&rT.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://hotelbooking.agoda.com/cart
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-cart-web/vendors-08f4e11615df3572.js, https://cdn6.agoda.net/cdn-cart-web/runtime-ce23f6b36e997d3e.js, https://cdn6.agoda.net/cdn-cart-web/main-82b2bd8d29442ffc.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.source,a=e.data;t===tZ&&a===tU&&tV.length&&tV.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://hotelbooking.agoda.com/cart
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-cart-web/vendors-08f4e11615df3572.js, https://cdn6.agoda.net/cdn-cart-web/runtime-ce23f6b36e997d3e.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+({source:e,data:t})=>{e===q&&t===a&&r.length&&r.shift()()}
+========================================================================================
