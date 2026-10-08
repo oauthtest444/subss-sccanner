@@ -1,7 +1,7 @@
 {
   "domain": "agoda.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "connect.agoda.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 4
 }
