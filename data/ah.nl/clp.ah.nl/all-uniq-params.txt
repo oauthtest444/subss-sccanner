@@ -1,0 +1,8 @@
+tenant_id
+optional_params
+scope
+response_type
+redirect_uri
+state
+nonce
+client_id
