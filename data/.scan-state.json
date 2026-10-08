@@ -1,7 +1,7 @@
 {
   "domain": "ah.nl",
   "subdomain": "api-tst.ah.nl",
-  "stage": "listener",
+  "stage": "complete-subdomain",
   "domain_index": 0,
   "subdomain_index": 6
 }
