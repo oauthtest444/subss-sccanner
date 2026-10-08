@@ -1,7 +1,7 @@
 {
   "domain": "ah.nl",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "acc.ahonlinesam.ah.nl",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
