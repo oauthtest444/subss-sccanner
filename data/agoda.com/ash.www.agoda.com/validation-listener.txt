@@ -1,0 +1,90 @@
+
+========================================================================================
+ROUTE: https://ash.www.agoda.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-accom-web/js/assets/browser-bundle/ADSEFF-1308=A/6372-265ffbda8b64.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t;e.origin.match("agoda.com")&&("popupClickLog"===e.data.type&&(null==(t=null==y?void 0:y.logClickCallback)||t.call(y,e.data.payload)),"popupClose"===e.data.type&&R())}
+========================================================================================
+
+========================================================================================
+ROUTE: https://ash.www.agoda.com/privacy-settings
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-marketing_cronos/js/assets/cronos/consentPage-0e732e7dce4d.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.source,r=e.data;t===t2&&r===tQ&&t0.length&&t0.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://ash.www.agoda.com/activities
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/vendor-4451-1d0095b7b261b66d.js, https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/runtime-4c4a91ec55e8.js, https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/activity-807df73539f7.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+({source:e,data:t})=>{e===V&&t===l&&c.length&&c.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://ash.www.agoda.com/activities
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/vendor-9583-af6035539e868e64.js, https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/runtime-4c4a91ec55e8.js, https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/vendor-8247-60c55e96e6c2b5d3.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.source,r=e.data;t===rT&&r===rM&&rI.length&&rI.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://ash.www.agoda.com/activities
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/vendor-4451-1d0095b7b261b66d.js, https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/runtime-4c4a91ec55e8.js, https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/vendor-1167-73c49315d47045e4.js, https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/activity-807df73539f7.js
+SOURCE LOAD WARNINGS: 4
+
+--- FULL LISTENER / TRACE CODE ---
+({source:e,data:t})=>{e===H&&t===l&&c.length&&c.shift()()}
+========================================================================================
+
+========================================================================================
+ROUTE: https://ash.www.agoda.com/activities
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/vendor-4321-84cc58a80c327e5a.js, https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/runtime-4c4a91ec55e8.js, https://cdn10.agoda.net/cdn-activities/dist/release/1/1.8.32/assets/ADSFNDN-1596=A/activity-807df73539f7.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.source,n=e.data;t===t$&&n===tK&&tJ.length&&tJ.shift()()}
+========================================================================================
