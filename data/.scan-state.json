@@ -1,7 +1,7 @@
 {
   "domain": "aida.de",
   "subdomain": "intranet.aida.de",
-  "stage": "listener",
+  "stage": "complete-subdomain",
   "domain_index": 0,
   "subdomain_index": 4
 }
