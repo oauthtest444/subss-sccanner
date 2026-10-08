@@ -1,0 +1,14 @@
+utm_id
+utm_content
+utm_term
+utm_source
+utm_info
+fbclid
+publitas_embed
+utm_medium
+utm_campaign
+ns_campaign
+ns_fee
+ns_linkname
+ns_mchannel
+ns_source
