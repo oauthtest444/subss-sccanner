@@ -1,0 +1,94 @@
+
+========================================================================================
+ROUTE: https://nieuw.aholddelhaize.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://consent.cookiebot.com/uc.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function handleUspapiMessage(event){if(""!==event.origin&&event.origin.startsWith("https")){var data=event&&event.data&&event.data.__uspapiCall;data&&"function"==typeof window.__uspapi&&window.__uspapi(data.command,data.version,function(returnValue,success){var eventSource=event.source;null==eventSource||eventSource.postMessage({__uspapiReturn:{returnValue:returnValue,success:success,callId:data.callId}},event.origin)})}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://nieuw.aholddelhaize.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: .origin, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://consent.cookiebot.com/uc.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(event){""!==event.origin&&(event.origin.startsWith("https")?that.handleBulkConsentIframeMessage(event):console.warn("Ignoring Unsecure message event origin:",event.origin))}
+========================================================================================
+
+========================================================================================
+ROUTE: https://nieuw.aholddelhaize.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){Wu(t,e)}
+
+
+/* ===== Resolved function: Wu | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function Wu(e,t){var r=e.origin,i=e.data,a=e.source;try{var s=Eu(i)||{},c=s.channelId,l=s.message,u=s.messageId;if(!Uu(r)||!zu(u))return;if(l instanceof Error&&a.parent!==n)return o.log(l),!1;try{if(s.topic){var d=Hu(a,c);Au(a),t(s,d)}else Gu(a,s)}catch(e){Vu(a,e,c)}}catch(e){return o.log(e),!1}}
+
+
+/* ===== Resolved function: Eu | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function Eu(e){var t;try{t=JSON.parse(e)}catch{return}if(Du(t)){var n=t,r=n.topic,i=n.channelId,o=n.messageId,s=n.keepalive;return{topic:r,message:a(t.error)===`object`?Ou(t.error):t.payload,messageId:o,channelId:i,keepalive:!!s}}}
+
+
+/* ===== Resolved function: Uu | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function Uu(e){var t=o._audit.allowedOrigins;return t&&t.includes(`*`)||t.includes(e)}
+
+
+/* ===== Resolved function: zu | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function zu(e){return!Lu.includes(e)&&(Lu.push(e),!0)}
+
+
+/* ===== Resolved function: Hu | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function Hu(e,t){var n=arguments.length>2&&arguments[2]!==void 0?arguments[2]:!0;return function(r,i,a){Bu(e,{channelId:t,message:r,keepalive:i},n,a)}}
+
+
+/* ===== Resolved function: Au | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function Au(e){Mu(e),H(n.parent===e,`Source of the response must be the parent window.`)}
+
+
+/* ===== Resolved function: t | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function t(e){return typeof e==`function`}
+
+
+/* ===== Resolved function: Gu | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function Gu(e,t){var n=t.channelId,r=t.message,i=t.keepalive,a=Fu(n)||{},s=a.replyHandler,c=a.sendToParent;if(s){c?Au(e):ju(e);var l=Hu(e,n,c);!i&&n&&Iu(n);try{s(r,i,l)}catch(e){o.log(e),l(e,i)}}}
+
+
+/* ===== Resolved function: Vu | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function Vu(e,t,r){if(!e.parent!==n)return o.log(t);try{Bu(e,{topic:null,channelId:r,message:t,messageId:Ru(),keepalive:!0},!0)}catch(e){return o.log(e)}}
+
+
+/* ===== Resolved function: a | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function a(t,n){D(e,t,function(e){return this._invoke(t,n,e)})}
+
+
+/* ===== Resolved function: Ou | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function Ou(e){var t=e.message||`Unknown error occurred`,r=wu.includes(e.name)?e.name:`Error`,i=n[r]||Error;return e.stack&&(t+=`
+`+e.stack.replace(e.message,``)),new i(t)}
+
+
+/* ===== Resolved function: Bu | source: https://nieuw.aholddelhaize.com/_nuxt/DBYqX2Sn.js ===== */
+function Bu(e,t,n,r){if(n?Au(e):ju(e),t.message instanceof Error&&!n)return o.log(t.message),!1;var i=Tu(P({messageId:Ru()},t)),a=o._audit.allowedOrigins;return!a||!a.length?!1:(typeof r==`function`&&Pu(t.channelId,r,n),a.forEach(function(t){try{e.postMessage(i,t)}catch(n){throw n instanceof e.DOMException?Error(`allowedOrigins value "${t}" is not a valid origin`):n}}),!0)}
+========================================================================================
