@@ -1,7 +1,7 @@
 {
   "domain": "ah.nl",
   "subdomain": "acc.ahonlinesam.ah.nl",
-  "stage": "subdomain",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 0
 }
