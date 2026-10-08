@@ -1,7 +1,7 @@
 {
   "domain": "ah.nl",
-  "subdomain": "clp-acc.ah.nl",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 12
+  "subdomain_index": 13
 }
