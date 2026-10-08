@@ -1,7 +1,7 @@
 {
   "domain": "ah.nl",
   "subdomain": "folder.ah.nl",
-  "stage": "bootstrap",
+  "stage": "archive",
   "domain_index": 0,
   "subdomain_index": 23
 }
