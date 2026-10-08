@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://brand.ah.nl/sso/share
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://js.stripe.com/v3/
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){var n=t.data,r=t.origin;if((0,S.qZ)(r)&&"string"==typeof n)try{var a=JSON.parse(n),i=a.originatingScript,c=a.payload;if("m2"===i){var s,l=c.guid,u=c.muid,d=c.sid;o._guid=l,o._muid=o._getID(we,u),o._sid=o._getID(Ce,d),null===(s=o._onIdsUpdate)||void 0===s||s.call(o,o.ids()),e()}}catch(e){}}
+========================================================================================
