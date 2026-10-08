@@ -1,0 +1,19 @@
+
+========================================================================================
+ROUTE: https://wpjapanicanprd.wp.agoda.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://wpjapanicanprd.wp.agoda.com/wp-content/themes/japanican/resources/static/messaging-client/messaging-client-full.js?ver=1.0.0
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t,i,o=e.data;if(o&&o.type){var s=n._dic[o.type];if(s)try{for(var u=Object(r.g)(s),a=u.next();!a.done;a=u.next()){var c=a.value;try{c(o)}catch(e){n._logger.error("Error on executing listener for message type ".concat(o.type),e)}}}catch(e){t={error:e}}finally{try{a&&!a.done&&(i=u.return)&&i.call(u)}finally{if(t)throw t.error}}else(n._buffers[o.type]||(n._buffers[o.type]=[])).push(e)}}
+
+
+/* ===== Resolved function: c | source: https://wpjapanicanprd.wp.agoda.com/wp-content/themes/japanican/resources/static/messaging-client/messaging-client-full.js?ver=1.0.0 ===== */
+function c(e,t){var n="function"==typeof Symbol&&e[Symbol.iterator];if(!n)return e;var r,i,o=n.call(e),s=[];try{for(;(void 0===t||t-- >0)&&!(r=o.next()).done;)s.push(r.value)}catch(e){i={error:e}}finally{try{r&&!r.done&&(n=o.return)&&n.call(o)}finally{if(i)throw i.error}}return s}
+========================================================================================
