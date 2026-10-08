@@ -1,7 +1,7 @@
 {
   "domain": "aida.de",
   "subdomain": "ftp.aida.de",
-  "stage": "bootstrap",
+  "stage": "archive",
   "domain_index": 0,
   "subdomain_index": 2
 }
