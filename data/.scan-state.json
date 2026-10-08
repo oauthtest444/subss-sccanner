@@ -1,7 +1,7 @@
 {
   "domain": "ah.nl",
   "subdomain": "thingsboard-iot.ah.nl",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 42
 }
