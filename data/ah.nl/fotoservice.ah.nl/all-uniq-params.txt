@@ -1,0 +1,10 @@
+keyAccount
+product
+cref
+utm_medium
+utm_source
+utm_campaign
+utm_content
+ts
+targetpage
+windowId
