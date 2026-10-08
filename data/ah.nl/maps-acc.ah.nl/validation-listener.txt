@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://maps-acc.ah.nl/portal/home/arcade-editor/index.html
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type, data:, type:
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://maps-acc.ah.nl/portal/home/arcade-editor/js/edit.js, https://maps-acc.ah.nl/portal/jsapi/jsapi/dojo/Deferred.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(b){var c=null;try{c="string"==typeof b.data?JSON.parse(b.data):b.data}catch(a){return}switch("isLoaded"!==c.type&&"initializeDialog"!==c.type&&"message"!==c.type||(a.embeddedSource=b.source,a.embeddedOrigin=b.origin),c.type){case"isLoaded":c={type:"loaded",value:!0},a.sendPostMessage(c);break;case"initializeDialog":a.scriptEditor.setValue(c.script),a.includeGeometryWarning=c.includeGeometryWarning,a.exportExpressionTree=!0===c.exportExpressionTree,a.exportExpressionLiterals=!0===c.exportExpressionLiterals,a.namedArcadeProfile=c.arcadeProfile?c.arcadeProfile:"",a.allowPredictOutputFail=!0===c.allowPredictOutputFail,a.semanticAnalysis=c.semanticAnalysis?c.semanticAnalysis:null,a.includeRelationships=!0===c.includeRelationships,a.bannedFunctions=a.makeBannedFunctionList(a.namedArcadeProfile,c.bannedFunctions?c.bannedFunctions:[]),c.openingtab&&(a.defaultOpeningTab=c.openingtab,a.setDefaultOpeningTab()),c.existingLabel&&(a.existingLabel=c.existingLabel),a.portalDefinition=c.portalDefinition?c.portalDefinition:null,a.configureProfile(c.profile,!0===c.async),a.configureExisting(c.existing),a.definePortalUrl(),a.scriptTimeReference=c.timeReference?c.timeReference:{timeZone:"system"},a.scriptSpatialReference=new C.default(c.spatialReference),e.addCustomFunctions(c.profileName?c.profileName:""),c.trackData?a.trackData.track=c.trackData:a.trackData.track=null,i.addTrackFunctions(c.profileName?c.profileName:"",a.trackData),a.configureLanguageValidation(c.profile,c.async),s.default.set(m.default.byId("dialog-title"),c.title),m.default.byId("title-input").value=c.title,!0!==c.captureTitle&&r.default.set(m.default.byId("title-edit-btn"),"display","none"),a.predictOutputType=c.predictOutputType,a.readyToLoadHelp(),c={type:"initFinished",value:!0},a.layoutDialog(),a.sendPostMessage(c);break;case"toggleTestButton":c.disableTest?(r.default.set(m.default.byId("run-script"),"display","none"),a._displayResultDrill=[],s.default.set(m.default.byId("script-results"),"",{parseContent:!0}),s.default.set(m.default.byId("script-message-data"),"",{parseContent:!0}),a._resultsShowing=!1,r.default.set(m.default.byId("results-tab"),"display","none"),a._aceEditorDirty=!0,a.layoutDialog()):r.default.set(m.default.byId("run-script"),"display","block");break;case"message":console.log(c.message)}}
+========================================================================================
