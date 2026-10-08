@@ -1,0 +1,42 @@
+
+========================================================================================
+ROUTE: https://traveldistribution.support.agoda.com/kb/s/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://traveldistribution.support.agoda.com/kb/s/sfsites/auraFW/javascript/WUdfaXlIZDNDQ0lZLWNFZDMtVGZ3d2tVMjdnTGFERUU2S3FfSVdrcU92bkExNC4xOTIuODM4ODYwOA/aura_prod.js, https://traveldistribution.support.agoda.com/components/siteforce/qb.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){const n=tt.call(t);if(In(t,Wn(t),n))return R(e)?e.call(this,t):e.handleEvent&&e.handleEvent(t)}
+
+
+/* ===== Resolved function: Wn | source: https://traveldistribution.support.agoda.com/kb/s/sfsites/auraFW/javascript/WUdfaXlIZDNDQ0lZLWNFZDMtVGZ3d2tVMjdnTGFERUU2S3FfSVdrcU92bkExNC4xOTIuODM4ODYwOA/aura_prod.js ===== */
+function Wn(e){return ml.get(e)??et.call(e)}
+
+
+/* ===== Resolved function: R | source: https://traveldistribution.support.agoda.com/kb/s/sfsites/auraFW/javascript/WUdfaXlIZDNDQ0lZLWNFZDMtVGZ3d2tVMjdnTGFERUU2S3FfSVdrcU92bkExNC4xOTIuODM4ODYwOA/aura_prod.js ===== */
+function R(e){null!=e&&this.set(e)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://traveldistribution.support.agoda.com/kb/login
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://traveldistribution.support.agoda.com/kb/jslibrary/SfdcSessionBase208.js, https://traveldistribution.support.agoda.com/kb/jslibrary/LoginHint208.js, https://traveldistribution.support.agoda.com/kb/login
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function l(a){if(a.origin.split("://")[1].split(":")[0]===SFDCSessionVars.host&&(a=Sfdc.JSON.parse(a.data))&&a.cmd&&"SfdcSession"==a.msgtype)if("sfdcsession::ready"===a.cmd)f=b.contentWindow,setTimeout(r,0);else{var c=g[a.id];c&&(c.callback&&c.callback(a),delete g[a.id])}}
+
+
+/* ===== Resolved function: l | source: https://traveldistribution.support.agoda.com/kb/jslibrary/SfdcSessionBase208.js ===== */
+function l(a){if(a.origin.split("://")[1].split(":")[0]===SFDCSessionVars.host&&(a=Sfdc.JSON.parse(a.data))&&a.cmd&&"SfdcSession"==a.msgtype)if("sfdcsession::ready"===a.cmd)f=b.contentWindow,setTimeout(r,0);else{var c=g[a.id];c&&(c.callback&&c.callback(a),delete g[a.id])}}
+========================================================================================
