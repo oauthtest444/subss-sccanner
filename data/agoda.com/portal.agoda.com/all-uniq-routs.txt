@@ -1,0 +1,4 @@
+https://portal.agoda.com/mldc/en-us/public/login
+https://portal.agoda.com/en-us/list-my-property/get-started
+https://portal.agoda.com/en-us/Error/NotFound/
+https://portal.agoda.com/en-us/Error/General/
