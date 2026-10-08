@@ -1,0 +1,27 @@
+
+========================================================================================
+ROUTE: https://sherpa.agoda.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://sherpa.agoda.com/js/production/common-scripts.min.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(n){var t=n.data,e,f,u,s,o,h;if(t&&t.type)if(e=i._dic[t.type],e)try{for(f=r.__values(e),u=f.next();!u.done;u=f.next()){s=u.value;try{s(t)}catch(n){i._logger.error("Error on executing listener for message type "+t.type,n)}}}catch(n){o={error:n}}finally{try{u&&!u.done&&(h=f.return)&&h.call(f)}finally{if(o)throw o.error;}}else(i._buffers[t.type]||(i._buffers[t.type]=[])).push(n)}
+
+
+/* ===== Resolved function: s | source: https://sherpa.agoda.com/js/production/common-scripts.min.js ===== */
+function s(n){try{e(r.throw(n))}catch(n){f(n)}}
+
+
+/* ===== Resolved function: e | source: https://sherpa.agoda.com/js/production/common-scripts.min.js ===== */
+function e(n,t,i,r,u){return new e.prototype.init(n,t,i,r,u)}
+
+
+/* ===== Resolved function: f | source: https://sherpa.agoda.com/js/production/common-scripts.min.js ===== */
+function f(n){return function(t){return s([n,t])}}
+========================================================================================
