@@ -1,0 +1,6 @@
+client_id
+redirect_uri
+response_type
+scope
+state
+tenant_id
