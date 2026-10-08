@@ -1,0 +1,167 @@
+
+========================================================================================
+ROUTE: https://werk.ah.nl/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://werk.ah.nl/build/117.js?19e87898, https://werk.ah.nl/build/runtime.js?fc470ba2, https://werk.ah.nl/build/serena.main.js?31647864
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{if(!d(t.origin))return;if(!t.data||"spacechange"!==t.data.event)return;const n=t.source?m(t.source,e):null;n&&(n.parentElement.style.paddingBottom=`${t.data.data[0].bottom}px`)}
+
+
+/* ===== Resolved function: d | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function d(e){return Math.max(Math.min(e,100),0)}
+
+
+/* ===== Resolved function: m | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function m(e){return escape(e)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://werk.ah.nl/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://werk.ah.nl/build/117.js?19e87898, https://werk.ah.nl/build/runtime.js?fc470ba2, https://werk.ah.nl/build/serena.main.js?31647864
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{if(!d(t.origin))return;const n=T(t.data);if(!n||"ready"!==n.event)return;const r=t.source?m(t.source,e):null;r&&h(r.src)&&new R(r).callMethod("appendVideoMetadata",window.location.href)}
+
+
+/* ===== Resolved function: d | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function d(e){return Math.max(Math.min(e,100),0)}
+
+
+/* ===== Resolved function: T | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function T(e){if("string"==typeof e)try{e=JSON.parse(e)}catch(e){return console.warn(e),{}}return e}
+
+
+/* ===== Resolved function: m | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function m(e){return escape(e)}
+
+
+/* ===== Resolved function: h | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function h(e){this.def=e,this.triggered=!1}
+
+
+/* ===== Resolved function: R | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function R(e){return!isNaN(parseFloat(e))&&isFinite(e)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://werk.ah.nl/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://werk.ah.nl/build/117.js?19e87898, https://werk.ah.nl/build/runtime.js?fc470ba2, https://werk.ah.nl/build/serena.main.js?31647864
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+n=>{if(!d(n.origin))return;const r=T(n.data);if(!r||"ready"!==r.event)return;const i=n.source?m(n.source,e):null;if(i&&h(i.src)){const e=new R(i);e.getVideoId().then(t=>{const n=new RegExp(`[?&]vimeo_t_${t}=([^&#]*)`).exec(window.location.href);if(n&&n[1]){const t=decodeURI(n[1]);e.setCurrentTime(t)}}).catch(t)}}
+
+
+/* ===== Resolved function: d | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function d(e){return Math.max(Math.min(e,100),0)}
+
+
+/* ===== Resolved function: T | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function T(e){if("string"==typeof e)try{e=JSON.parse(e)}catch(e){return console.warn(e),{}}return e}
+
+
+/* ===== Resolved function: m | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function m(e){return escape(e)}
+
+
+/* ===== Resolved function: h | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function h(e){this.def=e,this.triggered=!1}
+
+
+/* ===== Resolved function: R | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function R(e){return!isNaN(parseFloat(e))&&isFinite(e)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://werk.ah.nl/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://werk.ah.nl/build/117.js?19e87898, https://werk.ah.nl/build/runtime.js?fc470ba2, https://werk.ah.nl/build/serena.main.js?31647864
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+e=>{if(!d(e.origin))return;const t=T(e.data);if(!t||"drminitfailed"!==t.event)return;const n=e.source?m(e.source):null;if(!n)return;const r=n.getAttribute("allow")||"";if(!r.includes("encrypted-media")){n.setAttribute("allow",`${r}; encrypted-media`);const e=new URL(n.getAttribute("src"));return e.searchParams.set("forcereload","drm"),void n.setAttribute("src",e.toString())}}
+
+
+/* ===== Resolved function: d | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function d(e){return Math.max(Math.min(e,100),0)}
+
+
+/* ===== Resolved function: T | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function T(e){if("string"==typeof e)try{e=JSON.parse(e)}catch(e){return console.warn(e),{}}return e}
+
+
+/* ===== Resolved function: m | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function m(e){return escape(e)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://werk.ah.nl/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://werk.ah.nl/build/117.js?19e87898
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+e=>{if(!d(e.origin)||this.element.contentWindow!==e.source)return;"*"===this.origin&&(this.origin=e.origin);const t=T(e.data);if(t&&"error"===t.event&&t.data&&"ready"===t.data.method){const e=new Error(t.data.message);return e.name=t.data.name,void r(e)}const i=t&&"ready"===t.event,s=t&&"ping"===t.method;if(i||s)return this.element.setAttribute("data-ready","true"),void n();Y(this,t)}
+
+
+/* ===== Resolved function: d | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function d(e){return Math.max(Math.min(e,100),0)}
+
+
+/* ===== Resolved function: T | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function T(e){if("string"==typeof e)try{e=JSON.parse(e)}catch(e){return console.warn(e),{}}return e}
+
+
+/* ===== Resolved function: r | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function r(){}
+
+
+/* ===== Resolved function: n | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function n(){}
+
+
+/* ===== Resolved function: Y | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function Y(e,t){if(!u(t))throw new Error("noUiSlider: 'keyboardPageMultiplier' is not numeric.");e.keyboardPageMultiplier=t}
+
+
+/* ===== Resolved function: u | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function u(e,t){return l(e)?e:t}
+
+
+/* ===== Resolved function: l | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function l(e){(M=ae({},n))[b]=e}
+
+
+/* ===== Resolved function: ae | source: https://werk.ah.nl/build/117.js?19e87898 ===== */
+function ae(e,t){if(e){for(var n in t)e[n]=t[n];return e}}
+========================================================================================

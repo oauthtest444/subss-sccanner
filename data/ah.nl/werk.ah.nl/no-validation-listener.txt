@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://werk.ah.nl/option/bedrijfsonderdeel/winkel
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://static.elfsight.com/platform/platform.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.data;t.action&&"EappsPlatform.widgetReset"===t.action&&o.resetWidget(t.widgetId)}
+========================================================================================
