@@ -1,7 +1,7 @@
 {
   "domain": "ah.nl",
-  "subdomain": "sp.ah.nl",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 39
+  "subdomain_index": 40
 }
