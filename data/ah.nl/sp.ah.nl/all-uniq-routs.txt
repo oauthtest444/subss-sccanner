@@ -1,0 +1,2 @@
+https://sp.ah.nl/auth/login
+https://sp.ah.nl/auth/login?callbackUrl=%2Flogin
