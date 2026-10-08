@@ -1,7 +1,7 @@
 {
   "domain": "ah.nl",
   "subdomain": "acc.dcsam.ah.nl",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 1
 }
