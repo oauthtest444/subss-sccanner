@@ -1,7 +1,7 @@
 {
   "domain": "aholddelhaize.com",
   "subdomain": "newsroom.aholddelhaize.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 12
 }
