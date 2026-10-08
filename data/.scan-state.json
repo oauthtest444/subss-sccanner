@@ -1,7 +1,7 @@
 {
   "domain": "aida.de",
   "subdomain": "ftp.aida.de",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 2
 }
