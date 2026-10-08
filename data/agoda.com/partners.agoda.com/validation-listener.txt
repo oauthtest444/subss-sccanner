@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://partners.agoda.com/ar-ae/register.html
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: .source, .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-partner-center/static/js/main.975da355.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){var o,i,a=t.data,c=t.source,l=t.origin,u=c,s=a,d=s.procedureName,f=s.nonce,p=s.type,h=null===(o=window.location)||void 0===o?void 0:o.origin;if(d&&f&&s.appId&&s.appId===e&&"request"===p&&(null!=n||l===h)&&(null==n||l===n))if(Object.keys(r).includes(d)){var m=s.args;(i=function(e,t,n,r){var o=arguments.length>4&&void 0!==arguments[4]?arguments[4]:"*";return{from:function(i){return{execute:function(){var a=i.apply(void 0,arguments);a&&"function"===typeof a.then?a.then((function(i){fA(e,i,t,n,r,o)})).catch((function(i){pA(e,i,t,n,r,o)})):fA(e,a,t,n,r,o)}}}}}(u,d,f,e,l).from(r[d])).execute.apply(i,fn(m))}else pA(u,new Error('ULRpcExecutor:  procedurce "'.concat(d,"' is not available yet.")),d,f,e,l)}
+========================================================================================
