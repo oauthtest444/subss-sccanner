@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://login.microsoftonline.com/a6b169f1-592b-4329-8f33-8db8903003c7/oauth2/v2.0/authorize?client_id=05bd4c3a-d269-45f6-b875-ba4d8c442d74&scope=openid%20profile%20email%20api%3A%2F%2F05bd4c3a-d269-45f6-b875-ba4d8c442d74%2Faccess_as_user&response_type=code&redirect_uri=https%3A%2F%2Fbdp.aholddelhaize.com%2Fapi%2Fauth%2Fcallback%2Fazure-ad&state=ZjsmcLn63NRmBz3ZWcdUKvaV6zqFmrP_6pUB-y_neps
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://aadcdn.msftauth.net/shared/1.0/content/js/ConvergedLogin_PCore_IzVCgFbeIBqYh0ZIsL8czw2.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function it(e){if(In&&n.dfpUrl()){if(!e||!P.doOriginsMatch(n.dfpUrl(),e.origin))return;var t=null,r=e.data,i=s.DFPPrefix;if(r&&"string"==typeof r&&""!==r){if(0!==r.indexOf(i))return;t=r.substring(i.length),n.dfpResult(t)}}}
+========================================================================================
