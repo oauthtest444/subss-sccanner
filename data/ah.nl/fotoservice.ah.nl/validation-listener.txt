@@ -1,0 +1,38 @@
+
+========================================================================================
+ROUTE: https://fotoservice.ah.nl/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://fotoservice.ah.nl/asset/assets/cds/cwc/p-DEvTd3Gr.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){if(t.data===u){var e=o;o=[],e.forEach((function(t){t()}))}}
+
+
+/* ===== Resolved function: t | source: https://fotoservice.ah.nl/asset/assets/cds/cwc/p-DEvTd3Gr.js ===== */
+function t(){return this instanceof t?Reflect.construct(e,arguments,this.constructor):e.apply(this,arguments)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://fotoservice.ah.nl/checkout.html
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: none
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://fotoservice.ah.nl/asset/checkout/polyfills.7d274acc48fa7660.js, https://fotoservice.ah.nl/asset/assets/cds/cwc/p-DEvTd3Gr.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(y){return x(this,y,!1)}
+
+
+/* ===== Resolved function: x | source: https://fotoservice.ah.nl/asset/checkout/polyfills.7d274acc48fa7660.js ===== */
+function x(w){return w[t]}
+========================================================================================
