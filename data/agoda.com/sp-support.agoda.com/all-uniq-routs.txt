@@ -1,0 +1,3 @@
+https://sp-support.agoda.com/portal/en/home
+https://sp-support.agoda.com/portal/login.sas?serviceurl=%2Fportal%2Fapi%2FinstalledExtensions
+https://sp-support.agoda.com/support/login.sas?serviceurl=%2Fsupport
