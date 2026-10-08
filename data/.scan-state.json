@@ -1,7 +1,7 @@
 {
   "domain": "aholddelhaize.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "bdp-acc.aholddelhaize.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 4
 }
