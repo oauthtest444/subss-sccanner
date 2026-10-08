@@ -1,0 +1,60 @@
+
+========================================================================================
+ROUTE: https://flights.agoda.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://content.r9cdn.net/frontier/assets/B6OENaqMaE.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function t(e){let t=typeof e.data==`string`,n=null;if(t)try{n=JSON.parse(e.data)}catch{}else n=e.data;let r=typeof n==`object`&&n?n.__tcfapiCall:null;r&&window[i](r.command,r.version,(n,i)=>{let a={__tcfapiReturn:{returnValue:n,success:i,callId:r.callId}};e&&e.source&&e.source.postMessage&&e.source.postMessage(t?JSON.stringify(a):a,{targetOrigin:`*`})},r.parameter)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://flights.agoda.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, .origin, source:, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://content.r9cdn.net/frontier/assets/C-IkGDAoeN2.js, https://content.r9cdn.net/frontier/assets/Bpfe6nz8Sa.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{!t.source||t.data.name!==e||n({source:t.source,origin:t.origin})}
+========================================================================================
+
+========================================================================================
+ROUTE: https://flights.agoda.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source
+XSS SINK MATCHES: none
+SOURCE URLS: https://content.r9cdn.net/frontier/assets/C0J2m107EB.js, https://content.r9cdn.net/frontier/assets/Bpfe6nz8Sa.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{var n;!t.source||t.data.name!==gJ||!e||!((n=globalThis.crypto)!=null&&n.subtle)||hJ({url:t.data.url,adId:t.data.id,sid:t.data.searchId??e}).catch(e=>{K.error(e,`error tracking 3rd-party impression`)})}
+========================================================================================
+
+========================================================================================
+ROUTE: https://flights.agoda.com/s/horizon/common/privacy/AjaxHeaderCookiesMessage
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, origin:
+XSS SINK MATCHES: none
+SOURCE URLS: https://flights.agoda.com/s/horizon/common/privacy/AjaxHeaderCookiesMessage
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(a){const i="string"==typeof a.data;let e=null;if(i)try{e=JSON.parse(a.data)}catch(e){}else e=a.data;const o="object"==typeof e&&null!==e?e[S.TCF_MESSAGE_CALL_KEY]:null;o&&window[S.API_KEY](o.command,o.version,(e,t)=>{e={[S.TCF_MESSAGE_CALL_RETURN_KEY]:{returnValue:e,success:t,callId:o.callId}};a&&a.source&&a.source.postMessage&&a.source.postMessage(i?JSON.stringify(e):e,{targetOrigin:"*"})},o.parameter)}
+========================================================================================
