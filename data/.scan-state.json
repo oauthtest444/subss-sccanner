@@ -1,7 +1,7 @@
 {
   "domain": "aholddelhaize.com",
   "subdomain": "adentify.aholddelhaize.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 1
 }
