@@ -1,7 +1,7 @@
 {
   "domain": "agoda.com",
   "subdomain": "hkg.www.agoda.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 10
 }
