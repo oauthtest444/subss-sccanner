@@ -1,7 +1,7 @@
 {
   "domain": "agoda.com",
   "subdomain": "portal.agoda.com",
-  "stage": "bootstrap",
+  "stage": "archive",
   "domain_index": 0,
   "subdomain_index": 15
 }
