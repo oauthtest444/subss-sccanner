@@ -1,7 +1,7 @@
 {
   "domain": "agoda.com",
   "subdomain": "sgp.agoda.com",
-  "stage": "listener",
+  "stage": "complete-subdomain",
   "domain_index": 0,
   "subdomain_index": 18
 }

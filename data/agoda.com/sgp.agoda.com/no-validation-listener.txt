@@ -1,0 +1,75 @@
+
+========================================================================================
+ROUTE: https://sgp.agoda.com/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-accom-web/js/assets/browser-bundle/ADSEFF-1308=A/7664-10bc40624cf6.js, https://cdn6.agoda.net/cdn-accom-web/js/assets/browser-bundle/ADSEFF-1308=A/home-03e516975611.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(t){e.handleMessage(t.data)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sgp.agoda.com/book/payment/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-bfspa/js/mspa/FIX-CDN-260804=A/vendor.144891efe12a.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t,r,i=e.data;if(i&&i.type){var o=n._dic[i.type];if(o)try{for(var s=Object(a.g)(o),l=s.next();!l.done;l=s.next()){var c=l.value;try{c(i)}catch(e){n._logger.error("Error on executing listener for message type ".concat(i.type),e)}}}catch(e){t={error:e}}finally{try{l&&!l.done&&(r=s.return)&&r.call(s)}finally{if(t)throw t.error}}else(n._buffers[i.type]||(n._buffers[i.type]=[])).push(e)}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sgp.agoda.com/book/payment/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-bfspa/js/mspa/FIX-CDN-260804=A/app.4b8c6c64bb2b.js, https://cdn6.agoda.net/cdn-bfspa/js/mspa/FIX-CDN-260804=A/vendor.144891efe12a.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.data;if((void 0===t?"undefined":(0,uK._)(t))==="object"&&null!==t&&!Array.isArray(t)&&"perf-service-worker"===t.namespace){var i=t.payload,r=(0,eo._)({},i.tags,n);switch(i.type){case"measurement":uH({name:i.key,measurement:i.measurement,count:i.count,tags:r});break;case"log":var a=i.level;uQ.includes(a)?uG[a](i.message,void 0,r):uG.warn("".concat(uJ,": Invalid log level: ").concat(a))}}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sgp.agoda.com/book/
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-bfspa/js/mspa/FIX-CDN-260804=A/7908.f1a475210d18.js, https://cdn6.agoda.net/cdn-bfspa/js/mspa/FIX-CDN-260804=A/vendor.144891efe12a.js
+SOURCE LOAD WARNINGS: 2
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){(0,eK.J)(e.data)&&t.processCCFormEventData(e.data)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sgp.agoda.com/account/vip.html
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://cdn6.agoda.net/cdn-loyalty-web/vipPage-desktop-DkRVOgVf.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(aa){ta.handleMessage(aa.data)}
+========================================================================================
