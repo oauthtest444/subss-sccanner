@@ -1,0 +1,23 @@
+
+========================================================================================
+ROUTE: https://partner.ah.nl/login
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .source, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://partner.ah.nl/_next/static/chunks/f1aed662-866deb2e6482b5f1.js
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function d(t){t.source===e&&"string"==typeof t.data&&0===t.data.indexOf(s)&&u(+t.data.slice(s.length))}
+
+
+/* ===== Resolved function: d | source: https://partner.ah.nl/_next/static/chunks/f1aed662-866deb2e6482b5f1.js ===== */
+function d(){}
+
+
+/* ===== Resolved function: u | source: https://partner.ah.nl/_next/static/chunks/f1aed662-866deb2e6482b5f1.js ===== */
+function u(){}
+========================================================================================
