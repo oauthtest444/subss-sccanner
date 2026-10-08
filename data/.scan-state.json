@@ -1,7 +1,7 @@
 {
   "domain": "aholdusa.com",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "adappsremote.aholdusa.com",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
