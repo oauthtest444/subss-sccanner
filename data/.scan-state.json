@@ -1,7 +1,7 @@
 {
   "domain": "aholddelhaize.com",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "lio.aholddelhaize.com",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 11
 }
