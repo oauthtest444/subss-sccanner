@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://labs.ah.nl/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://js.hcaptcha.com/1/api.js?onload=hCaptchaOnLoad&render=explicit&hl=nl&uj=false
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){var t=e.data,n="string"==typeof t&&t.indexOf("hcaptcha")>=0||"object"==typeof t&&JSON.stringify(t).indexOf("hcaptcha")>=0;try{if(!n)return void Bn.handleGlobal(e);"string"==typeof t&&(t=JSON.parse(t)),"d"===t.t&&Bn.messages.push(e);for(var r,i=Bn.chats,o=-1;++o<i.length;){var a="*"===(r=i[o]).targetOrigin||e.origin===r.targetOrigin;r.id===t.id&&a&&r.respond(t)}}catch(kr){Ye("postMessage handler error","postMessage","debug",{event:e,error:kr})}}
+========================================================================================
