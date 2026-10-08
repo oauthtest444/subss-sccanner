@@ -1,0 +1,9 @@
+booking.aida.de
+club.aida.de
+ftp.aida.de
+gitlab.aida.de
+intranet.aida.de
+m.mares.aida.de
+m.sales.aida.de
+mxp-test.aida.de
+news.aida.de
