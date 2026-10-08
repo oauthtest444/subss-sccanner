@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://login.microsoftonline.com/383a21fa-5bd0-4c86-9d38-b3f502c87e15/saml2?SAMLRequest=nVNLj9owEP4rke%2FOk7DBIqwoaFWkbYt49NBLZZzx4sqxqcehbH99s%2BF56KKqV883M99jPHw81DrYg0NlTUmSMCYBGGErZV5Ksl490YI8jobIa53u2LjxW7OAnw2gD9pGg%2BxYKUnjDLMcFTLDa0DmBVuOPz2zNIzZzllvhdUkGCOC8%2B2qiTXY1OCW4PZKwHrxXJKt9ztkUVTBPuQVGK%2Fka8i3VlcV6C1XvyEUto62tobwB0oSTFsaynDfUT93a%2FuiTFgr4Sxa6a3RyhwbsyLjaSI5zTdVTHui6NNBlRV0k8k8TkXxAEkedXpI8GSdgE5uSSTXCCSYTUvyvYqLfm8jBY3zJG9nyIIWSZ5ROUiKvhik8UPCWyjOOaLaw7UZsYGZQc%2BNL0kap32axDQuVmnGsoz1sjCPk28kmJ%2Bs%2BqDMMYJ7vm6OIGQfV6s5nX9Zrkjw9RxlCyCn4Fi33d0mdn8wP8dERv8WyjC6XXS5l8%2Ft5Nl0brUSr8FYa%2Ftr4oD71hbvGuhcrrl%2Fn0sSJt2LqqjsoKwxuAOhpIKKRJc9p5OEqkusvS0PBx9MbL3jTuGbG3Dgwl%2F8uIVNdKt2AfK%2F3LkLE0y8zW6f11fWZ6f%2BRmF0Kr4j6Fq%2B%2FYejPw%3D%3D&RelayState=https%3A%2F%2Fdev.adentify.aholddelhaize.com%2Fhome.jsf
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://aadcdn.msauth.net/shared/1.0/content/js/ConvergedLogin_PCore_gVhYQwpSW-2B6af-e8QqcQ2.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function rt(e){if(En&&n.dfpUrl()){if(!e||!T.doOriginsMatch(n.dfpUrl(),e.origin))return;var t=null,r=e.data,i=s.DFPPrefix;if(r&&"string"==typeof r&&""!==r){if(0!==r.indexOf(i))return;t=r.substring(i.length),n.dfpResult(t)}}}
+========================================================================================
