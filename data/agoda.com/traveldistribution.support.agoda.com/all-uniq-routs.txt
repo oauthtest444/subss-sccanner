@@ -1,0 +1,3 @@
+https://traveldistribution.support.agoda.com/kb/s/
+https://traveldistribution.support.agoda.com/kb/secur/logout.jsp
+https://traveldistribution.support.agoda.com/kb/login?startURL=%2F_ui%2Fcommon%2Frequest%2Fservlet%2FRtaImageUploadServlet
