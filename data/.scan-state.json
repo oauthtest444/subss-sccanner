@@ -1,7 +1,7 @@
 {
   "domain": "airbnb.com",
-  "subdomain": "",
-  "stage": "enumerate",
+  "subdomain": "akamai-staging.airbnb.com",
+  "stage": "subdomain",
   "domain_index": 0,
   "subdomain_index": 0
 }
