@@ -1,0 +1,15 @@
+logo
+currency
+key
+locale
+_format
+operationName
+variables
+extensions
+_cb
+from_nav
+from_footer
+redirect_url
+r
+diff
+source_impression_id
