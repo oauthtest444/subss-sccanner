@@ -1,0 +1,60 @@
+
+========================================================================================
+ROUTE: https://es-l.next.airbnb.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://a0.muscache.com/airbnb/static/packages/web/es-XL/2c7b.74f14c19de.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{var n;t.origin===window.location.origin&&('object'==typeof(n=t.data)&&null!==n&&'GTM_MONITORING'===n.type&&u(t.data))}
+========================================================================================
+
+========================================================================================
+ROUTE: https://es-l.next.airbnb.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://js.adsrvr.org/conversionEvents-v1.min.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(n){!function(e,n){try{if(null===e.origin||"null"===e.origin)return;var t=new URL(e.origin);if(!Be.some((function(e){return t.hostname.endsWith(e)})))return;if("string"!=typeof e.data)return;var r=JSON.parse(e.data);"UID2"===r.type||"EUID"===r.type?function(e,n){var t;null===ae?e.advertiserId&&"string"==typeof e.advertiserId&&e.advertiserId===n.advertiserId&&(window._uidSdkListenerLock=null!==(t=window._uidSdkListenerLock)&&void 0!==t?t:{},n.uidConfig=e,le(e.advertiserId+":"+e.pixelId,n.uidConfig,(function(){return ce(n,n.uidConfig)}),(function(e){pe("UID enabled but failed to register hooks: ",e)}),n)):pe("UID already configured by advertiser ".concat(ae.advertiserId,", pixel ").concat(ae.pixelId,". Only one UID configuration per page is currently allowed."))}(r,n):"DynamicParams"===r.type&&function(e,n){var t;if("DynamicParams"===(null==e?void 0:e.type)&&e.pixelId&&"string"==typeof e.pixelId&&Array.isArray(e.params)&&n.pixelIds&&n.pixelIds.includes(e.pixelId)){var r=e.params.map(ke);n.dynamicParamsConfig=null!==(t=n.dynamicParamsConfig)&&void 0!==t?t:{},n.dynamicParamsConfig[e.pixelId]=r}}(r,n)}catch(e){l("Error handling postMessage: ",e)}}(n,e)}
+========================================================================================
+
+========================================================================================
+ROUTE: https://es-l.next.airbnb.com/help
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://a0.muscache.com/airbnb/static/packages/web/es-XL/17b0.28e5319d0d.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{if(t.origin===window.location.origin){var o;"object"==typeof(o=t.data)&&null!==o&&"GTM_MONITORING"===o.type&&function(t){let{eventName:o,containerId:s,tagDetails:u}=t,l=(u?.tags||[]).filter(t=>"true"!==t.exclude);if(0!==l.length)for(let t of l){var c;let u=(c=t.name,c?.replace(/\|/g,"#")||"");(0,n.airdogCount)("gtm_tag_status_total",1,{status:t.status,event_name:o,tag_id:String(t.id),tag_name:u,container_id:s}),(0,n.airdogGauge)("gtm_tag_execution_time_milliseconds",t.executionTime,{event_name:o,tag_id:String(t.id),tag_name:u,container_id:s})}}(t.data)}}
+========================================================================================
+
+========================================================================================
+ROUTE: https://es-l.next.airbnb.com/signup_login
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){try{if(e.origin!==ae)return;var t=JSON.parse(e.data);t.method in ce&&ce[t.method](t.data)}catch(e){}}
+========================================================================================
