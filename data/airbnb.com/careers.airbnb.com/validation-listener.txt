@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://careers.airbnb.com/
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://cmp.osano.com/16CVBaUTYtcu336kV/c7cc70a2-bc81-481a-8359-7de830ce3645/osano.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+function(n){const{data:r,source:o}=n,i="string"==typeof r;let c={};try{c=i?JSON.parse(r):r}catch(a){c=r}const s="object"==typeof c&&c[`${e}Call`];if(s){const{command:n,parameter:r,version:c,callId:a}=s,l=function(t,n=!0){let r={[`${e}Return`]:{returnValue:t,success:n,callId:a}};i&&(r=JSON.stringify(r)),o.postMessage(r,"*")},u=t?[n,c,l,r]:[n,l,r],p=pr[`${e}`].apply(this,u);p&&l(p)}}
+========================================================================================
