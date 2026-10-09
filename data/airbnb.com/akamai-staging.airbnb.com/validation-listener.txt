@@ -1,0 +1,15 @@
+
+========================================================================================
+ROUTE: https://akamai-staging.airbnb.com/host/experiences
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data, .type
+ORIGIN MATCHES: .origin
+XSS SINK MATCHES: none
+SOURCE URLS: https://a0.muscache.com/airbnb/static/packages/web/common/b811.5027232937.js
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{if(t.origin===window.location.origin){var o;"object"==typeof(o=t.data)&&null!==o&&"GTM_MONITORING"===o.type&&function(t){let{eventName:o,containerId:s,tagDetails:u}=t,l=(u?.tags||[]).filter(t=>"true"!==t.exclude);if(0!==l.length)for(let t of l){var c;let u=(c=t.name,c?.replace(/\|/g,"#")||"");(0,n.airdogCount)("gtm_tag_status_total",1,{status:t.status,event_name:o,tag_id:String(t.id),tag_name:u,container_id:s}),(0,n.airdogGauge)("gtm_tag_execution_time_milliseconds",t.executionTime,{event_name:o,tag_id:String(t.id),tag_name:u,container_id:s})}}(t.data)}}
+========================================================================================
