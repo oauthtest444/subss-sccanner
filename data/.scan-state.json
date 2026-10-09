@@ -1,7 +1,7 @@
 {
   "domain": "airbnb.com",
   "subdomain": "el.next.airbnb.com",
-  "stage": "archive",
+  "stage": "route-recon",
   "domain_index": 0,
   "subdomain_index": 25
 }
