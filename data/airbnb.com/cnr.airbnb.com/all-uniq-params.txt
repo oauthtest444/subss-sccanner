@@ -1,0 +1,6 @@
+from_nav
+from_footer
+source_impression_id
+guests
+adults
+federated_search_id
