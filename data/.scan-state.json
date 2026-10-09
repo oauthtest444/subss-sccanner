@@ -1,7 +1,7 @@
 {
   "domain": "aida.de",
-  "subdomain": "",
-  "stage": "subdomain",
+  "subdomain": "news.aida.de",
+  "stage": "bootstrap",
   "domain_index": 0,
   "subdomain_index": 8
 }
