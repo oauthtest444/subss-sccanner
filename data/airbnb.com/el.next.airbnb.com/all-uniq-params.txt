@@ -1,0 +1,7 @@
+logo
+from_nav
+from_footer
+redirect_url
+source_impression_id
+guests
+adults
