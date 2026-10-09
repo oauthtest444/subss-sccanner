@@ -1,4 +1,3 @@
-airbnb-aws.com
 airbnb.com
 airbnb.org
 airbnbcitizen.com
