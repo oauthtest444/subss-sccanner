@@ -1,7 +1,7 @@
 {
   "domain": "airbnb.com",
-  "subdomain": "fi.airbnb.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 32
+  "subdomain_index": 33
 }
