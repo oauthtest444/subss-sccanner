@@ -1,7 +1,7 @@
 {
   "domain": "airbnb.com",
   "subdomain": "he.next.airbnb.com",
-  "stage": "xss",
+  "stage": "listener",
   "domain_index": 0,
   "subdomain_index": 39
 }
