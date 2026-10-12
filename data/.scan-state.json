@@ -1,7 +1,7 @@
 {
   "domain": "airbnb.com",
-  "subdomain": "hy.airbnb.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 46
+  "subdomain_index": 47
 }
