@@ -1,0 +1,35 @@
+
+========================================================================================
+ROUTE: https://investors.airbnb.com/home/default.aspx
+EVENT: message
+FRAME: top
+CATEGORY: validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: .origin, source:
+XSS SINK MATCHES: none
+SOURCE URLS: https://investors.airbnb.com/js/typescript/dist/index.js, https://investors.airbnb.com/home/default.aspx
+SOURCE LOAD WARNINGS: 0
+
+--- FULL LISTENER / TRACE CODE ---
+function(e){e.origin===window.location.origin&&e.data&&e.data.name&&"q4l_idp_id_token_message"===e.data.name&&(sessionStorage.setItem(r,"true"),e.data.idToken&&function(e,t){var n=A(e);n&&(function(e,t){b(t,e,null,"https:"===location.protocol,"lax")}(e,t),n.email&&z(n.email))}(e.data.idToken,n))}
+
+
+/* ===== Resolved function: A | source: https://investors.airbnb.com/js/typescript/dist/index.js ===== */
+function A(e){(0,r.h5)(e,function(e){e.core.clearGlobalContexts()})}
+
+
+/* ===== Resolved function: b | source: https://investors.airbnb.com/js/typescript/dist/index.js ===== */
+function b(e,t){(0,r.h5)(t,function(t){t.setUserIdFromReferrer(e)})}
+
+
+/* ===== Resolved function: z | source: https://investors.airbnb.com/js/typescript/dist/index.js ===== */
+function z(t){if(!window.Q4Blizzard.isEmailSet)return t?(e.P.setUserEmail(t),void(window.Q4Blizzard.isEmailSet=!0)):void function(e){var t=S(e);if(t){var n=A(t);null!=n&&n.email&&z(n.email)}}(T.StorageKeys.SessionToken)}
+
+
+/* ===== Resolved function: void | source: https://investors.airbnb.com/js/typescript/dist/index.js ===== */
+function(e){var t=S(e);if(t){var n=A(t);null!=n&&n.email&&z(n.email)}}
+
+
+/* ===== Resolved function: S | source: https://investors.airbnb.com/js/typescript/dist/index.js ===== */
+function S(e){return"function"==typeof e&&e.length<=1}
+========================================================================================
