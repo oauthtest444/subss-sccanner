@@ -1,0 +1,11 @@
+_set_bev_on_new_domain
+logo
+options
+key
+locale
+eligible_for_guest_only
+language
+operationName
+variables
+extensions
+redirect_url
