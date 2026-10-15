@@ -1,0 +1,6 @@
+category_tag
+search_mode
+logo
+redirect_url
+persona
+redirectSource
