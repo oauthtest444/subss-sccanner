@@ -1,0 +1,12 @@
+logo
+currentTab
+federatedSearchId
+searchId
+source
+from_nav
+from_footer
+redirect_url
+currency
+c
+_set_bev_on_new_domain
+set_everest_cookie_on_new_domain
