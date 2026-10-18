@@ -1,0 +1,30 @@
+
+========================================================================================
+ROUTE: https://sq.next.airbnb.com/signup_login
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: .data
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://f02aa.airbnb.com/web/v4/zzYhuYwNbZimDsZSsU22?ci=jsl/4.1.5, https://a0.muscache.com/airbnb/static/packages/web/common/1aec.7f2013ea5a.js, https://a0.muscache.com/airbnb/static/packages/web/sq/e7ab.fa23a1c8c3.js
+SOURCE LOAD WARNINGS: 3
+
+--- FULL LISTENER / TRACE CODE ---
+t=>{if(2!==t.data[0])return 5===t.data[0]||8===t.data[0]||10===t.data[0]?(r.removeEventListener("message",a),void r.terminate()):void 0;e(r);}
+========================================================================================
+
+========================================================================================
+ROUTE: https://sq.next.airbnb.com/signup_login
+EVENT: message
+FRAME: top
+CATEGORY: no-validation-listener.txt
+DATA MATCHES: data:
+ORIGIN MATCHES: none
+XSS SINK MATCHES: none
+SOURCE URLS: https://f02aa.airbnb.com/web/v4/zzYhuYwNbZimDsZSsU22?ci=jsl/4.1.5
+SOURCE LOAD WARNINGS: 1
+
+--- FULL LISTENER / TRACE CODE ---
+({data:y})=>{y instanceof Array&&G.includes(y[0])&&(K(),B(y));}
+========================================================================================
