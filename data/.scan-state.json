@@ -1,7 +1,7 @@
 {
   "domain": "airbnb.com",
-  "subdomain": "sv.next.airbnb.com",
-  "stage": "complete-subdomain",
+  "subdomain": "",
+  "stage": "subdomain",
   "domain_index": 0,
-  "subdomain_index": 90
+  "subdomain_index": 91
 }
